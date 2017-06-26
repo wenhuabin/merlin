@@ -17,6 +17,7 @@
       <li>羽毛球</li>
       <li>写代码</li>
     </ul>
+    <div>{{ $route.params.id}}</div> 
   </div>
 </template>
 

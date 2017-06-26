@@ -8,11 +8,10 @@ export default new Router({
     mode: 'history',
     routes: [{
         path: '/',
-        name: 'Home',
-        component: Home 
-    },{
-        path: '/home',
-        name: 'Home',
-        component: Home 
+        component: Home,
+        children: [
+            { path: '/home', component: Home},
+            { path: '/about', component: Home},
+        ]
     }]
 })
