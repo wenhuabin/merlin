@@ -10,6 +10,7 @@
       <li>羽毛球</li>
       <li>写代码</li>
     </ul>
+    <div v-bind:title="time">Time</div>
     <router-view></router-view>
   </div>
 </template>
@@ -19,7 +20,8 @@ export default {
   name: 'grammer',
   data () {
     return {
-      msg: 'Welcome to Merlin'
+        msg: 'Welcome to Merlin',
+        time: 'You loaded this page on ' + new Date()
     }
   }
 }
