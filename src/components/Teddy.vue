@@ -1,22 +1,15 @@
 <template>
-  <div class="home">
-    <h1>{{ msg }}</h1>
-    <h2>Links</h2>
-    <ul>
-      <li><a href="https://huabinwen.com" target="_blank">Home Page</a></li>
-      <li><a href="https://github.com/wenhuabin" target="_blank">Github</a></li>
-      <li><a href="https://www.instagram.com/?hl=en" target="_blank">Instagram</a></li>
-      <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
-    </ul>
+  <div class="teddy">
+    <h2>{{ child }}</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'home',
+  name: 'teddy',
   data () {
     return {
-      msg: 'Welcome to Merlin'
+      child : 'I am child'
     }
   }
 }

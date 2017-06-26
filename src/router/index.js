@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
+import About from '@/components/About'
+import Grammer from '@/components/Grammer'
+import Teddy from '@/components/Teddy'
 
 Vue.use(Router)
 
@@ -9,9 +12,16 @@ export default new Router({
     routes: [{
         path: '/',
         component: Home,
-        children: [
-            { path: '/home', component: Home},
-            { path: '/about', component: Home},
-        ]
+    },{
+        path: '/vue',
+        component: Grammer,
+        children: [{
+            //子路由不需要加斜杠 Note that nested paths that start with / will be treated as a root path. This allows you to leverage the component nesting without having to use a nested URL.
+            path: 'teddy',
+            component: Teddy
+        }]
+    },{
+        path: '/about',
+        component: About
     }]
 })
