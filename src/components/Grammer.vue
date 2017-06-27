@@ -3,14 +3,9 @@
     <h1>{{ msg }}</h1>
     <h2>Hobby</h2>
     <ul>
-      <li>看书</li>
-      <li>旅行</li>
-      <li>煮饭做菜</li>
-      <li>足球</li>
-      <li>羽毛球</li>
-      <li>写代码</li>
+      <li v-for="hobby in hobbys">{{hobby}}</li>
     </ul>
-    <div v-bind:title="time">Time</div>
+    <div v-bind:title="time">{{time}}</div>
     <router-view></router-view>
   </div>
 </template>
@@ -21,7 +16,8 @@ export default {
   data () {
     return {
         msg: 'Welcome to Merlin',
-        time: 'You loaded this page on ' + new Date()
+        time: 'You loaded this page on ' + new Date(),
+        hobbys: ['看书', '旅行', '煮饭做菜', '看足球', '羽毛球', '写代码']
     }
   }
 }
