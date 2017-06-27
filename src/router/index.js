@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import About from '@/components/About'
 import Grammer from '@/components/Grammer'
 import Teddy from '@/components/Teddy'
+import Login from '@/components/Login'
 
 Vue.use(Router)
 
@@ -12,6 +13,9 @@ export default new Router({
     routes: [{
         path: '/',
         component: Home,
+    },{
+        path: '/login',
+        component: Login 
     },{
         path: '/vue',
         component: Grammer,
