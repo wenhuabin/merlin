@@ -17,6 +17,9 @@ export default new Router({
         path: '/login',
         component: Login 
     },{
+        path: '/signup',
+        component: Login 
+    },{
         path: '/vue',
         component: Grammer,
         children: [{

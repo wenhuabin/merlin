@@ -4,7 +4,7 @@
 
 <template>
     <div id="app">
-        <header class="header" v-if="ifNotLogin">
+        <header class="header" v-if="showHeader">
             <img class="logo" src="./assets/imgs/logo.jpg">
             <div class="brand">Falcon Merlin</div>
         </header>
@@ -19,7 +19,7 @@ export default {
 	name: 'app',
 	data(){
 		return {
-			ifNotLogin: this.$route.path !== '/login',	
+			showHeader: this.$route.path !== '/login' && this.$route.path !== '/signup',	
 		}
 	},
 	
