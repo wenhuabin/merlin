@@ -8,7 +8,6 @@
             <img class="logo" src="./assets/imgs/logo.jpg">
             <div class="brand">Falcon Merlin</div>
         </header>
-		<div>{{ifLogin}}</div>
         <router-view></router-view>
     </div>
 </template>
