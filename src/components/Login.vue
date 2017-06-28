@@ -14,7 +14,7 @@
 		</div>
 		<div class="error"></div>
 		<button class="login-in" @click="login">SIGN IN</button>
-		<a class="signup" href="/signup">SIGN UP</a>
+		<a class="signup" href="/signup">Sign Up</a>
   	</div>
 </template>
 
