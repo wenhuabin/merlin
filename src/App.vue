@@ -8,18 +8,24 @@
             <img class="logo" src="./assets/imgs/logo.jpg">
             <div class="brand">Falcon Merlin</div>
         </header>
+        <nav-bar v-if="showHeader"></nav-bar>
         <router-view></router-view>
     </div>
 </template>
 
 <script>
+import Nav from './components/Nav'
 export default {
 	name: 'app',
 	data(){
+        console.log(this.$store.getters.getToken.email)
 		return {
-			showHeader: !!this.$store.getters.getToken.email,	
+			showHeader: this.$store.getters.getToken.email,	
 		}
 	},
+    components: {
+      'nav-bar': Nav
+    }
 }
 </script>
 

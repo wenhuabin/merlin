@@ -1,11 +1,10 @@
 <template>
   <div class="home">
-	<Nav/>
   </div>
 </template>
 
 <script>
-import nav from './Nav'
+import Nav from './Nav'
 export default {
   name: 'home',
   data () {
@@ -13,9 +12,6 @@ export default {
       msg: 'Welcome to Merlin'
     }
   },
-  components: {
-    'Nav': Nav 
-  }
 }
 </script>
 
