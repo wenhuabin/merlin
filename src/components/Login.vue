@@ -12,7 +12,7 @@
 		<div class="input-line">
 			<input class="pwd" type="password" id="pwd" v-model="password" placeholder="Password"/>
 		</div>
-		<div class="error"></div>
+		<div class="error">{{err}}</div>
 		<button class="login-in" @click="login">SIGN IN</button>
 		<a class="signup" href="/signup">Sign Up</a>
   	</div>
@@ -32,6 +32,22 @@ export default {
 	methods: {
 		login: function(){
 			console.log(this.email, ' ', this.password);
+			var formData = new FormData();
+			formData.append("email", this.email);
+			formData.append("password", this.password);
+			
+			fetch('https://huabinwen.com/login', {
+        	    method: 'POST',
+        	    credentials: 'include',
+        	    body: formData
+			}).then(response => response.json())
+        	.then(function(data){
+				if(data && data.status === 0){
+					this.err = '登录成功'
+				}else{
+					this.err = '登录失败'
+				}
+			}.bind(this));
 		},
 	},
 }
