@@ -19,6 +19,9 @@
 </template>
 
 <script>
+import * as types from '../store/mutation-types'
+import store from '../store'
+
 export default {
 	name: 'login',
 	data(){
@@ -31,7 +34,6 @@ export default {
 	},
 	methods: {
 		login: function(){
-			console.log(this.email, ' ', this.password);
 			var formData = new FormData();
 			formData.append("email", this.email);
 			formData.append("password", this.password);
@@ -43,6 +45,7 @@ export default {
 			}).then(response => response.json())
         	.then(function(data){
 				if(data && data.status === 0){
+					store.dispatch(types.SET_LOGIN_TOKEN, data.data)
 					this.err = '登录成功'
 				}else{
 					this.err = '登录失败'

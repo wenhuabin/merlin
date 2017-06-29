@@ -46,13 +46,12 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(r => r.meta.requireAuth)) {
-        if (store.getters.getLoginToken) {
+        if(store.getters.getLoginToken){
             next();
-        }
-        else {
+        }else{
             next({
                 path: '/login',
-                //query: {redirect: to.fullPath}
+                query: {redirect: to.fullPath}
             })
         }
     }

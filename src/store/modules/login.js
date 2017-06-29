@@ -13,7 +13,7 @@ const getters = {
 
 // actions
 const actions = {
-  login ({ commit, state }, token) {
+  [types.SET_LOGIN_TOKEN] ({ commit, state }, token) {
     commit(types.SET_LOGIN_TOKEN, {token})
   }
 }
