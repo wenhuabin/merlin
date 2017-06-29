@@ -20,13 +20,11 @@
 
 <script>
 import * as types from '../store/mutation-types'
-import store from '../store'
 
 export default {
 	name: 'login',
 	data(){
 		return{
-			msg: 'Welcome to Merlin',
 			email: '',
 			password: '',
 			err: '',
@@ -43,14 +41,15 @@ export default {
         	    credentials: 'include',
         	    body: formData
 			}).then(response => response.json())
-        	.then(function(data){
+        	.then(data => {
 				if(data && data.status === 0){
-					store.dispatch(types.SET_LOGIN_TOKEN, data.data)
+					this.$store.dispatch(types.SET_LOGIN_TOKEN, data.data)
 					this.err = '登录成功'
+					this.$router.push('/about')
 				}else{
 					this.err = '登录失败'
 				}
-			}.bind(this));
+			});
 		},
 	},
 }

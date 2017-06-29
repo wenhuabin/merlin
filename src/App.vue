@@ -13,15 +13,13 @@
 </template>
 
 <script>
-
 export default {
 	name: 'app',
 	data(){
 		return {
-			showHeader: this.$route.path !== '/login' && this.$route.path !== '/signup',	
+			showHeader: !!this.$store.getters.getToken.email,	
 		}
 	},
-	
 }
 </script>
 

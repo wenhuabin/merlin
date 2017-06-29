@@ -14,23 +14,26 @@ const router = new Router({
     mode: 'history',
     routes: [{
         path: '/',
-        name: '/',
+        name: 'root',
         component: Home,
 		meta: {
             requireAuth: true,
         },
     },{
         path: '/login',
-        name: '/login',
+        name: 'login',
         component: Login 
     },{
         path: '/signup',
-        name: '/signup',
+        name: 'signup',
         component: Login 
     },{
         path: '/vue',
-        name: '/vue',
+        name: 'vue',
         component: Grammer,
+		meta: {
+            requireAuth: true,
+        },
         children: [{
             //子路由不需要加斜杠 Note that nested paths that start with / will be treated as a root path. This allows you to leverage the component nesting without having to use a nested URL.
             path: 'teddy',
@@ -40,13 +43,16 @@ const router = new Router({
     },{
         path: '/about',
         name: '/about',
+		meta: {
+            requireAuth: true,
+        },
         component: About
     }]
 })
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some(r => r.meta.requireAuth)) {
-        if(store.getters.getLoginToken){
+        if(!!store.getters.getToken.email){
             next();
         }else{
             next({
