@@ -1,23 +1,20 @@
 <template>
   <div class="home">
-    <h1>{{ msg }}</h1>
-    <h2>Links</h2>
-    <ul>
-      <li><a href="https://huabinwen.com" target="_blank">Home Page</a></li>
-      <li><a href="https://github.com/wenhuabin" target="_blank">Github</a></li>
-      <li><a href="https://www.instagram.com/?hl=en" target="_blank">Instagram</a></li>
-      <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
-    </ul>
+	<Nav/>
   </div>
 </template>
 
 <script>
+import nav from './Nav'
 export default {
   name: 'home',
   data () {
     return {
       msg: 'Welcome to Merlin'
     }
+  },
+  components: {
+    'Nav': Nav 
   }
 }
 </script>
