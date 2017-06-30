@@ -10,7 +10,7 @@ export default {
   name: 'home',
   data () {
     return {
-      msg: 'Welcome to Merlin'
+      msg: 'Welcome to Merlin',
     }
   },
 }

@@ -4,7 +4,9 @@ import Home from '@/components/Home'
 import About from '@/components/About'
 import Grammer from '@/components/Grammer'
 import Teddy from '@/components/Teddy'
-import Login from '@/components/Login'
+import Login from '@/Login'
+import Signup from '@/Signup'
+import Dashboard from '@/Dashboard'
 import store from '../store'
 import * as types from '../store/mutation-types'
 
@@ -15,10 +17,21 @@ const router = new Router({
     routes: [{
         path: '/',
         name: '/',
-        component: Home,
+        component: Dashboard,
 		meta: {
             requireAuth: true,
         },
+        children: [{
+            //子路由不需要加斜杠 Note that nested paths that start with / will be treated as a root path. This allows you to leverage the component nesting without having to use a nested URL.
+            path: 'vue',
+            name: 'vue',
+            component: Teddy
+        },{
+            //子路由不需要加斜杠 Note that nested paths that start with / will be treated as a root path. This allows you to leverage the component nesting without having to use a nested URL.
+            path: 'about',
+            name: 'about',
+            component: About 
+        }]
     },{
         path: '/login',
         name: 'login',
@@ -27,26 +40,6 @@ const router = new Router({
         path: '/signup',
         name: 'signup',
         component: Login 
-    },{
-        path: '/vue',
-        name: 'vue',
-        component: Grammer,
-		meta: {
-            requireAuth: true,
-        },
-        children: [{
-            //子路由不需要加斜杠 Note that nested paths that start with / will be treated as a root path. This allows you to leverage the component nesting without having to use a nested URL.
-            path: 'teddy',
-            name: 'teddy',
-            component: Teddy
-        }]
-    },{
-        path: '/about',
-        name: '/about',
-		meta: {
-            requireAuth: true,
-        },
-        component: About
     }]
 })
 
