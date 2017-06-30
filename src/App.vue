@@ -8,7 +8,7 @@
             <img class="logo" src="./assets/imgs/logo.jpg">
             <div class="brand">Falcon Merlin</div>
         </header>
-        <nav-bar v-if="showHeader"></nav-bar>
+        <nav-bar v-if="showNav"></nav-bar>
         <router-view></router-view>
     </div>
 </template>
@@ -23,10 +23,11 @@ export default {
 	},
 	computed:{
 		showHeader: function(){
-        	console.log(this.$store.getters.getToken.email)
 			return this.$store.getters.getToken.email
-		}
-
+		},
+		showNav: function(){
+			return this.$route.path !== '/about' ? true : false 
+		},
 	},
     components: {
       'nav-bar': Nav

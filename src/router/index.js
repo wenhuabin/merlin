@@ -14,7 +14,7 @@ const router = new Router({
     mode: 'history',
     routes: [{
         path: '/',
-        name: 'root',
+        name: '/',
         component: Home,
 		meta: {
             requireAuth: true,
