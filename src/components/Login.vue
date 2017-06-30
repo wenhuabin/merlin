@@ -45,7 +45,7 @@ export default {
 				if(data && data.status === 0){
 					this.$store.dispatch(types.SET_LOGIN_TOKEN, data.data)
 					this.err = '登录成功'
-					this.$router.push(this.$route.query.redirect ? this.$route.query.redirect : '/about')
+					this.$router.push(this.$route.query.redirect ? this.$route.query.redirect : '/about');
 				}else{
 					this.err = '登录失败'
 				}

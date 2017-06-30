@@ -3,11 +3,21 @@
     width: 200px;
     background-color: #fff;
     height: 100%;
-    li{
+    .row{
         height: 45px;
         line-height: 45px;
         text-align: center;
+    }
+    .root-nav{
         font-size: 18px;
+    }
+    .son-nav{
+        font-size: 16px;
+        background-color: #808080;
+    }
+    .gson-nav{
+        font-size: 14px;
+        background-color: #dcdcdc;
     }
 
 

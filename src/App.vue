@@ -18,10 +18,15 @@ import Nav from './components/Nav'
 export default {
 	name: 'app',
 	data(){
-        console.log(this.$store.getters.getToken.email)
 		return {
-			showHeader: this.$store.getters.getToken.email,	
 		}
+	},
+	computed:{
+		showHeader: function(){
+        	console.log(this.$store.getters.getToken.email)
+			return this.$store.getters.getToken.email
+		}
+
 	},
     components: {
       'nav-bar': Nav
