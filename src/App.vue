@@ -26,7 +26,7 @@ export default {
 			return this.$store.getters.getToken.email
 		},
 		showNav: function(){
-			return this.$route.path !== '/about' ? true : false 
+			return this.$route.path === '/' ? true : false 
 		},
 	},
     components: {
