@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-	{{msg}}
+      <img class="launch" src="../assets/imgs/launch.jpg">
+	  <h1>Welcome To Merlin</h1>
+	  <p>This Merlin Project is developed by WENHUABIN with Vue Framwork。</p>
+	  <footer class="footer">&copy Copyright 2017 by WENHUABIN. All Right Reserved</footer>
   </div>
 </template>
 
@@ -10,7 +13,6 @@ export default {
   name: 'home',
   data () {
     return {
-      msg: 'Welcome to Merlin',
     }
   },
 }
