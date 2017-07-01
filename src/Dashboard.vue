@@ -6,7 +6,7 @@
     <div id="content">
         <header class="header">
             <img class="logo" src="./assets/imgs/logo.jpg">
-            <div class="brand">Falcon Merlin</div>
+            <div class="brand">行旅書讀</div>
         </header>
         <section id="main">
             <nav-bar :navs='navs'></nav-bar>
