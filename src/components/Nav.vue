@@ -3,7 +3,7 @@
 </style>
 
 <template>
-	<nav class="nav">
+	<nav id="nav">
 		<ul class="root-ul">
             <li  class="root-nav" v-for="nav in navs" >
                 <router-link :class="{current: isCurrent == nav.key}" v-if="!nav.child" :to="{path:nav.url}" @click.native="setCurrent(nav.key)">{{nav.name}}</router-link>

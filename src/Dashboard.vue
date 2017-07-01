@@ -1,5 +1,5 @@
 <style lang="scss">
-@import './assets/scss/web/dashboard';
+@import './assets/scss/dashboard';
 </style>
 
 <template>
@@ -8,9 +8,11 @@
             <img class="logo" src="./assets/imgs/logo.jpg">
             <div class="brand">Falcon Merlin</div>
         </header>
-        <section class="main">
+        <section id="main">
             <nav-bar :navs='navs'></nav-bar>
-            <router-view></router-view>
+            <div id="right">
+                <router-view></router-view>
+            </div>
         </section>
     </div>
 </template>
@@ -22,11 +24,9 @@ export default {
 	data(){
 		return {
 	        navs: [
-                {name: '主页', key: 0, url: '/about'},
-                {name: '人员管理', key: 1, url: '/', child: [{name: '会员列表', key: 10, url: '/', child: [{name: '会员列表', key: 30, url: '/'}, {name: '教练列表', key: 31, url: '/'}]}, {name: '教练列表', key: 11, url: '/'}]},
-                {name: '课程中心', key: 2, url: '/about'},
-                {name: '财务中心', key: 3, url: '/vue'},
-                {name: '系统设置', key: 4, url: '/vue'}
+                {name: '主页', key: 0, url: '/home'},
+                {name: 'Demo', key: 1, url: '', child: [{name: '会员列表', key: 10, url: '/', child: [{name: '会员列表', key: 110, url: '/'}, {name: '教练列表', key: 111, url: '/'}]}, {name: '教练列表', key: 11, url: '/'}]},
+                {name: '个人简介', key: 4, url: '', child: [{name: '技术栈', key: 40, url: '/skills'},{name: '工作经历', key: 41, url: '', child: [{name: '小熊快跑', key: 410, url: '/bear'}, {name: '蔚来汽车', key: 411, url: '/nio'}]},{name: '关于我', key: 42, url: '/info'}]},
             ]
 		}
 	},

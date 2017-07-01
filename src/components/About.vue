@@ -5,7 +5,7 @@
 <template>
 	<div class="about">
 		<img class="launch" src="../assets/imgs/launch.jpg">
-		<h1>{{ msg }}</h1>
+		<h1>行旅书读</h1>
 		<h2>Links</h2>
 		<ul>
 		  <li><a href="https://huabinwen.com" target="_blank">Home Page</a></li>
@@ -13,7 +13,7 @@
 		  <li><a href="https://www.instagram.com/?hl=en" target="_blank">Instagram</a></li>
 		  <li><a href="https://twitter.com" target="_blank">Twitter</a></li>
 		</ul>
-		<h2>Hobby</h2>
+		<h2>Hobbys</h2>
 		<ul>
 		  <li>看书</li>
 		  <li>旅行</li>
@@ -31,7 +31,6 @@ export default {
   name: 'about',
   data () {
     return {
-      msg: 'Welcome to Merlin'
     }
   }
 }

@@ -1,9 +1,9 @@
-.nav{
+#nav{
     display: inline-block;
-    position: relative;
     width: 200px;
     background-color: #fff;
     height: 100%;
+    vertical-align: top;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     a,
@@ -11,7 +11,6 @@
         display: block;
         height: 45px;
         line-height: 45px;
-        color: #000;
         cursor: pointer;
         text-align: center;
     }
@@ -24,11 +23,13 @@
         a,
         .row{
             word-spacing: 10px;
+            color: #000;
         }
     }
     .son-nav{
         display: none;
         font-size: 16px;
+        color: #444;
     }
     .gson-nav{
         display: none;
