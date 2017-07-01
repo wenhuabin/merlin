@@ -1,6 +1,6 @@
 # merlin
 
-> Vue MutiPage Demo
+> Vue SinglePage Demo
 
 ## Build Setup
 
