@@ -10,6 +10,10 @@
         </header>
         <section id="main">
             <nav-bar :navs='navs'></nav-bar>
+            <div class="welcome" v-if="isRoot">
+                helloword!
+
+            </div>
             <div id="right">
                 <router-view></router-view>
             </div>
@@ -25,12 +29,16 @@ export default {
 		return {
 	        navs: [
                 {name: '主页', key: 0, url: '/home'},
-                {name: 'Demo', key: 1, url: '', child: [{name: '会员列表', key: 10, url: '/', child: [{name: '会员列表', key: 110, url: '/'}, {name: '教练列表', key: 111, url: '/'}]}, {name: '教练列表', key: 11, url: '/'}]},
-                {name: '个人简介', key: 4, url: '', child: [{name: '技术栈', key: 40, url: '/skills'},{name: '工作经历', key: 41, url: '', child: [{name: '小熊快跑', key: 410, url: '/bear'}, {name: '蔚来汽车', key: 411, url: '/nio'}]},{name: '关于我', key: 42, url: '/info'}]},
+                {name: 'Demo', key: 1, url: '', child: [{name: '图形', key: 10, url: '/', child: [{name: 'Canvas', key: 110, url: '/'}, {name: 'SVG', key: 111, url: '/'}]}, {name: '图表', key: 11, url: '/'}]},
+                {name: '个人简介', key: 4, url: '', child: [{name: '技术栈', key: 40, url: '/skills'},{name: '工作经历', key: 41, url: '', child: [{name: '小熊快跑', key: 410, url: '/bear'}, {name: '蔚来汽车', key: 411, url: '/nio'}]},{name: '关于我', key: 42, url: '/about'}]},
             ]
 		}
 	},
 	computed:{
+        isRoot: function(){
+            return this.$route.path === '/'
+
+        }
 	},
     components: {
       'nav-bar': Nav

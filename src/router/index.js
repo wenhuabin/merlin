@@ -23,11 +23,14 @@ const router = new Router({
         },
         children: [{
             //子路由不需要加斜杠 Note that nested paths that start with / will be treated as a root path. This allows you to leverage the component nesting without having to use a nested URL.
+            path: 'home',
+            name: 'home',
+            component: Teddy
+        },{
             path: 'vue',
             name: 'vue',
             component: Teddy
         },{
-            //子路由不需要加斜杠 Note that nested paths that start with / will be treated as a root path. This allows you to leverage the component nesting without having to use a nested URL.
             path: 'about',
             name: 'about',
             component: About 

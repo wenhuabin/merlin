@@ -10,7 +10,7 @@
                 <div v-if="nav.child && nav.child.length" class="row" v-bind:key="nav.key" @click="toggleShowChild(nav.key)">{{nav.name}}</div>
 		        <ul class="son-nav" :class="{childNavShow : isChildShow.indexOf(nav.key) >= 0}" v-if="nav.child && nav.child.length">
                     <li v-for="snav in nav.child">
-                        <router-link :class="{current: isCurrent == snav.key}" v-if="!snav.child" :to="{path:snav.url}" :key="snav.key" @click.native="setCurrent(nav.key)">{{snav.name}}</router-link>
+                        <router-link :class="{current: isCurrent == snav.key}" v-if="!snav.child" :to="{path:snav.url}" :key="snav.key" @click.native="setCurrent(snav.key)">{{snav.name}}</router-link>
                         <div v-if="snav.child && snav.child.length" class="row" v-bind:key="snav.key" @click="toggleShowChild(snav.key)">{{snav.name}}</div>
 		                <ul class="gson-nav" :class="{childNavShow : isChildShow.indexOf(snav.key) >= 0}" v-if="snav.child && snav.child.length">
                             <li v-for="gnav in snav.child" v-bind:key="gnav.key">
@@ -44,9 +44,8 @@ export default {
         var tmp = this.isChildShow;
         tmp.includes(key) ? tmp.splice(tmp.indexOf(key), 1) : tmp.push(key)
         this.isChildShow = tmp
+        console.log(tmp, key)
     }
-  },
-  computed:{
   },
 }
 
