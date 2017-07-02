@@ -32,7 +32,7 @@ export default {
   props: ["navs"],
   data () {
     return {
-      isCurrent: -1,
+      isCurrent: 0,
       isChildShow: [],
     }
   },
@@ -44,7 +44,6 @@ export default {
         var tmp = this.isChildShow;
         tmp.includes(key) ? tmp.splice(tmp.indexOf(key), 1) : tmp.push(key)
         this.isChildShow = tmp
-        console.log(tmp, key)
     }
   },
 }
