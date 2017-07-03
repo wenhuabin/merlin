@@ -42,13 +42,17 @@ export default {
         	    body: formData
 			}).then(response => response.json())
         	.then(data => {
-				if(data && data.status === 0){
-					this.$store.dispatch(types.SET_LOGIN_TOKEN, data.data)
-					this.err = '登录成功'
-					this.$router.push(this.$route.query.redirect ? this.$route.query.redirect : '/about');
-				}else{
-					this.err = '登录失败'
-				}
+                console.log(data);
+				//if(data && data.status === 0){
+				//	this.$store.dispatch(types.SET_LOGIN_TOKEN, data.data)
+                //    console.log('check sessionStorage', data.data, sessionStorage);
+                //    sessionStorage.setItem('token', data.data) 
+                //    console.log(sessionStorage.getItem('token'))
+				//	//this.err = '登录成功'
+				//	//this.$router.push(this.$route.query.redirect ? this.$route.query.redirect : '/about');
+				//}else{
+				//	//this.err = '登录失败'
+				//}
 			});
 		},
 	},

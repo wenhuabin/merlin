@@ -51,14 +51,28 @@ router.beforeEach((to, from, next) => {
         if(!!store.getters.getToken.email){
             next();
         }else{
+            let token = JSON.parse(sessionStorage.getItem('token')) 
+            if(token && token.email){
+				store.dispatch(types.SET_LOGIN_TOKEN, token)
+                next();
+            }else{
+                next({
+                    path: '/login',
+                    query: {redirect: to.fullPath}
+                })
+            }
+        }
+    }else{
+        let token = JSON.parse(sessionStorage.getItem('token')) 
+        if(token && token.email){
+			store.dispatch(types.SET_LOGIN_TOKEN, token)
             next({
-                path: '/login',
+                path: '/',
                 query: {redirect: to.fullPath}
             })
+        }else{
+            next();
         }
-    }
-    else {
-        next();
     }
 })
 

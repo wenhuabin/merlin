@@ -7,7 +7,7 @@
         <header class="header">
             <img class="logo" src="./assets/imgs/logo.jpg">
             <div class="brand">SpaceX</div>
-            <div class="logout">退出登录</div>
+            <div class="logout" @click="logout">退出登录</div>
             <div class="setting-box" @mouseover="optionsShow(1)" @mouseleave="optionsShow(0)">
                 <div class="setting">设置</div>
                 <ul class="options" v-bind:style="optionsStyle">
@@ -33,6 +33,8 @@
 
 <script>
 import Nav from './components/Nav'
+import * as types from './store/mutation-types'
+
 export default {
 	name: 'dashboard',
 	data(){
@@ -54,6 +56,11 @@ export default {
     methods: {
         optionsShow: function(flag){
             this.optionsStyle = flag ? {display: "block"} : {display: "none"}
+        },
+        logout: function(){
+            this.$store.dispatch(types.SET_LOGIN_TOKEN, {})
+            sessionStorage.clear();
+			this.$router.push('/login');
         },
     },
     components: {
