@@ -5,21 +5,10 @@
 <template>
     <div id="paging">
         <div class="page-box">
-            <span class="prev">上一页</span>
-            <span class="next">下一页</span>
+            <span class="prev" :class="{overLeft: page == 1}">上一页</span>
+            <span class="next" :class="{overRight: page == pages}">下一页</span>
 	        <ul id="pages">
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li class="current">4</li>
-                <li>5</li>
-                <li>6</li>
-                <li>7</li>
-                <li>8</li>
-                <li>9</li>
-                <li>10</li>
-                <li>11</li>
-                <li>12</li>
+                <li v-for="p in getPages" :class="{current : p == page}">{{p}}</li>
 	        </ul>
         </div>
     </div>
@@ -32,13 +21,16 @@ export default {
   props: ["page", "pages"],
   data () {
     return {
+      left: 13,
+      right: -1,
+      tpages: [],
       currentPage: 0,
       isChildShow: [],
     }
   },
   methods: {
     setCurrent: function(key){
-      this.isCurrent = key;
+      this.isCurrent = key
     },
     toggleShowChild: function(key){
         var tmp = this.isChildShow;
@@ -46,6 +38,31 @@ export default {
         this.isChildShow = tmp
     }
   },
+  computed: {
+      getPages: function(){
+          if(this.pages >= 1 && this.pages <= 12){
+              this.left = 0
+              this.right = this.pages;
+              console.log(this.left, this.right, '1')
+          }else if(this.page <= 6){
+              this.left =  0
+              this.right = 11 
+              console.log(this.left, this.right, '2')
+          }else if(this.pages - this.page < 6){
+              this.left = this.pages - 12 
+              this.right = this.pages - 1
+              console.log(this.left, this.right, '3')
+          }
+          for(let i = this.left; i <= this.right; i++){
+              this.tpages.push(i+1)
+          }
+          console.log(this.pages)
+          console.log(this.page)
+          console.log(this.pages)
+          console.log(this.tpages)
+          return this.tpages
+      },
+  }
 }
 
 </script>

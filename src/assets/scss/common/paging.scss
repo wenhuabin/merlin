@@ -3,7 +3,7 @@
     background-color: transparent;
     height: 45px;
     .page-box{
-        width: 500px;
+        width: 520px;
         height: 45px;
         margin: 0 auto;
         overflow: hidden;
@@ -40,6 +40,11 @@
     }
     .current{
         color: #666;
+        cursor: default;
+    }
+    .overLeft,
+    .overRight{
+        color: #dcdcdc;
         cursor: default;
     }
 }
