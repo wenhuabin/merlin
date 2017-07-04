@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import About from '@/components/About'
+import Test from '@/components/Test'
 import Login from '@/Login'
 import Signup from '@/Signup'
 import Dashboard from '@/Dashboard'
-import store from '../store'
-import * as types from '../store/mutation-types'
+import store from 'store'
+import * as types from 'store/mutation-types'
 
 Vue.use(Router)
 
@@ -23,6 +24,10 @@ const router = new Router({
             path: 'about',
             name: 'about',
             component: About 
+        },{
+            path: 'test',
+            name: 'test',
+            component: Test 
         }]
     },{
         path: '/login',
