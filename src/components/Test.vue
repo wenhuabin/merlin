@@ -9,12 +9,14 @@
 		    <h1>Welcome To Merlin</h1>
             <div class="showPage">翻页导航实例：Page: {{page}} / Pages: {{pages}}</div>
             <Paging :page="page" :pages="pages" @onPageChange="onPageChange"/>
+            <Select />
         </div>
 	</div>
 </template>
 
 <script>
 import Paging from 'components/common/Paging'
+import Select from 'components/common/Select'
 export default {
   name: 'about',
   data () {
@@ -29,7 +31,8 @@ export default {
       }
   },
   components: {
-    'Paging': Paging 
+    'Paging': Paging,
+    'Select': Select,
   }
 }
 </script>

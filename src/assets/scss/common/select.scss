@@ -1,0 +1,45 @@
+#select{
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    min-height: 45px;
+    background-color: #fff;
+    height: 45px;
+    span,
+    li{
+        padding: 0 15px;
+        width: 200px;
+        box-sizing: border-box;
+        line-height: 45px;
+        cursor: pointer;
+        color: #444;
+    }
+    span{
+        display: block;
+        font-size: 16px;
+        border: 1px solid #dcdcdc;
+    }
+    ul{
+        position: absolute;
+        width: 199px;
+        background: #fff;
+        box-shadow: 0 0 0 1px hsla(0,0%,100%,.85) inset, 0 0.5em 1em rgba(0, 0, 0, 0.6);
+    }
+    li{
+        font-size: 14px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .unavailable{
+        color: #787c80;
+        cursor: default;
+    }
+    li:hover{
+        background-color: #dcdcdc;
+    }
+    .unavailable:hover{
+        background-color: #fff;
+    }
+    
+}
