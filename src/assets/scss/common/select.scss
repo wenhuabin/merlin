@@ -37,14 +37,13 @@
     }
     .unavailable{
         color: #787c80;
-        cursor: default;
+        cursor: not-allowed;
     }
     li:hover{
         background-color: #dcdcdc;
     }
     .unavailable:hover{
         background-color: #fff;
-        cursor: not-allowed;
     }
     
 }
