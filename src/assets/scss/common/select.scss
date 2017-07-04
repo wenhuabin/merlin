@@ -8,7 +8,6 @@
     span,
     li{
         padding: 0 15px;
-        width: 200px;
         box-sizing: border-box;
         line-height: 45px;
         cursor: pointer;
@@ -16,6 +15,7 @@
     }
     span{
         display: block;
+        width: 200px;
         font-size: 16px;
         border: 1px solid #dcdcdc;
     }
@@ -26,6 +26,7 @@
         box-shadow: 0 0 0 1px hsla(0,0%,100%,.85) inset, 0 0.5em 1em rgba(0, 0, 0, 0.6);
     }
     li{
+        width: 199px;
         font-size: 14px;
         overflow: hidden;
         white-space: nowrap;
