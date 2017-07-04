@@ -10,6 +10,7 @@
         padding: 0 15px;
         box-sizing: border-box;
         line-height: 45px;
+        background-color: #fff;
         cursor: pointer;
         color: #444;
     }
@@ -18,11 +19,13 @@
         width: 200px;
         font-size: 16px;
         border: 1px solid #dcdcdc;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
     ul{
         position: absolute;
         width: 199px;
-        background: #fff;
         box-shadow: 0 0 0 1px hsla(0,0%,100%,.85) inset, 0 0.5em 1em rgba(0, 0, 0, 0.6);
     }
     li{

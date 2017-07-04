@@ -16,6 +16,19 @@
         position: absolute;
         bottom: 60px;
     }
+    .select-test{
+        margin-top: 60px;
+        .select,
+        .hint{
+            vertical-align: top;
+        }
+        .hint{
+            display: inline-block;
+            margin-right: 30px;
+            margin-left: 60px;
+            line-height: 45px;
+        }
+    }
     .showPage{
         position: absolute;
         width: 100%;

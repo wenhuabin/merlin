@@ -4,16 +4,9 @@
 
 <template>
     <div id="select" @mouseover="optionsShow(1)" @mouseleave="optionsShow(0)">
-        <span class="select-vaue">测试</span>
+        <span class="select-vaue">{{value}}</span>
 	    <ul id="options" :style="optionsStyle">
-            <!--
-            <li v-for="o in lists" :class="{available: o.disabled}" @click="(o.disabled ? onSelect(o.value) : null)":key="o.value">{{o.value}}</li>
-            -->
-            <li>条目1</li>
-            <li>条目2</li>
-            <li class="unavailable">条目3</li>
-            <li>条目4</li>
-            <li>非常长的非常长的条目条目5</li>
+            <li v-for="(o, index) in list" :class="{unavailable: o.disabled}" @click="(!o.disabled ? onItemSelected(o.value, index) : null)" :key="o.value">{{o.value}}</li>
 	    </ul>
     </div>
 </template>
@@ -22,15 +15,18 @@
 
 export default {
   name: 'select',
-  props: ["default", "list"],
+  props: ["initial_value", "list"],
   data () {
     return {
-        value: this.default,
         optionsStyle: {display: 'none'},
+        value: this.initial_value || '请选择'
     }
   },
   methods: {
-    onPageChange: function(p){
+    onItemSelected: function(value, index){
+        console.log(value, index)
+        this.value = value
+        this.$emit('onChange', value, index)
     },
     optionsShow: function(flag){
         this.optionsStyle = flag ? {display: "block"} : {display: "none"}
