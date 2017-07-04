@@ -10,7 +10,7 @@
             <span class="next" :class="{overRight: page == pages}" @click="(page != pages ? onPageChange(pages) : null)">尾页</span>
             <span class="last" :class="{overRight: page == pages}" @click="(page != pages ? onPageChange(page < pages ? page + 1 : pages) : null)">下一页</span>
 	        <ul id="pages">
-                <li v-for="p in getPages" :class="{current : p == page}" @click="(p != page ? onPageChange(p) : null)">{{p}}</li>
+                <li v-for="p in getPages" :class="{current : p == page}" @click="(p != page ? onPageChange(p) : null)":key="p">{{p}}</li>
 	        </ul>
         </div>
     </div>
