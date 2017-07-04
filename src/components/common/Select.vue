@@ -24,7 +24,6 @@ export default {
   },
   methods: {
     onItemSelected: function(value, index){
-        console.log(value, index)
         this.value = value
         this.$emit('onChange', value, index)
     },
