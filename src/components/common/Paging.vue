@@ -5,10 +5,10 @@
 <template>
     <div id="paging">
         <div class="page-box">
-            <span class="prev" :class="{overLeft: page == 1}">上一页</span>
-            <span class="next" :class="{overRight: page == pages}">下一页</span>
+            <span class="prev" :class="{overLeft: page == 1}" @click="(page != 1 ? onPageChange(pages) : null)">上一页</span>
+            <span class="next" :class="{overRight: page == pages}" @click="(page != pages ? onPageChange(pages) : null)">下一页</span>
 	        <ul id="pages">
-                <li v-for="p in getPages" :class="{current : p == page}">{{p}}</li>
+                <li v-for="p in getPages" :class="{current : p == page}" @click="(p != page ? onPageChange(p) : null)">{{p}}</li>
 	        </ul>
         </div>
     </div>
@@ -23,44 +23,35 @@ export default {
     return {
       left: 13,
       right: -1,
-      tpages: [],
-      currentPage: 0,
+      all_pages: [],
       isChildShow: [],
     }
   },
   methods: {
-    setCurrent: function(key){
-      this.isCurrent = key
+    onPageChange: function(p){
+      this.$emit('onPageChange', p)
     },
-    toggleShowChild: function(key){
-        var tmp = this.isChildShow;
-        tmp.includes(key) ? tmp.splice(tmp.indexOf(key), 1) : tmp.push(key)
-        this.isChildShow = tmp
-    }
   },
   computed: {
       getPages: function(){
           if(this.pages >= 1 && this.pages <= 12){
               this.left = 0
               this.right = this.pages;
-              console.log(this.left, this.right, '1')
           }else if(this.page <= 6){
               this.left =  0
               this.right = 11 
-              console.log(this.left, this.right, '2')
           }else if(this.pages - this.page < 6){
               this.left = this.pages - 12 
               this.right = this.pages - 1
-              console.log(this.left, this.right, '3')
+          }else{
+              this.left = this.page - 6
+              this.right = this.page + 5
           }
+          this.all_pages = []
           for(let i = this.left; i <= this.right; i++){
-              this.tpages.push(i+1)
+              this.all_pages.push(i+1)
           }
-          console.log(this.pages)
-          console.log(this.page)
-          console.log(this.pages)
-          console.log(this.tpages)
-          return this.tpages
+          return this.all_pages
       },
   }
 }
