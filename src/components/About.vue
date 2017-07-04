@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-@import '../assets/scss/web/about';
+@import '~scss/web/about';
 </style>
 
 <template>

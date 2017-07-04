@@ -1,5 +1,5 @@
 <style lang="scss">
-@import './assets/scss/app';
+@import '~scss/app';
 </style>
 
 <template>
@@ -9,7 +9,6 @@
 </template>
 
 <script>
-import Nav from './components/Nav'
 export default {
 	name: 'app',
 }

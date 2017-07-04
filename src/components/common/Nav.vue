@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-@import '../assets/scss/web/nav';
+@import '~scss/common/nav';
 </style>
 
 <template>

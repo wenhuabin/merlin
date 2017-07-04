@@ -1,5 +1,5 @@
 <style lang="scss">
-@import './assets/scss/dashboard';
+@import '~scss/dashboard';
 </style>
 
 <template>
@@ -32,8 +32,8 @@
 </template>
 
 <script>
-import Nav from './components/Nav'
-import * as types from './store/mutation-types'
+import Nav from 'components/common/Nav'
+import * as types from 'store/mutation-types'
 
 export default {
 	name: 'dashboard',

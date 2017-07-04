@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-@import './assets/scss/web/login';
+@import '~scss/web/login';
 </style>
 
 <template>
@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import * as types from './store/mutation-types'
+import * as types from 'store/mutation-types'
 
 export default {
 	name: 'login',
