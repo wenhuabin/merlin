@@ -5,8 +5,10 @@
 <template>
     <div id="paging">
         <div class="page-box">
-            <span class="prev" :class="{overLeft: page == 1}" @click="(page != 1 ? onPageChange(pages) : null)">上一页</span>
-            <span class="next" :class="{overRight: page == pages}" @click="(page != pages ? onPageChange(pages) : null)">下一页</span>
+            <span class="first" :class="{overLeft: page == 1}" @click="(page != 1 ? onPageChange(1) : null)">首页</span>
+            <span class="prev" :class="{overLeft: page == 1}" @click="(page != 1 ? onPageChange(page > 0 ? page -1 : 1) : null)">上一页</span>
+            <span class="next" :class="{overRight: page == pages}" @click="(page != pages ? onPageChange(pages) : null)">尾页</span>
+            <span class="last" :class="{overRight: page == pages}" @click="(page != pages ? onPageChange(page < pages ? page + 1 : pages) : null)">下一页</span>
 	        <ul id="pages">
                 <li v-for="p in getPages" :class="{current : p == page}" @click="(p != page ? onPageChange(p) : null)">{{p}}</li>
 	        </ul>

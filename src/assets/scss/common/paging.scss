@@ -3,7 +3,7 @@
     background-color: transparent;
     height: 45px;
     .page-box{
-        width: 520px;
+        width: 650px;
         height: 45px;
         margin: 0 auto;
         overflow: hidden;
@@ -16,17 +16,21 @@
         cursor: pointer;
         color: #4285f4;
     }
+    .first,
+    .last,
     .prev,
     .next{
         line-height: 45px;
         cursor: pointer;
         color: #4285f4;
     }
+    .first,
     .prev{
         float: left; 
         margin-left: 10px;
         margin-right: 10px;
     }
+    .last,
     .next{
         float: right; 
         margin-left: 10px;

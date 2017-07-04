@@ -7,7 +7,7 @@
         <div class="welcome">
             <img class="launch" src="../assets/imgs/launch.jpg">
 		    <h1>Welcome To Merlin</h1>
-            <div class="showPage">点击翻页导航：Page: {{page}} / Pages: {{pages}}</div>
+            <div class="showPage">翻页导航实例：Page: {{page}} / Pages: {{pages}}</div>
             <Paging :page="page" :pages="pages" @onPageChange="onPageChange"/>
         </div>
 	</div>
