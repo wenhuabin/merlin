@@ -32,7 +32,7 @@ export default {
   props: ["navs"],
   data () {
     return {
-      isCurrent: 0,
+      isCurrent: -1,
       isChildShow: [],
     }
   },

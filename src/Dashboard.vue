@@ -17,7 +17,7 @@
             </div>
         </header>
         <section id="main">
-            <nav-bar :navs='navs'></nav-bar>
+            <nav-side :navs="navs"></nav-side>
             <div class="welcome" v-if="isRoot">
                 <img class="launch" src="./assets/imgs/launch.jpg">
 		        <h1>Welcome To Merlin</h1>
@@ -64,7 +64,7 @@ export default {
         },
     },
     components: {
-      'nav-bar': Nav
+      'nav-side': Nav
     }
 }
 </script>

@@ -1,0 +1,45 @@
+#paging{
+    width: 100%;
+    background-color: transparent;
+    height: 45px;
+    .page-box{
+        width: 500px;
+        height: 45px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    li{
+        display: inline-block;
+        padding: 0 7px;
+        vertical-align: top;
+        line-height: 45px;
+        cursor: pointer;
+        color: #4285f4;
+    }
+    .prev,
+    .next{
+        line-height: 45px;
+        cursor: pointer;
+        color: #4285f4;
+    }
+    .prev{
+        float: left; 
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .next{
+        float: right; 
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    #pages{
+        vertical-align: top;
+        height: 100%;
+        text-align: center;
+        overflow: hidden;
+    }
+    .current{
+        color: #666;
+        cursor: default;
+    }
+}
