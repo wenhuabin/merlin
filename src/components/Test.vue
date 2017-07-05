@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import Paging from 'components/common/Paging'
-import Select from 'components/common/Select'
+import Paging from 'components/component/Paging'
+import Select from 'components/component/Select'
 
 export default {
   name: 'about',

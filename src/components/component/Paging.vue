@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-@import '~scss/common/paging';
+@import '~scss/component/paging';
 </style>
 
 <template>

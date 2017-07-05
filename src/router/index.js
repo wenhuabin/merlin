@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import About from '@/components/About'
 import Test from '@/components/Test'
+import D3 from '@/components/D3'
 import Login from '@/Login'
 import Coming from '@/Coming'
 import Signup from '@/Signup'
@@ -25,6 +26,10 @@ const router = new Router({
             path: 'about',
             name: 'about',
             component: About 
+        },{
+            path: 'd3',
+            name: 'd3',
+            component: D3 
         },{
             path: 'component',
             name: 'component',

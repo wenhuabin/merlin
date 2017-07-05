@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-@import '~scss/common/select';
+@import '~scss/component/select';
 </style>
 
 <template>
