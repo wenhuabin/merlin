@@ -1,7 +1,7 @@
 #select{
     position: relative;
     display: inline-block;
-    width: 200px;
+    min-width: 200px;
     min-height: 45px;
     background-color: #fff;
     height: 45px;
@@ -16,7 +16,7 @@
     }
     span{
         display: block;
-        width: 200px;
+        width: 202px;
         font-size: 16px;
         border: 1px solid #dcdcdc;
         overflow: hidden;
@@ -25,11 +25,12 @@
     }
     ul{
         position: absolute;
-        width: 199px;
+        margin-left: 1px;
+        width: 200px;
         box-shadow: 0 0 0 1px hsla(0,0%,100%,.85) inset, 0 0.5em 1em rgba(0, 0, 0, 0.6);
     }
     li{
-        width: 199px;
+        width: 200px;
         font-size: 14px;
         overflow: hidden;
         white-space: nowrap;
