@@ -4,8 +4,8 @@
 
 <template>
 	<div class="d3-demo">
-		<h1>D3组件示例</h1>
-		<h2>折线图示例</h2>
+		<h1>D3 组件 Demo</h1>
+		<h2>1、折线图示例</h2>
 		<LineChart />
 	</div>
 </template>

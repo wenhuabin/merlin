@@ -4,7 +4,7 @@
 
 <template>
 	<svg class="line-chart">
-	   <g style="transform: translate(0, 10px)">
+	   <g>
 	     <path :d="line" />
 	   </g>
 	</svg>
