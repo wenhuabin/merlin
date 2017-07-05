@@ -10,7 +10,7 @@
             <div class="showPage">翻页导航实例：Page: {{page}} / Pages: {{pages}}</div>
             <div class="select-test">
                 <div class="hint">下拉选择框测试</div>
-                <Selecting initial_value='value' :list='list' @onChange='onChange'/>
+                <Selecting :initial_value='value' :list='list' @onChange='onChange'/>
                 <div class="hint">value: {{value}} / key: {{key}}</div>
             </div>
             <Paging :page="page" :pages="pages" @onPageChange="onPageChange"/>

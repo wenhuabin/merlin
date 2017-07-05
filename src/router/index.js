@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import About from '@/components/About'
 import Test from '@/components/Test'
 import Login from '@/Login'
+import Coming from '@/Coming'
 import Signup from '@/Signup'
 import Dashboard from '@/Dashboard'
 import store from 'store'
@@ -37,6 +38,14 @@ const router = new Router({
         path: '/signup',
         name: 'signup',
         component: Login 
+    },{
+        path: '/coming',
+        name: 'coming',
+        component: Coming 
+    },{
+        path: '*',
+        name: '*',
+        redirect: '/coming'
     }]
 })
 
