@@ -42,7 +42,7 @@ export default {
             optionsStyle: {display: 'none'},
 	        navs: [
                 {name: '主页', key: 0, url: '/'},
-                {name: 'Demo', key: 1, url: '', child: [{name: '图形', key: 10, url: '/', child: [{name: 'Canvas', key: 110, url: '/'}, {name: 'SVG', key: 111, url: '/'}]}, {name: '图表', key: 11, url: '/'}, {name: 'Test', key: 12, url: '/test'}]},
+                {name: 'Demo', key: 1, url: '', child: [{name: '图形', key: 10, url: '/', child: [{name: 'Canvas', key: 110, url: '/'}, {name: 'SVG', key: 111, url: '/'}]}, {name: '图表', key: 11, url: '/'}, {name: '组件', key: 12, url: '/component'}]},
                 {name: 'Profile', key: 4, url: '', child: [{name: 'Skills', key: 40, url: '/skills'},{name: 'Experience', key: 41, url: '', child: [{name: 'Bear', key: 410, url: '/bear'}, {name: 'Nio', key: 411, url: '/nio'}]},{name: 'About', key: 42, url: '/about'}]},
             ]
 		}
