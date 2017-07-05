@@ -21,6 +21,7 @@
 <script>
 import Paging from 'components/common/Paging'
 import Select from 'components/common/Select'
+
 export default {
   name: 'about',
   data () {
