@@ -26,6 +26,7 @@ export default {
     onItemSelected: function(value, index){
         this.value = value
         this.$emit('onChange', value, index)
+        this.optionsStyle = {display: "none"}
     },
     optionsShow: function(flag){
         this.optionsStyle = flag ? {display: "block"} : {display: "none"}
