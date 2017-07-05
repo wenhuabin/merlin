@@ -1,5 +1,5 @@
 <style lang="scss" scoped>
-@import '~scss/d3/LineChart';
+@import '~scss/d3/lineChart';
 </style>
 
 <template>
