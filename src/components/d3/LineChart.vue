@@ -1,8 +1,7 @@
 <style lang="scss" scoped>
-//@import '~scss/d3/lineChart';
+@import '~scss/d3/lineChart';
 </style>
 
-<!--
 <template>
 	<svg class="line-chart">
 	   <g>
@@ -10,10 +9,8 @@
 	   </g>
 	</svg>
 </template>
--->
 
 <script>
-import 'scss/d3/lineChart';
 import * as d3 from 'd3'
 
 export default {
@@ -47,15 +44,6 @@ export default {
 	  },
 	},
 	computed: {
-	},
-	render() {
-		return (
-			<svg class="line-chart">
-			   <g>
-			     <path d={this.line} />
-			   </g>
-			</svg>
-		)
 	},
 }
 
