@@ -64,3 +64,14 @@ export function isPromise (val) {
 export function assert (condition, msg) {
   if (!condition) throw new Error(`[vuex] ${msg}`)
 }
+
+const rand = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
+export function generateData(size, min, max){
+  const data = [];
+  for (let i = 0; i < size; i++) {
+    const num = rand(min, max);
+    data.push(num);
+  }
+  return data;
+};
