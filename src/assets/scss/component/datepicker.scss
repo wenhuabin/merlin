@@ -86,7 +86,7 @@ table {
     cursor: not-allowed;
 }
 .cov-date-monthly {
-    height: 60px;
+    height: 45px;
 }
 .cov-date-monthly > div {
     display: inline-block;
@@ -94,7 +94,7 @@ table {
     margin: 0;
     vertical-align: middle;
     color: #fff;
-    height: 60px;
+    height: 45px;
     float: left;
     text-align: center;
     cursor: pointer;
@@ -109,22 +109,23 @@ table {
 }
 .cov-date-caption {
     width: 70%;
-    height: 60px;
+    height: 45px;
     padding: 0;
     box-sizing: border-box;
 }
 .cov-date-year,
 .cov-date-month{
     display: inline-block;
-    height: 60px;
-    line-height: 60px;
+    height: 45px;
+    line-height: 45px;
+    color: #444;
 }
 .cov-date-year{
-    font-size: 24px;
+    font-size: 20px;
 }
 .cov-date-month{
     margin-left: 15px;
-    font-size: 26px;
+    font-size: 22px;
 }
 .cov-date-caption span:hover {
     color: rgba(255, 255, 255, 0.7);
