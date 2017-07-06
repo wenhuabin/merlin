@@ -173,7 +173,7 @@ export default {
       }
   },
   beforeMount(){
-      this.showDay()
+      this.showDay(this.date.time)
   },
   methods: {
       pad (n) {

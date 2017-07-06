@@ -13,7 +13,7 @@
                 <div class="hint">value: {{value}} / key: {{key}}</div>
             </div>
 			<div class="date-picker">
-				<DatePicker :date="startTime" :option="option" :limit="limit" />
+				<DatePicker :date="startTime" :option="option" :limit="[]" />
 			</div>
             <Paging :page="page" :pages="pages" @onPageChange="onPageChange"/>
         </div>
