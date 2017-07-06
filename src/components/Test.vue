@@ -35,7 +35,7 @@ export default {
         key: -1,
         list: [{value: '测试1', disabled: false},{value: '测试2', disabled: false},{value: '测试3', disabled: true},{value: '测试4', disabled: false},{value: '非常长的非常长的条目条目5', disabled: false}],
 		startTime: {
-      	  time: ''
+      	  time: '2017-07-06'
       	},
       	endtime: {
       	  time: ''
