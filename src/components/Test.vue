@@ -42,7 +42,7 @@ export default {
       	},
 		option: {
             type: 'day',
-            week: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
+            week: ['MON', 'TUE', 'WEN', 'THU', 'FRI', 'SAR', 'SUN'],
             month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
             format: 'YYYY-MM-DD',
             placeholder: 'when?',

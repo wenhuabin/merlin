@@ -1,61 +1,80 @@
+.cov-vue-date{
+    overflow: hidden;
+    position: relative;
+}
+.input-box{
+    width: 310px;
+    height: 45px;
+    input{
+        display: block;
+        width: 310px;
+        height: 45px;
+        background-color: #fff;
+        border: 1px solid #dcdcdc;
+        padding-left: 20px;
+        cursor: pointer;
+    }
+}
 .cov-date-body {
-    background: #3F51B5;
+    //position: absolute;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+    background: #fff;
     overflow: hidden;
     font-size: 16px;
-    font-family: 'Roboto';
     font-weight: 400;
-    position: fixed;
     display: block;
-    width: 300px;
-    max-width: 100%;
-    z-index: 999;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+    width: 310px;
+    margin-top: 10px;
+    border-top-left-radius: 1px;
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+    box-shadow: 0 0 0 1px hsla(0,0%,100%,.85) inset, 0 0.5em 1em rgba(0, 0, 0, 0.6);
 }
-.cov-picker-box {
+.cov-date-box {
     background: #fff;
     width: 100%;
     display: inline-block;
-    padding: 10px;
+    padding: 0 15px 10px;
     box-sizing: border-box !important;
     -moz-box-sizing: border-box !important;
     -webkit-box-sizing: border-box !important;
     -ms-box-sizing: border-box !important;
-    width: 300px;
+    width: 310px;
     max-width: 100%;
-    height: 250px;
+    height: 290px;
     text-align: start!important;
 }
 .day {
-    margin-top: 10px;
-    width: 30px;
+    width: 40px;
     display: inline-block;
     text-align: center;
     cursor: pointer;
-    height: 30px;
+    height: 40px;
     padding: 0;
-    line-height: 30px;
-    color: #000;
+    line-height: 40px;
+    color: #97ABBA;
     font-size: 16px;
     background: #fff;
     vertical-align: middle;
 }
 .week ul {
-    margin: 0 0 8px;
+    margin: 0;
     padding: 0;
     list-style: none;
+    border-bottom: 1px solid #dcdcdc;
 }
 .week ul li {
-    width: 14.2%;
+    width: 40px;
+    height: 30px;
     display: inline-block;
     text-align: center;
     background: transparent;
-    color: #000;
-    font-weight: bold;
+    font-size: 15px;
+    color: #787C80;
+}
+.daylist{
+    margin-top:5px;
 }
 .passive-day {
     color: #bbb;
@@ -63,7 +82,7 @@
 .checked {
     background: #F50057;
     color: #FFF !important;
-    border-radius: 3px;
+    border-radius: 20px;
 }
 .unavailable {
     color: #ccc;
@@ -71,6 +90,7 @@
 }
 .cov-date-monthly {
     height: 45px;
+    background: #fff;
 }
 .cov-date-monthly > div {
     display: inline-block;
@@ -102,25 +122,19 @@
     display: inline-block;
     height: 45px;
     line-height: 45px;
-    color: #444;
+    color: #827D82;
 }
 .cov-date-year{
-    font-size: 20px;
+    font-size: 17px;
 }
 .cov-date-month{
     margin-left: 15px;
-    font-size: 22px;
-}
-.cov-date-caption span:hover {
-    color: rgba(255, 255, 255, 0.7);
-}
-.cov-date-previous:hover,
-.cov-date-next:hover {
-    background: rgba(255, 255, 255, 0.1);
+    font-size: 18px;
 }
 .day:hover {
-    background: #EAEAEA;
-    border-radius: 15px;
+    background: #f50057;
+    color: #fff;
+    border-radius: 20px;
 }
 .unavailable:hover {
     background: none;
@@ -130,32 +144,48 @@
 }
 .cov-date-next::before,
 .cov-date-previous::before {
-    width: 20px;
+    width: 15px;
     height: 2px;
     text-align: center;
     position: absolute;
-    background: #fff;
-    top: 50%;
-    margin-top: -7px;
-    margin-left: -7px;
-    left: 45%;
+    background: #827D82;
     line-height: 0;
     content: '';
     -webkit-transform: rotate(45deg);
     -moz-transform: rotate(45deg);
     transform: rotate(45deg);
 }
+.cov-date-next::before{
+    top: 50%;
+    margin-top: -7px;
+    margin-left: -8px;
+    left: 43%;
+}
+.cov-date-next::after{
+    top: 50%;
+    margin-top: 3px;
+    margin-left: -8px;
+    left: 43%;
+}
+.cov-date-previous::before {
+    top: 50%;
+    margin-top: -7px;
+    margin-left: -8px;
+    left: 52%;
+}
+.cov-date-previous::after{
+    top: 50%;
+    margin-top: 3px;
+    margin-left: -8px;
+    left: 52%;
+}
 .cov-date-next::after,
 .cov-date-previous::after {
-    width: 20px;
+    width: 15px;
     height: 2px;
     text-align: center;
     position: absolute;
-    background: #fff;
-    margin-top: 6px;
-    margin-left: -7px;
-    top: 50%;
-    left: 45%;
+    background: #827D82;
     line-height: 0;
     content: '';
     -webkit-transform: rotate(-45deg);
@@ -174,21 +204,21 @@
 }
 .date-item {
     text-align: center;
-    font-size: 18px;
-    padding: 5px 0;
+    font-size: 16px;
+    line-height: 30px;
+    padding: 0 5px;
+    letter-spacing: 1px;
     cursor: pointer;
 }
 .date-item:hover {
-    background: #e0e0e0;
+    background: #dcdcdc;
+    color: #fff;
 }
 .date-list {
+    max-height: 285px;
     overflow: auto;
     vertical-align: top;
     padding: 0;
-}
-.cov-vue-date {
-    display: inline-block;
-    color: #5D5D5D;
 }
 .button-box {
     background: #fff;
@@ -206,43 +236,13 @@
     height: 100%;
     overflow: hidden;
 }
-.hour-box,
-.min-box {
-    display: inline-block;
-    width: 50%;
-    text-align: center;
-    height: 100%;
-    overflow: auto;
-    float: left;
-}
-.hour-box ul,
-.min-box ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.hour-item,
-.min-item {
-    padding: 10px;
-    font-size: 36px;
-    cursor: pointer;
-}
-.hour-item:hover,
-.min-item:hover {
-    background: #E3E3E3;
-}
-.hour-box .active,
-.min-box .active {
-    background: #F50057;
-    color: #FFF !important;
-}
 ::-webkit-scrollbar {
-    width: 2px;
+    width: 1px;
 }
 ::-webkit-scrollbar-track {
     background: #E3E3E3;
 }
 ::-webkit-scrollbar-thumb {
     background: #C1C1C1;
-  border-radius: 2px;
+    border-radius: 2px;
 }
