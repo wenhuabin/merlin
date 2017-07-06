@@ -18,12 +18,13 @@ export default {
   name: 'd3-demo',
   data () {
     return {
-        data: [],
-        
+        data:  [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     }
   },
   mounted(){
-	this.data = generateData(25,parseInt(10),parseInt(100));
+    setInterval(()=>{
+        this.data = generateData(25, 10, 100)
+    },6000)
   },
   methods: {
   },

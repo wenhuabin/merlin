@@ -6,8 +6,7 @@
 	    <svg @mousemove="mouseover">
           <g>
             <path class="area" :d="paths.area" />
-            <path class="line" :d="paths.line" />
-            <path class="selector" :d="paths.selector" />
+            <path class="line" :d="paths.line" /> <path class="selector" :d="paths.selector" />
           </g>
         </svg>
     </div>
@@ -15,15 +14,14 @@
 
 <script>
 import * as d3 from 'd3'
-import {generateData} from 'utils/util'
 import TWEEN from 'tween.js'
 
 export default {
 	name: 'line-chart',
 	props: {
-  		datas: {
+  		data: {
   		  type: Array,
-  		  default: ()=>[],
+  		  default: ()=>[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
   		},
   		margin: {
   		  type: Object,
@@ -41,7 +39,6 @@ export default {
 	},
 	data () {
 		return {
-            data: [],
 			width: 800,
     		height: 300,
     		paths: {
@@ -61,13 +58,7 @@ export default {
     computed: {
   	},
   	mounted() {
-	    this.data = generateData(25,10,100);
         this.initialize()
-  	  	this.update()
-        //setInterval(()=>{
-        //    this.data = generateData(25, 10, 100)
-        //    this.update
-        //},3000)
   	},
   	watch: {
   	  	data: function dataChanged(newData, oldData) {
@@ -92,20 +83,19 @@ export default {
   	        }
   	        new TWEEN.Tween(oldData)
   	          .easing(TWEEN.Easing.Quadratic.Out)
-  	          .to(newData, 500)
+  	          .to(newData, 2000)
   	          .onUpdate(function() {
-  	            vm.animatedData = this;
-  	            vm.update();
+  	              vm.animatedData = this;
+  	              vm.update();
   	          })
   	          .start();
-            requestAnimationFrame(animate);
-  	        //animate();
+  	        animate();
   	    },
   	    update() {
   	        this.scaled.x.domain(d3.extent(this.data, (d, i) => i));
   	        this.scaled.y.domain([0, this.ceil]);
   	        this.points = [];
-  	        for (const [i, d] of this.data.entries()) {
+  	        for (const [i, d] of this.animatedData.entries()) {
   	          this.points.push({
   	            x: this.scaled.x(i),
   	            y: this.scaled.y(d),
