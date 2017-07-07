@@ -13,7 +13,7 @@
                 <div class="hint">value: {{value}} / key: {{key}}</div>
             </div>
 			<div class="date-picker">
-				<DatePicker :date="startTime" :option="option" :limit="[]" />
+				<DatePicker />
 			</div>
             <Paging :page="page" :pages="pages" @onPageChange="onPageChange"/>
         </div>
@@ -34,12 +34,6 @@ export default {
         value: '请选择',
         key: -1,
         list: [{value: '测试1', disabled: false},{value: '测试2', disabled: false},{value: '测试3', disabled: true},{value: '测试4', disabled: false},{value: '非常长的非常长的条目条目5', disabled: false}],
-		startTime: {
-      	  time: '2017-07-06'
-      	},
-      	endtime: {
-      	  time: ''
-      	},
 		option: {
             type: 'day',
             week: ['MON', 'TUE', 'WEN', 'THU', 'FRI', 'SAR', 'SUN'],

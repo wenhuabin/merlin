@@ -121,14 +121,16 @@
 .cov-date-month{
     position: relative;
     text-align: center;
-    padding-top: 3px;
-    font-size: 16px;
 }
 .cov-date-year{
     width: 80px;
+    font-size: 16px;
+    padding-top: 3px;
 }
 .cov-date-month{
     width: 112px;
+    font-size: 15px;
+    padding-top: 3px;
 }
 .day:hover {
     background: #f50057;
