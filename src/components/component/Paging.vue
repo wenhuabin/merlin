@@ -47,7 +47,7 @@ export default {
       getPages: function(){
           if(this.pages >= 1 && this.pages <= 12){
               this.left = 0
-              this.right = this.pages;
+              this.right = this.pages-1;
           }else if(this.page <= 6){
               this.left =  0
               this.right = 11 
