@@ -19,7 +19,6 @@
 }
 .cov-date-body {
     //position: absolute;
-    font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
     background: #fff;
     font-size: 16px;
     font-weight: 400;
@@ -110,9 +109,9 @@
 }
 .cov-date-previous,
 .cov-date-next {
+    position: relative;
     width: 45px;
     font-size: 26px;
-	text-indent: -300px;
 	overflow: hidden;
 }
 .cov-date-previous:hover,
@@ -137,18 +136,16 @@
 .cov-date-previous::before {
     width: 20px;
     height: 2px;
-    text-align: center;
     position: absolute;
     background: #fff;
     top: 50%;
     margin-top: -7px;
-    margin-left: -7px;
-    left: 50%;
+    margin-left: -12px;
     line-height: 0;
     content: '';
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    transform: rotate(45deg);
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    transform: rotate(40deg);
 }
 .cov-date-next::after,
 .cov-date-previous::after {
@@ -157,25 +154,32 @@
     text-align: center;
     position: absolute;
     background: #fff;
-    margin-top: 6px;
-    margin-left: -7px;
-    top: 50%;
-    left: 50%;
+    margin-top: 8px;
+    margin-left: -12px;
+    top: 45%;
     line-height: 0;
     content: '';
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+    transform: rotate(-40deg);
 }
 .cov-date-previous::after {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  transform: rotate(45deg);
+    -webkit-transform: rotate(40deg);
+    -moz-transform: rotate(40deg);
+    transform: rotate(40deg);
+    left: 50%;
 }
 .cov-date-previous::before {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  transform: rotate(-45deg);
+    left: 50%;
+    -webkit-transform: rotate(-40deg);
+    -moz-transform: rotate(-40deg);
+    transform: rotate(-40deg);
+}
+.cov-date-next::before{
+    left: 55%;
+}
+.cov-date-next::after{
+    left: 55%;
 }
 .day:hover {
     background: #f50057;
