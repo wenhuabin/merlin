@@ -120,8 +120,8 @@ export default {
       },
       nextMonth (type) {
         let next = null
-        type === 'next' ? next = moment(this.checked.currentMoment).add(1, 'M') : next = moment(this.checked.currentMoment).add(-1, 'M')
-        this.showDay(next)
+        this.checked.currentMoment = type === 'next' ? moment(this.checked.currentMoment).add(1, 'M') : next = moment(this.checked.currentMoment).add(-1, 'M')
+        this.showDay()
       },
       checkBySelectDays (d, days) {
         this.selectedDays.forEach(day => {
