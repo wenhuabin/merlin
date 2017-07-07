@@ -20,7 +20,16 @@
 
 export default {
   name: 'paging',
-  props: ["page", "pages"],
+  props: {
+    page: {
+      type: Number,
+      default: 1
+    },
+    pages: {
+      type: Number,
+      default: 0
+    }
+  }, 
   data () {
     return {
       left: 13,
