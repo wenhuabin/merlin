@@ -93,7 +93,6 @@
     height: 40px;
     width: 100%;
     background: #fff;
-    overflow: hidden;
 }
 .cov-date-previous,
 .cov-date-next,
@@ -107,12 +106,12 @@
     vertical-align: top;
     color: #A19DA1;
     text-align: center;
+    cursor: pointer;
 }
 .cov-date-previous,
 .cov-date-next {
     width: 40px;
     font-size: 26px;
-    cursor: pointer;
 }
 .cov-date-previous:hover,
 .cov-date-next:hover {
@@ -120,15 +119,16 @@
 }
 .cov-date-year,
 .cov-date-month{
+    position: relative;
     text-align: center;
-}
-.cov-date-year{
-    width: 90px;
+    padding-top: 3px;
     font-size: 16px;
 }
+.cov-date-year{
+    width: 80px;
+}
 .cov-date-month{
-    font-size: 15px;
-    width: 102px;
+    width: 112px;
 }
 .day:hover {
     background: #f50057;
@@ -142,10 +142,10 @@
     background: #FF4F8E;
 }
 .date-item {
-    text-align: center;
     font-size: 16px;
     line-height: 30px;
-    padding: 0 5px;
+    padding: 0;
+    color: #A19DA1;
     letter-spacing: 1px;
     cursor: pointer;
 }
@@ -154,29 +154,33 @@
     color: #fff;
 }
 .date-list {
-    max-height: 285px;
+    position: absolute;
+    height: 255px;
     overflow: auto;
+    z-index: 100;
     vertical-align: top;
     padding: 0;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px hsla(0,0%,100%,.85) inset, 0 0.3em .5em rgba(0, 0, 0, 0.3);
 }
-.button-box {
-    background: #fff;
-    vertical-align: top;
-    height: 50px;
-    line-height: 50px;
-    text-align: right;
-    padding-right: 20px;
+.year-list{
+    width: 80px;
+    li{
+        text-align: center;
+    }
 }
-.button-box span {
-    cursor: pointer;
-    padding: 10px 20px;
+.month-list{
+    margin-left: 10px;
+    width: 120px;
+    li{
+        font-size: 14px;
+        text-align: left;
+        padding-left: 10px;
+    }
 }
-.watch-box {
-    height: 100%;
-    overflow: hidden;
-}
+
 ::-webkit-scrollbar {
-    width: 1px;
+    width: 0;
 }
 ::-webkit-scrollbar-track {
     background: #E3E3E3;

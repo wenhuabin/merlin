@@ -10,8 +10,18 @@
       <div class="cov-date-body">
           <div class="cov-date-header">
               <div class="cov-date-previous" @click="nextMonth('pre')">&lt;</div>
-              <div class="cov-date-year" @click="showYear">{{checked.year}}</div>
-              <div class="cov-date-month" @click="showMonth">{{displayInfo.month}}</div>
+              <div class="cov-date-year">
+                  <div class="year" @click="showYear">{{checked.year}}</div>
+                  <ul class="date-list year-list" id="yearList" v-if="showInfo.year">
+                    <li class="date-item" v-for="yearItem,index in library.year" :key="index" @click="setYear(yearItem)">{{yearItem}}</li>
+                  </ul>
+              </div>
+              <div class="cov-date-month">
+                <div class="month" @click="showMonth">{{displayInfo.month}}</div>
+                <ul class="date-list month-list" v-if="showInfo.month">
+                  <li class="date-item" v-for="monthItem,index in library.month" :key="index" @click="setMonth(monthItem)">{{monthItem}}</li>
+                </ul>
+              </div>
               <div class="cov-date-next" @click="nextMonth('next')">&gt;</div>
           </div>
           <div class="cov-date-box" v-if="showInfo.day">
@@ -22,16 +32,6 @@
               </div>
               <div class="daylist">
                   <div class="day" v-for="day,index in dayList" :key="index" @click="checkDay(day)" :class="{'checked':day.checked,'unavailable':day.unavailable,'passive-day': !(day.inMonth)}" >{{day.value}}</div>
-              </div>
-          </div>
-          <div class="cov-date-box list-box" v-if="showInfo.year">
-              <div class="cov-picker-box date-list" id="yearList">
-                <div class="date-item" v-for="yearItem,index in library.year" :key="index" @click="setYear(yearItem)">{{yearItem}}</div>
-              </div>
-          </div>
-          <div class="cov-date-box list-box" v-if="showInfo.month">
-              <div class="cov-picker-box date-list">
-                <div class="date-item" v-for="monthItem,index in library.month" :key="index" @click="setMonth(monthItem)">{{monthItem}}</div>
               </div>
           </div>
       </div>
@@ -312,36 +312,22 @@ export default {
         yearTmp.push(i)
       }
       this.library.year = yearTmp
-      this.showOne('year')
-      this.$nextTick(() => {
-        let listDom = document.getElementById('yearList')
-        listDom.scrollTop = (listDom.scrollHeight - 100)
-        this.addYear()
-      })
+      this.showInfo.year = this.showInfo.year? false : true; 
     },
     showOne (type) {
       switch (type) {
         case 'year':
-          this.showInfo.hour = false
-          this.showInfo.day = false
+          this.showInfo.day = true 
           this.showInfo.year = true
           this.showInfo.month = false
           break
         case 'month':
-          this.showInfo.hour = false
           this.showInfo.day = false
           this.showInfo.year = false
           this.showInfo.month = true
           break
         case 'day':
-          this.showInfo.hour = false
           this.showInfo.day = true
-          this.showInfo.year = false
-          this.showInfo.month = false
-          break
-        case 'hour':
-          this.showInfo.hour = true
-          this.showInfo.day = false
           this.showInfo.year = false
           this.showInfo.month = false
           break
@@ -349,11 +335,10 @@ export default {
           this.showInfo.day = true
           this.showInfo.year = false
           this.showInfo.month = false
-          this.showInfo.hour = false
       }
     },
     showMonth () {
-      this.showOne('month')
+      this.showInfo.month = this.showInfo.month ? false : true; 
     },
     addYear () {
       let listDom = document.getElementById('yearList')
