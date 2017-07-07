@@ -8,13 +8,11 @@
           <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="date.time" :required="required" @click="showCheck" @focus="showCheck"/>
       </div>
       <div class="cov-date-body">
-          <div class="cov-date-monthly">
-              <div class="cov-date-previous" @click="nextMonth('pre')"></div>
-              <div class="cov-date-caption" :style="{'color': option.color ? option.color.headerText : '#fff'}">
-                  <span class="cov-date-year" @click="showYear">{{checked.year}}</span>
-                  <span class="cov-date-month" @click="showMonth">{{displayInfo.month}}</span>
-              </div>
-              <div class="cov-date-next" @click="nextMonth('next')"></div>
+          <div class="cov-date-header">
+              <div class="cov-date-previous" @click="nextMonth('pre')">&lt;</div>
+              <div class="cov-date-year" @click="showYear">{{checked.year}}</div>
+              <div class="cov-date-month" @click="showMonth">{{displayInfo.month}}</div>
+              <div class="cov-date-next" @click="nextMonth('next')">&gt;</div>
           </div>
           <div class="cov-date-box" v-if="showInfo.day">
               <div class="week">

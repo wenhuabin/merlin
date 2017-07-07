@@ -1,13 +1,14 @@
 .cov-vue-date{
-    overflow: hidden;
+    width: 210px;
+    height: 45px;
     position: relative;
 }
 .input-box{
-    width: 310px;
+    width: 210px;
     height: 45px;
     input{
         display: block;
-        width: 310px;
+        width: 210px;
         height: 45px;
         background-color: #fff;
         border: 1px solid #dcdcdc;
@@ -23,38 +24,35 @@
     font-size: 16px;
     font-weight: 400;
     display: block;
-    width: 310px;
+    width: 272px;
     margin-top: 10px;
-    border-top-left-radius: 1px;
-    border-top-left-radius: 1px;
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
+    border-radius: 5px;
     box-shadow: 0 0 0 1px hsla(0,0%,100%,.85) inset, 0 0.5em 1em rgba(0, 0, 0, 0.6);
 }
 .cov-date-box {
+    display: inline-block;
+    width: 272px;
+    padding: 0 10px 10px;
+    height: 255px;
     background: #fff;
     width: 100%;
-    display: inline-block;
-    padding: 0 15px 10px;
     box-sizing: border-box !important;
     -moz-box-sizing: border-box !important;
     -webkit-box-sizing: border-box !important;
     -ms-box-sizing: border-box !important;
-    width: 310px;
-    max-width: 100%;
-    height: 290px;
     text-align: start!important;
 }
 .day {
-    width: 40px;
+    margin: 3px;
+    width: 30px;
     display: inline-block;
     text-align: center;
     cursor: pointer;
-    height: 40px;
+    height: 30px;
     padding: 0;
-    line-height: 40px;
-    color: #97ABBA;
-    font-size: 16px;
+    line-height: 30px;
+    color: #A19DA1;
+    font-size: 14px;
     background: #fff;
     vertical-align: middle;
 }
@@ -65,16 +63,19 @@
     border-bottom: 1px solid #dcdcdc;
 }
 .week ul li {
-    width: 40px;
-    height: 30px;
+    margin: 3px;
+    width: 30px;
+    line-height: 20px;
     display: inline-block;
     text-align: center;
     background: transparent;
-    font-size: 15px;
+    font-size: 13px;
     color: #787C80;
 }
 .daylist{
     margin-top:5px;
+    width: 252px;
+    padding-bottom: 6px;
 }
 .passive-day {
     color: #bbb;
@@ -88,48 +89,46 @@
     color: #ccc;
     cursor: not-allowed;
 }
-.cov-date-monthly {
-    height: 45px;
+.cov-date-header{
+    height: 40px;
+    width: 100%;
     background: #fff;
+    overflow: hidden;
 }
-.cov-date-monthly > div {
-    display: inline-block;
-    padding: 0;
+.cov-date-previous,
+.cov-date-next,
+.cov-date-year,
+.cov-date-month{
     margin: 0;
-    vertical-align: middle;
-    color: #fff;
-    height: 45px;
+    display: inline-block;
     float: left;
+    height: 40px;
+    line-height: 40px;
+    vertical-align: top;
+    color: #A19DA1;
     text-align: center;
-    cursor: pointer;
 }
 .cov-date-previous,
 .cov-date-next {
-    position: relative;
-    width: 15% !important;
-    text-indent: -300px;
-    overflow: hidden;
-    color: #fff;
+    width: 40px;
+    font-size: 26px;
+    cursor: pointer;
 }
-.cov-date-caption {
-    width: 70%;
-    height: 45px;
-    padding: 0;
-    box-sizing: border-box;
+.cov-date-previous:hover,
+.cov-date-next:hover {
+    background-color: #dcdcdc;
 }
 .cov-date-year,
 .cov-date-month{
-    display: inline-block;
-    height: 45px;
-    line-height: 45px;
-    color: #827D82;
+    text-align: center;
 }
 .cov-date-year{
-    font-size: 17px;
+    width: 90px;
+    font-size: 16px;
 }
 .cov-date-month{
-    margin-left: 15px;
-    font-size: 18px;
+    font-size: 15px;
+    width: 102px;
 }
 .day:hover {
     background: #f50057;
@@ -141,66 +140,6 @@
 }
 .checked:hover {
     background: #FF4F8E;
-}
-.cov-date-next::before,
-.cov-date-previous::before {
-    width: 15px;
-    height: 2px;
-    text-align: center;
-    position: absolute;
-    background: #827D82;
-    line-height: 0;
-    content: '';
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-.cov-date-next::before{
-    top: 50%;
-    margin-top: -7px;
-    margin-left: -8px;
-    left: 43%;
-}
-.cov-date-next::after{
-    top: 50%;
-    margin-top: 3px;
-    margin-left: -8px;
-    left: 43%;
-}
-.cov-date-previous::before {
-    top: 50%;
-    margin-top: -7px;
-    margin-left: -8px;
-    left: 52%;
-}
-.cov-date-previous::after{
-    top: 50%;
-    margin-top: 3px;
-    margin-left: -8px;
-    left: 52%;
-}
-.cov-date-next::after,
-.cov-date-previous::after {
-    width: 15px;
-    height: 2px;
-    text-align: center;
-    position: absolute;
-    background: #827D82;
-    line-height: 0;
-    content: '';
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-}
-.cov-date-previous::after {
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-.cov-date-previous::before {
-    -webkit-transform: rotate(-45deg);
-    -moz-transform: rotate(-45deg);
-    transform: rotate(-45deg);
 }
 .date-item {
     text-align: center;
