@@ -120,7 +120,8 @@ export default {
       },
       nextMonth (type) {
         let next = null
-        this.checked.currentMoment = type === 'next' ? moment(this.checked.currentMoment).add(1, 'M') : next = moment(this.checked.currentMoment).add(-1, 'M')
+        this.checked.currentMoment = type === 'next' ? moment(this.checked.currentMoment).add(1, 'M') : moment(this.checked.currentMoment).add(-1, 'M')
+        this.checked.year = moment(this.checked.currentMoment).format('YYYY')
         this.showDay()
       },
       checkBySelectDays (d, days) {
