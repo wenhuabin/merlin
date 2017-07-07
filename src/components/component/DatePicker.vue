@@ -9,20 +9,20 @@
       </div>
       <div class="cov-date-body">
           <div class="cov-date-header">
-              <div class="cov-date-previous" @click="nextMonth('pre')">&lt;</div>
+              <div class="cov-date-previous" @click="nextMonth('pre')"></div>
               <div class="cov-date-year">
-                  <div class="year" @click="showYear">{{checked.year}}</div>
+                  <div class="year" @click="showYear" v-bind:style="yearHoverStyle">{{checked.year}}</div>
                   <ul class="date-list year-list" id="yearList" v-if="showInfo.year">
                     <li class="date-item" v-for="yearItem,index in library.year" :key="index" @click="setYear(yearItem)">{{yearItem}}</li>
                   </ul>
               </div>
               <div class="cov-date-month">
-                <div class="month" @click="showMonth">{{displayInfo.month}}</div>
+                  <div class="month" @click="showMonth" v-bind:style="monthHoverStyle">{{displayInfo.month}}</div>
                 <ul class="date-list month-list" v-if="showInfo.month">
                   <li class="date-item" v-for="monthItem,index in library.month" :key="index" @click="setMonth(monthItem)">{{monthItem}}</li>
                 </ul>
               </div>
-              <div class="cov-date-next" @click="nextMonth('next')">&gt;</div>
+              <div class="cov-date-next" @click="nextMonth('next')"></div>
           </div>
           <div class="cov-date-box" v-if="showInfo.day">
               <div class="week">
@@ -73,6 +73,8 @@ export default {
   data () {
     return {
         time: this.date ? this.date : moment().format(this.option.format),
+        yearHoverStyle: {},
+        monthHoverStyle: {},
         showInfo: {
             day: true,
             month: false,
@@ -101,6 +103,17 @@ export default {
       this.showDay()
   },
   methods: {
+      optionsShow(flag){
+          console.log(flag)
+          if(!flag){
+              this.yearHoverStyle = this.yearHoverStyle.background ? {} : {background: "rgba(255, 255, 255, 0.1"} 
+              console.log(this.yearHoverStyle)
+          }else{
+              this.monthHoverStyle = this.monthHoverStyle.background ? {} : {background: "rgba(255, 255, 255, 0.1"} 
+              console.log(this.monthHoverStyle)
+          }
+
+      },
       pad (n) {
         n = Math.floor(n)
         return n < 10 ? '0' + n : n
@@ -163,22 +176,25 @@ export default {
           this.picked()
       },
       showYear () {
-        let year = moment(this.checked.currentMoment).year()
-        this.library.year = []
-        let yearTmp = []
-        for (let i = year - 100; i < year + 10; ++i) {
-          yearTmp.push(i)
-        }
-        this.library.year = yearTmp
-        this.showInfo.year = this.showInfo.year? false : true; 
+          let year = moment(this.checked.currentMoment).year()
+          this.library.year = []
+          let yearTmp = []
+          for (let i = year - 100; i < year + 10; ++i) {
+            yearTmp.push(i)
+          }
+          this.library.year = yearTmp
+          this.showInfo.year = this.showInfo.year? false : true; 
+          this.optionsShow(0)
       },
       showMonth () {
         this.showInfo.month = this.showInfo.month ? false : true; 
+          this.optionsShow(1)
       },
       setYear (year) {
         this.checked.currentMoment = moment(year + '-' + this.checked.month + '-' + this.checked.day)
         this.showDay(this.checked.currentMoment)
         this.showInfo.year = false
+        this.optionsShow(0)
       },
       setMonth (month) {
         let mo = (this.library.month.indexOf(month) + 1)
@@ -188,6 +204,7 @@ export default {
         this.checked.currentMoment = moment(this.checked.year + '-' + mo + '-' + this.checked.day)
         this.showDay(this.checked.currentMoment)
         this.showInfo.month = false
+        this.optionsShow(1)
       },
       showCheck () {
         //this.showDay(this.date.time)
@@ -195,8 +212,8 @@ export default {
       picked () {
         let ctime = this.checked.year + '-' + this.checked.month + '-' + this.checked.day
         this.checked.currentMoment = moment(ctime, 'YYYY-MM-DD')
-        this.date = moment(this.checked.currentMoment).format(this.option.format)
-        this.$emit('change', this.date)
+        this.time = moment(this.checked.currentMoment).format(this.option.format)
+        this.$emit('change', this.time)
       },
       showDay () {
           this.checked.year = moment(this.checked.currentMoment).format('YYYY')
