@@ -7,7 +7,7 @@
       <div class="input-box">
           <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="time" :required="required" @click="showCheck" @focus="showCheck"/>
       </div>
-      <div class="cov-date-body">
+      <div class="cov-date-body" :style="calendarStyle" @mouseleave="showCheck">
           <div class="cov-date-header">
               <div class="cov-date-previous" @click="nextMonth('pre')"></div>
               <div class="cov-date-year">
@@ -73,6 +73,7 @@ export default {
   data () {
     return {
         time: this.date ? this.date : moment().format(this.option.format),
+        calendarStyle: {display: "none"},
         yearHoverStyle: {},
         monthHoverStyle: {},
         showInfo: {
@@ -208,7 +209,7 @@ export default {
         this.optionsShow(1)
       },
       showCheck () {
-        //this.showDay(this.date.time)
+        this.calendarStyle = this.calendarStyle.display === "block" ? {display: "none"} : {display: "block"} 
       },
       picked () {
         let ctime = this.checked.year + '-' + this.checked.month + '-' + this.checked.day
