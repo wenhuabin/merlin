@@ -5,6 +5,13 @@
     display: inline-block;
 	padding: 20px 20px 45px;
 	border-radius: 5px;
+    .hint{
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 30px;
+        margin-left: 60px;
+        line-height: 45px;
+    }
 	.launch{
 		display: block;
 		margin: 30px auto 0;
@@ -18,16 +25,6 @@
     }
     .select-test{
         margin-top: 60px;
-        .select,
-        .hint{
-            vertical-align: top;
-        }
-        .hint{
-            display: inline-block;
-            margin-right: 30px;
-            margin-left: 60px;
-            line-height: 45px;
-        }
     }
     .showPage{
         position: absolute;
@@ -38,7 +35,6 @@
     }
     .date-picker{
         margin-top: 60px;
-        margin-left: 60px;
         height: 60px;
         width: 100%;
 

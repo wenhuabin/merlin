@@ -5,7 +5,7 @@
 <template>
   <div class="cov-vue-date" :class="option.wrapperClass ? option.wrapperClass : {}">
       <div class="input-box">
-          <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="time" :required="required" @click="showCheck" @focus="showCheck"/>
+          <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="time" :required="required" @click="showCheck" />
       </div>
       <div class="cov-date-body" :style="calendarStyle" @mouseleave="showCheck">
           <div class="cov-date-header">
@@ -215,7 +215,7 @@ export default {
         let ctime = this.checked.year + '-' + this.checked.month + '-' + this.checked.day
         this.checked.currentMoment = moment(ctime, 'YYYY-MM-DD')
         this.time = moment(this.checked.currentMoment).format(this.option.format)
-        this.$emit('change', this.time)
+        this.$emit('onPick', this.time)
       },
       showDay () {
           this.checked.year = moment(this.checked.currentMoment).format('YYYY')

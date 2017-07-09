@@ -1,22 +1,25 @@
 #select{
     position: relative;
     display: inline-block;
-    min-width: 200px;
+    min-width: 210px;
     min-height: 45px;
     background-color: #fff;
     height: 45px;
+    z-index: 11;
     span,
     li{
         padding: 0 15px;
+        margin: 0;
         box-sizing: border-box;
         line-height: 45px;
         background-color: #fff;
         cursor: pointer;
+        border: 1px solid #fff;
         color: #444;
     }
     span{
         display: block;
-        width: 202px;
+        width: 210px;
         font-size: 16px;
         border: 1px solid #dcdcdc;
         overflow: hidden;
@@ -26,11 +29,11 @@
     ul{
         position: absolute;
         margin-left: 1px;
-        width: 200px;
+        width: 208px;
         box-shadow: 0 0 0 1px hsla(0,0%,100%,.85) inset, 0 0.5em 1em rgba(0, 0, 0, 0.6);
     }
     li{
-        width: 200px;
+        width: 208px;
         font-size: 14px;
         overflow: hidden;
         white-space: nowrap;

@@ -1,4 +1,5 @@
 .cov-vue-date{
+    display: inline-block;
     width: 210px;
     height: 45px;
     position: relative;
@@ -211,7 +212,6 @@
     position: absolute;
     height: 255px;
     overflow: auto;
-    z-index: 100;
     vertical-align: top;
     padding: 0;
     background-color: #fff;
