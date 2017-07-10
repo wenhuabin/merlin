@@ -7,7 +7,7 @@
 		<h1>ChartJS 组件</h1>
 		<h2>1、折线图</h2>
         <div class="linechart-demo">
-            <LineChart :chartData="data" :options="options" :width="600" :height="450"></LineChart>
+            <LineChart :chartData="data" :options="options" :width="500" :height="300"></LineChart>
         </div>
 	</div>
 </template>
@@ -35,7 +35,7 @@ export default {
       }
     },
     mounted(){
-        //this.fillData()
+        setInterval(()=>this.data = this.fillData(), 10000)
     },
     methods: {
         fillData () {

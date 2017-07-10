@@ -5,7 +5,7 @@ export default Line.extend({
   mixins: [reactiveProp],
   props: ['chartData', 'options', 'height', 'width'],
   mounted () {
-    // this.chartData is created in the mixin
-    this.renderChart(this.chartData, this.options)
-  }
+      // this.chartData is created in the mixin
+      this.renderChart(this.chartData, this.options)
+  },
 })
