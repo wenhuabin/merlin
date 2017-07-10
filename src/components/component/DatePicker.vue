@@ -105,13 +105,10 @@ export default {
   },
   methods: {
       optionsShow(flag){
-          console.log(flag)
           if(!flag){
               this.yearHoverStyle = this.yearHoverStyle.background ? {} : {background: "rgba(255, 255, 255, 0.1"} 
-              console.log(this.yearHoverStyle)
           }else{
               this.monthHoverStyle = this.monthHoverStyle.background ? {} : {background: "rgba(255, 255, 255, 0.1"} 
-              console.log(this.monthHoverStyle)
           }
 
       },
@@ -166,8 +163,9 @@ export default {
           }
           if (!(obj.inMonth)) {
               this.checked.oldtime = obj.moment.format("YYYY-MM-DD")
-              this.checked.currentMoment = obj.moment.format("YYYY-MM-DD")
-              this.nextMonth(obj.action)
+              this.checked.currentMoment = this.checked.oldtime 
+              this.showDay()
+              this.picked()
               return
           }
           this.dayList.forEach((x) => {
