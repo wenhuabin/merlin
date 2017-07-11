@@ -29,6 +29,10 @@
         <div class="demo">
             <Radar :chartData="radarData" :options="options" :width="500" :height="300"></Radar>
         </div>
+		<h2>6、PolarArea</h2>
+        <div class="demo">
+            <PolarArea :chartData="polarAreaData" :options="options" :width="500" :height="300"></PolarArea>
+        </div>
 	</div>
 </template>
 
@@ -39,6 +43,7 @@ import HorizontalBar from 'components/chartjs/HorizontalBar.js'
 import Doughnut from 'components/chartjs/Doughnut.js'
 import Pie from 'components/chartjs/Pie.js'
 import Radar from 'components/chartjs/Radar.js'
+import PolarArea from 'components/chartjs/PolarArea.js'
 import {generateData} from 'utils/util'
 
 export default {
@@ -49,6 +54,7 @@ export default {
             barData: {},
             doughnutData: {},
 			radarData: {},
+			polarAreaData: {},
             options: {
                 responsive: false, //to set a fix width and height
                 maintainAspectRatio: false,
@@ -60,12 +66,14 @@ export default {
         this.barData = this.fillBarData()
         this.doughnutData = this.fillDoughnutData()
         this.radarData = this.fillRadarData()
+        this.polarAreaData = this.fillPolarAreaData()
     },
     mounted(){
         setInterval(()=>this.lineData = this.fillLineData(), 10000)
         setInterval(()=>this.barData = this.fillBarData(), 10000)
         setInterval(()=>this.doughnutData = this.fillDoughnutData(), 10000)
         setInterval(()=>this.radarData = this.fillRadarData(), 10000)
+        setInterval(()=>this.polarAreaData = this.fillPolarAreaData(), 10000)
     },
     methods: {
         fillLineData () {
@@ -118,7 +126,7 @@ export default {
       			    pointBorderColor: '#fff',
       			    pointHoverBackgroundColor: '#fff',
       			    pointHoverBorderColor: 'rgba(179,181,198,1)',
-      			    data: [65, 59, 90, 81, 56, 55, 40]
+      			    data: generateData(7, 20, 100) 
       			  },{
       			    label: 'My Second dataset',
       			    backgroundColor: 'rgba(255,99,132,0.2)',
@@ -127,11 +135,36 @@ export default {
       			    pointBorderColor: '#fff',
       			    pointHoverBackgroundColor: '#fff',
       			    pointHoverBorderColor: 'rgba(255,99,132,1)',
-      			    data: [28, 48, 40, 19, 96, 27, 100]
+      			    data: generateData(7, 20, 100) 
       			  }
       			]
 			}
-
+		},
+		fillPolarAreaData(){
+			return {
+				labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
+      			datasets: [
+      			  {
+      			    label: 'My First dataset',
+      			    backgroundColor: 'rgba(179,181,198,0.2)',
+      			    borderColor: 'rgba(179,181,198,1)',
+      			    pointBackgroundColor: 'rgba(179,181,198,1)',
+      			    pointBorderColor: '#fff',
+      			    pointHoverBackgroundColor: '#fff',
+      			    pointHoverBorderColor: 'rgba(179,181,198,1)',
+      			    data: generateData(7, 20, 100) 
+      			  },{
+      			    label: 'My Second dataset',
+      			    backgroundColor: 'rgba(255,99,132,0.2)',
+      			    borderColor: 'rgba(255,99,132,1)',
+      			    pointBackgroundColor: 'rgba(255,99,132,1)',
+      			    pointBorderColor: '#fff',
+      			    pointHoverBackgroundColor: '#fff',
+      			    pointHoverBorderColor: 'rgba(255,99,132,1)',
+      			    data: generateData(7, 20, 100) 
+      			  }
+      			]
+			}
 		}
     },
     components: {
@@ -141,6 +174,7 @@ export default {
       'Doughnut': Doughnut,
       'Pie': Pie,
       'Radar': Radar,
+      'PolarArea': PolarArea,
     },
 }
 </script>
