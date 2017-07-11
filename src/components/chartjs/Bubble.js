@@ -1,7 +1,7 @@
-import { Pie , mixins } from 'vue-chartjs'
+import { Bubble , mixins } from 'vue-chartjs'
 const { reactiveProp } = mixins
 
-export default Pie.extend({
+export default Bubble.extend({
   mixins: [reactiveProp],
   props: ['chartData', 'options', 'height', 'width'],
   mounted () {

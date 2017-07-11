@@ -33,6 +33,10 @@
         <div class="demo">
             <PolarArea :chartData="polarAreaData" :options="options" :width="500" :height="300"></PolarArea>
         </div>
+		<h2>7、Bubble</h2>
+        <div class="demo">
+            <Bubble :chartData="bubbleData" :options="options" :width="500" :height="300"></Bubble>
+        </div>
 	</div>
 </template>
 
@@ -44,6 +48,7 @@ import Doughnut from 'components/chartjs/Doughnut.js'
 import Pie from 'components/chartjs/Pie.js'
 import Radar from 'components/chartjs/Radar.js'
 import PolarArea from 'components/chartjs/PolarArea.js'
+import Bubble from 'components/chartjs/Bubble.js'
 import {generateData} from 'utils/util'
 
 export default {
@@ -55,6 +60,7 @@ export default {
             doughnutData: {},
 			radarData: {},
 			polarAreaData: {},
+			bubbleData: {},
             options: {
                 responsive: false, //to set a fix width and height
                 maintainAspectRatio: false,
@@ -67,6 +73,7 @@ export default {
         this.doughnutData = this.fillDoughnutData()
         this.radarData = this.fillRadarData()
         this.polarAreaData = this.fillPolarAreaData()
+        this.bubbleData = this.fillBubbleData()
     },
     mounted(){
         setInterval(()=>this.lineData = this.fillLineData(), 10000)
@@ -165,6 +172,51 @@ export default {
       			  }
       			]
 			}
+		},
+		fillBubbleData(){
+			return {
+				datasets: [{
+        			  label: 'Data One',
+        			  backgroundColor: '#f87979',
+        			  data: [
+        			    {
+        			      x: 20,
+        			      y: 25,
+        			      r: 5
+        			    },
+        			    {
+        			      x: 40,
+        			      y: 10,
+        			      r: 10
+        			    },
+        			    {
+        			      x: 30,
+        			      y: 22,
+        			      r: 30
+        			    }
+        			  ]
+        			},{
+        			  label: 'Data Two',
+        			  backgroundColor: '#7C8CF8',
+        			  data: [
+        			    {
+        			      x: 10,
+        			      y: 30,
+        			      r: 15
+        			    },
+        			    {
+        			      x: 20,
+        			      y: 20,
+        			      r: 10
+        			    },
+        			    {
+        			      x: 15,
+        			      y: 8,
+        			      r: 30
+        			    }
+        			  ]
+        			}]
+			}
 		}
     },
     components: {
@@ -175,6 +227,7 @@ export default {
       'Pie': Pie,
       'Radar': Radar,
       'PolarArea': PolarArea,
+      'Bubble': Bubble,
     },
 }
 </script>
