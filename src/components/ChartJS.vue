@@ -7,39 +7,39 @@
 		<h1>ChartJS 组件</h1>
 		<h2>1、折线图</h2>
         <div class="demo">
-            <LineChart :chartData="lineData" :options="options" :width="500" :height="300"></LineChart>
+            <LineChart :chartData="lineData" :options="options" :width="500" :height="350"></LineChart>
         </div>
 		<h2>2、柱状图</h2>
         <div class="demo">
-            <BarChart :chartData="barData" :options="options" :width="500" :height="300"></BarChart>
+            <BarChart :chartData="barData" :options="options" :width="500" :height="350"></BarChart>
         </div>
 		<h2>4、水平柱状图</h2>
         <div class="demo">
-            <HorizontalBar :chartData="doughnutData" :options="options" :width="500" :height="300"></HorizontalBar>
+            <HorizontalBar :chartData="doughnutData" :options="options" :width="500" :height="350"></HorizontalBar>
         </div>
 		<h2>3、圆环图</h2>
         <div class="demo">
-            <Doughnut :chartData="doughnutData" :options="options" :width="500" :height="300"></Doughnut>
+            <Doughnut :chartData="doughnutData" :options="options" :width="500" :height="350"></Doughnut>
         </div>
 		<h2>4、饼图</h2>
         <div class="demo">
-            <Pie :chartData="doughnutData" :options="options" :width="500" :height="300"></Pie>
+            <Pie :chartData="doughnutData" :options="options" :width="500" :height="350"></Pie>
         </div>
 		<h2>5、雷达图</h2>
         <div class="demo">
-            <Radar :chartData="radarData" :options="options" :width="500" :height="300"></Radar>
+            <Radar :chartData="radarData" :options="options" :width="500" :height="350"></Radar>
         </div>
 		<h2>6、PolarArea</h2>
         <div class="demo">
-            <PolarArea :chartData="polarAreaData" :options="options" :width="500" :height="300"></PolarArea>
+            <PolarArea :chartData="polarAreaData" :options="options" :width="500" :height="350"></PolarArea>
         </div>
 		<h2>7、Bubble</h2>
         <div class="demo">
-            <Bubble :chartData="bubbleData" :options="options" :width="500" :height="300"></Bubble>
+            <Bubble :chartData="bubbleData" :options="options" :width="500" :height="350"></Bubble>
         </div>
 		<h2>8、Scatter</h2>
         <div class="demo">
-            <Scatter :chartData="scatterData" :options="options" :width="500" :height="300"></Scatter>
+            <Scatter :chartData="scatterData" :options="options" :width="500" :height="350"></Scatter>
         </div>
 	</div>
 </template>
@@ -85,7 +85,16 @@ export default {
 					fontFamily: "sans-serif",
         		},
 				tooltips: {
-        			 
+					width: 1000,
+					backgroundColor: "#fff",
+					titleFontColor: "#444",
+					titleFontSize: 16,
+					bodyFontColor: "#444",
+					titleMarginBottom: 15,
+					bodySpacing: 30,
+					footerMarginTop: 20,
+					xPadding: 10,
+					yPadding: 10,
         		},
             },
       }
