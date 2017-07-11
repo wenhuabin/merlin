@@ -121,13 +121,18 @@ export default {
     	    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
     	    datasets: [{
     	        label: '访客量',
-    	        backgroundColor: '#dcdcdc',
 		  		borderColor: '#4BC0C0',
+				backgroundColor: "rgba(0, 0, 0, 0)",
+    	        data: generateData(12, 10, 200)
+    	    },{
+    	        label: '收入',
+		  		borderColor: '#6B8E23',
+				backgroundColor: "rgba(0, 0, 0, 0)",
     	        data: generateData(12, 10, 200)
     	    },{
     	        label: '人流量',
-    	        backgroundColor: '#fff',
 		  		borderColor: '#F08080',
+				backgroundColor: "rgba(0, 0, 0, 0)",
     	        data: generateData(12, 10, 200)
     	    }]
     	  }
