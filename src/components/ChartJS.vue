@@ -6,12 +6,16 @@
 	<div class="chartjs-demo">
 		<h1>ChartJS 组件</h1>
 		<h2>1、折线图</h2>
-        <div class="linechart-demo">
+        <div class="demo">
             <LineChart :chartData="lineData" :options="lineOptions" :width="500" :height="300"></LineChart>
         </div>
 		<h2>2、柱状图</h2>
-        <div class="barchart-demo">
+        <div class="demo">
             <BarChart :chartData="barData" :options="barOptions" :width="500" :height="300"></BarChart>
+        </div>
+		<h2>3、圆环图</h2>
+        <div class="demo">
+            <Doughnut :chartData="doughnutData" :options="doughnutOptions" :width="500" :height="300"></Doughnut>
         </div>
 	</div>
 </template>
@@ -19,6 +23,7 @@
 <script>
 import LineChart from 'components/chartjs/LineChart.js'
 import BarChart from 'components/chartjs/BarChart.js'
+import Doughnut from 'components/chartjs/Doughnut.js'
 import {generateData} from 'utils/util'
 
 export default {
@@ -34,11 +39,15 @@ export default {
                         top: 5,
                         bottom: 5
                     },
-                },
-                responsive: false, //to set a fix width and height
+                }, responsive: false, //to set a fix width and height
             },
             barData: {},
             barOptions: {
+                responsive: false, //to set a fix width and height
+                maintainAspectRatio: false,
+            },
+            doughnutData: {},
+            doughnutOptions: {
                 responsive: false, //to set a fix width and height
                 maintainAspectRatio: false,
             },
@@ -47,10 +56,12 @@ export default {
     created(){
         this.lineData = this.fillLineData()
         this.barData = this.fillBarData()
+        this.doughnutData = this.fillDoughnutData()
     },
     mounted(){
-        setInterval(()=>this.lineData = this.fillLineData(), 10000)
-        setInterval(()=>this.barData = this.fillBarData(), 2000)
+        setInterval(()=>this.lineData = this.fillLineData(), 5000)
+        setInterval(()=>this.barData = this.fillBarData(), 5000)
+        setInterval(()=>this.doughnutData = this.fillDoughnutData(), 5000)
     },
     methods: {
         fillLineData () {
@@ -74,10 +85,28 @@ export default {
     	    }]
     	  }
     	},
+        fillDoughnutData () {
+    	  return {
+    	    labels: ['January', 'February', 'March', 'April', 'May'],
+    	    datasets: [{
+    	        label: '收入',
+      	        backgroundColor: '#f87979',
+				backgroundColor: [
+          			'#41B883',
+          			'#E46651',
+          			'#00D8FF',
+          			'#DD1B16',
+					'#dcdcdc',
+          		],
+    	        data: generateData(5, 10, 100)
+    	    }]
+    	  }
+    	},
     },
     components: {
       'LineChart': LineChart,
       'BarChart': BarChart,
+      'Doughnut': Doughnut,
     },
 }
 </script>

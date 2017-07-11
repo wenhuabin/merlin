@@ -18,15 +18,13 @@
 		text-align: center;
     	color: #444;
 	}
-    .linechart-demo,
-    .barchart-demo{
+    .demo{
         margin-top: 30px;
         width: 100%;
         text-align: center;
         overflow: hidden;
     }
-    .linechart-demo > div,
-    .barchart-demo > div{
+    .demo > div{
         display: inline-block;
     }
 }
