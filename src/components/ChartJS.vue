@@ -70,6 +70,23 @@ export default {
             options: {
                 responsive: false, //to set a fix width and height
                 maintainAspectRatio: false,
+				scaleShowGridLines : true, 
+				legend: {
+        		    display: true,
+					position: 'top',
+        		    labels: {
+        		        fontColor: '#444'
+        		    }
+        		},
+				title: {
+	            	display: true,
+            		text: '测试组件',
+					fontSize: 18,
+					fontFamily: "sans-serif",
+        		},
+				tooltips: {
+        			 
+        		},
             },
       }
     },
@@ -95,8 +112,13 @@ export default {
     	    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
     	    datasets: [{
     	        label: '访客量',
-    	        backgroundColor: '#f5f5f5',
+    	        backgroundColor: '#dcdcdc',
 		  		borderColor: '#4BC0C0',
+    	        data: generateData(12, 10, 200)
+    	    },{
+    	        label: '人流量',
+    	        backgroundColor: '#fff',
+		  		borderColor: '#F08080',
     	        data: generateData(12, 10, 200)
     	    }]
     	  }
