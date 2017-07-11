@@ -1,7 +1,7 @@
-import { Pie , mixins } from 'vue-chartjs'
+import { Scatter, mixins } from 'vue-chartjs'
 const { reactiveProp } = mixins
 
-export default Pie.extend({
+export default Scatter.extend({
   mixins: [reactiveProp],
   props: ['chartData', 'options', 'height', 'width'],
   mounted () {

@@ -37,6 +37,10 @@
         <div class="demo">
             <Bubble :chartData="bubbleData" :options="options" :width="500" :height="300"></Bubble>
         </div>
+		<h2>8、Scatter</h2>
+        <div class="demo">
+            <Scatter :chartData="scatterData" :options="options" :width="500" :height="300"></Scatter>
+        </div>
 	</div>
 </template>
 
@@ -49,6 +53,7 @@ import Pie from 'components/chartjs/Pie.js'
 import Radar from 'components/chartjs/Radar.js'
 import PolarArea from 'components/chartjs/PolarArea.js'
 import Bubble from 'components/chartjs/Bubble.js'
+import Scatter from 'components/chartjs/Scatter.js'
 import {generateData} from 'utils/util'
 
 export default {
@@ -61,6 +66,7 @@ export default {
 			radarData: {},
 			polarAreaData: {},
 			bubbleData: {},
+			scatterData: [],
             options: {
                 responsive: false, //to set a fix width and height
                 maintainAspectRatio: false,
@@ -74,6 +80,7 @@ export default {
         this.radarData = this.fillRadarData()
         this.polarAreaData = this.fillPolarAreaData()
         this.bubbleData = this.fillBubbleData()
+        this.scatterData = this.fillScatterData()
     },
     mounted(){
         setInterval(()=>this.lineData = this.fillLineData(), 10000)
@@ -217,7 +224,56 @@ export default {
         			  ]
         			}]
 			}
-		}
+		},
+		fillScatterData(){
+			return {
+				labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      			datasets: [{
+      			  label: 'Scatter Dataset 1',
+      			  fill: false,
+      			  borderColor: '#f87979',
+      			  backgroundColor: '#f87979',
+      			  data: [{
+      			    x: -2,
+      			    y: 4
+      			  }, {
+      			    x: -1,
+      			    y: 1
+      			  }, {
+      			    x: 0,
+      			    y: 0
+      			  }, {
+      			    x: 1,
+      			    y: 1
+      			  }, {
+      			    x: 2,
+      			    y: 4
+      			  }]
+      			},
+      			{
+      			  label: 'Scatter Dataset 2',
+      			  fill: false,
+      			  borderColor: '#7acbf9',
+      			  backgroundColor: '#7acbf9',
+      			  data: [{
+      			    x: -2,
+      			    y: -4
+      			  }, {
+      			    x: -1,
+      			    y: -1
+      			  }, {
+      			    x: 0,
+      			    y: 1
+      			  }, {
+      			    x: 1,
+      			    y: -1
+      			  }, {
+      			    x: 2,
+      			    y: -4
+      			  }]
+      			}]
+			}
+		},
     },
     components: {
       'LineChart': LineChart,
@@ -227,6 +283,7 @@ export default {
       'Pie': Pie,
       'Radar': Radar,
       'PolarArea': PolarArea,
+	  'Scatter': Scatter,
       'Bubble': Bubble,
     },
 }
