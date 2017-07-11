@@ -17,6 +17,10 @@
         <div class="demo">
             <Doughnut :chartData="doughnutData" :options="doughnutOptions" :width="500" :height="300"></Doughnut>
         </div>
+		<h2>4、饼图</h2>
+        <div class="demo">
+            <Pie :chartData="doughnutData" :options="doughnutOptions" :width="500" :height="300"></Pie>
+        </div>
 	</div>
 </template>
 
@@ -24,6 +28,7 @@
 import LineChart from 'components/chartjs/LineChart.js'
 import BarChart from 'components/chartjs/BarChart.js'
 import Doughnut from 'components/chartjs/Doughnut.js'
+import Pie from 'components/chartjs/Pie.js'
 import {generateData} from 'utils/util'
 
 export default {
@@ -107,6 +112,7 @@ export default {
       'LineChart': LineChart,
       'BarChart': BarChart,
       'Doughnut': Doughnut,
+      'Pie': Pie,
     },
 }
 </script>
