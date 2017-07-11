@@ -7,19 +7,27 @@
 		<h1>ChartJS 组件</h1>
 		<h2>1、折线图</h2>
         <div class="demo">
-            <LineChart :chartData="lineData" :options="lineOptions" :width="500" :height="300"></LineChart>
+            <LineChart :chartData="lineData" :options="options" :width="500" :height="300"></LineChart>
         </div>
 		<h2>2、柱状图</h2>
         <div class="demo">
-            <BarChart :chartData="barData" :options="barOptions" :width="500" :height="300"></BarChart>
+            <BarChart :chartData="barData" :options="options" :width="500" :height="300"></BarChart>
+        </div>
+		<h2>4、水平柱状图</h2>
+        <div class="demo">
+            <HorizontalBar :chartData="doughnutData" :options="options" :width="500" :height="300"></HorizontalBar>
         </div>
 		<h2>3、圆环图</h2>
         <div class="demo">
-            <Doughnut :chartData="doughnutData" :options="doughnutOptions" :width="500" :height="300"></Doughnut>
+            <Doughnut :chartData="doughnutData" :options="options" :width="500" :height="300"></Doughnut>
         </div>
 		<h2>4、饼图</h2>
         <div class="demo">
-            <Pie :chartData="doughnutData" :options="doughnutOptions" :width="500" :height="300"></Pie>
+            <Pie :chartData="doughnutData" :options="options" :width="500" :height="300"></Pie>
+        </div>
+		<h2>5、雷达图</h2>
+        <div class="demo">
+            <Radar :chartData="radarData" :options="options" :width="500" :height="300"></Radar>
         </div>
 	</div>
 </template>
@@ -27,8 +35,10 @@
 <script>
 import LineChart from 'components/chartjs/LineChart.js'
 import BarChart from 'components/chartjs/BarChart.js'
+import HorizontalBar from 'components/chartjs/HorizontalBar.js'
 import Doughnut from 'components/chartjs/Doughnut.js'
 import Pie from 'components/chartjs/Pie.js'
+import Radar from 'components/chartjs/Radar.js'
 import {generateData} from 'utils/util'
 
 export default {
@@ -36,23 +46,10 @@ export default {
     data () {
       return {
             lineData: {},
-            lineOptions: {
-                layout: {
-                    padding: {
-                        left: 5,
-                        right: 5,
-                        top: 5,
-                        bottom: 5
-                    },
-                }, responsive: false, //to set a fix width and height
-            },
             barData: {},
-            barOptions: {
-                responsive: false, //to set a fix width and height
-                maintainAspectRatio: false,
-            },
             doughnutData: {},
-            doughnutOptions: {
+			radarData: {},
+            options: {
                 responsive: false, //to set a fix width and height
                 maintainAspectRatio: false,
             },
@@ -62,11 +59,13 @@ export default {
         this.lineData = this.fillLineData()
         this.barData = this.fillBarData()
         this.doughnutData = this.fillDoughnutData()
+        this.radarData = this.fillRadarData()
     },
     mounted(){
-        setInterval(()=>this.lineData = this.fillLineData(), 5000)
-        setInterval(()=>this.barData = this.fillBarData(), 5000)
-        setInterval(()=>this.doughnutData = this.fillDoughnutData(), 5000)
+        setInterval(()=>this.lineData = this.fillLineData(), 10000)
+        setInterval(()=>this.barData = this.fillBarData(), 10000)
+        setInterval(()=>this.doughnutData = this.fillDoughnutData(), 10000)
+        setInterval(()=>this.radarData = this.fillRadarData(), 10000)
     },
     methods: {
         fillLineData () {
@@ -107,12 +106,41 @@ export default {
     	    }]
     	  }
     	},
+		fillRadarData (){
+			return {
+				labels: ['Eating', 'Drinking', 'Sleeping', 'Designing', 'Coding', 'Cycling', 'Running'],
+      			datasets: [
+      			  {
+      			    label: 'My First dataset',
+      			    backgroundColor: 'rgba(179,181,198,0.2)',
+      			    borderColor: 'rgba(179,181,198,1)',
+      			    pointBackgroundColor: 'rgba(179,181,198,1)',
+      			    pointBorderColor: '#fff',
+      			    pointHoverBackgroundColor: '#fff',
+      			    pointHoverBorderColor: 'rgba(179,181,198,1)',
+      			    data: [65, 59, 90, 81, 56, 55, 40]
+      			  },{
+      			    label: 'My Second dataset',
+      			    backgroundColor: 'rgba(255,99,132,0.2)',
+      			    borderColor: 'rgba(255,99,132,1)',
+      			    pointBackgroundColor: 'rgba(255,99,132,1)',
+      			    pointBorderColor: '#fff',
+      			    pointHoverBackgroundColor: '#fff',
+      			    pointHoverBorderColor: 'rgba(255,99,132,1)',
+      			    data: [28, 48, 40, 19, 96, 27, 100]
+      			  }
+      			]
+			}
+
+		}
     },
     components: {
       'LineChart': LineChart,
       'BarChart': BarChart,
+      'HorizontalBar': HorizontalBar,
       'Doughnut': Doughnut,
       'Pie': Pie,
+      'Radar': Radar,
     },
 }
 </script>
