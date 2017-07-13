@@ -144,6 +144,11 @@ export default {
             ctx.fillStyle = "red"
             ctx.fillRect(200, 0, 100, 80)
 
+            ctx.beginPath();
+            ctx.moveTo(200, 150);
+            ctx.quadraticCurveTo(200, 230, 380, 150);
+            ctx.stroke();
+
             ctx.rect(50, 170, 100, 60)
             ctx.stroke()
             //ctx.save()
@@ -152,6 +157,7 @@ export default {
             // Draw red rectangle after clip()
             ctx.fillStyle = "red"
             ctx.fillRect(0, 150, 100, 60)
+
         },
     },
     components: {
