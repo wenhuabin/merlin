@@ -43,7 +43,7 @@ export default {
 	        navs: [
                 {name: '主页', key: 0, url: '/'},
                 {name: 'Demo', key: 1, url: '', child: [{name: '图形', key: 10, url: '/', child: [{name: 'Canvas', key: 110, url: '/canvas'}, {name: 'SVG', key: 111, url: '/'}]},{name: 'Echart组件', key: 11, url: '/echart'},{name: 'D3-组件', key: 12, url: '/d3'},{name: 'ChartJS', key: 13, url: '/cjs'}, {name: '通用组件', key: 14, url: '/component'}]},
-                {name: 'Profile', key: 4, url: '', child: [{name: 'Skills', key: 40, url: '/skills'},{name: 'Experience', key: 41, url: '', child: [{name: 'Bear', key: 410, url: '/bear'}, {name: 'Nio', key: 411, url: '/nio'}]},{name: 'About', key: 42, url: '/about'}]},
+                {name: 'About', key: 3, url: '/about'},
             ]
 		}
 	},
