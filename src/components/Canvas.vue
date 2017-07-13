@@ -52,8 +52,9 @@ export default {
             ctx.moveTo(0,0)
             ctx.lineTo(200,30)
             ctx.stroke()
-            ctx.beginPath();
-            ctx.lineJoin="butt";
+            ctx.lineJoin="miter";
+            ctx.lineWidth=10; 
+            ctx.miterLimit=0;
             ctx.moveTo(200,90);
             ctx.lineTo(280,140);
             ctx.lineTo(200,190);
