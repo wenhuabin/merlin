@@ -103,7 +103,10 @@ export default {
             ctx.bezierCurveTo(130,62.5,130,25,100,25)
             ctx.bezierCurveTo(85,25,75,37,75,40)
             ctx.fillStyle="red"
-            
+            //阴影
+            ctx.shadowBlur=20
+            ctx.shadowColor="black"
+            ctx.shadowOffsetX=20
             ctx.fill()
         }
     },
