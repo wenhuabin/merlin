@@ -47,22 +47,23 @@ export default {
         drawLine: function(){
             var c=document.getElementById("canvas-line")
             var ctx=c.getContext("2d")
+            ctx.strokeStyle="green"
             ctx.lineCap="square"
             ctx.lineWidth=5
             ctx.moveTo(0,0)
             ctx.lineTo(200,30)
             ctx.stroke()
-            ctx.lineJoin="miter";
-            ctx.lineWidth=10; 
-            ctx.miterLimit=0;
-            ctx.moveTo(200,90);
-            ctx.lineTo(280,140);
-            ctx.lineTo(200,190);
-            ctx.stroke();
+            ctx.lineJoin="miter"
+            ctx.lineWidth=10 
+            ctx.miterLimit=0
+            ctx.moveTo(200,90)
+            ctx.lineTo(280,140)
+            ctx.lineTo(200,190)
+            ctx.stroke()
             // Draw shapes
-            ctx.fillRect(25,25,100,100)
-            ctx.clearRect(45,45,60,60)
-            ctx.strokeRect(50,50,50,50)
+            ctx.fillRect(25,25,100,100) //fillRect 填充 Rect 边框
+            ctx.clearRect(45,45,60,60) //清除区域内容
+            ctx.strokeRect(50,50,50,50) //strokeRect 触发画长方形（不填充）stroke 画线条
         },
         drawCircle: function(){
             var c=document.getElementById("canvas-circle")
@@ -118,7 +119,7 @@ export default {
             ctx.shadowColor="black"
             ctx.shadowOffsetX=15
             ctx.shadowOffsetY=-8
-            ctx.fill()
+            ctx.fill() //填充
         }
     },
     components: {
