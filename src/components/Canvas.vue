@@ -106,7 +106,8 @@ export default {
             //阴影
             ctx.shadowBlur=20
             ctx.shadowColor="black"
-            ctx.shadowOffsetX=20
+            ctx.shadowOffsetX=15
+            ctx.shadowOffsetY=-8
             ctx.fill()
         }
     },
