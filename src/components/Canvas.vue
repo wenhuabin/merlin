@@ -86,12 +86,12 @@ export default {
             ctx.arc(90,65,5,0,Math.PI*2,true)  // Right eye
             
             ctx.stroke()
-            ctx.beginPath(); 
-            ctx.moveTo(200,20);           // Create a starting point
-            ctx.lineTo(280,20);          // Create a horizontal line
-            ctx.arcTo(330,20,330,70,50); // Create an arc
-            ctx.lineTo(330,120);         // Continue with vertical line
-            ctx.stroke();                // Draw it
+            ctx.beginPath() 
+            ctx.moveTo(200,20)           // Create a starting point
+            ctx.lineTo(280,20)          // Create a horizontal line
+            ctx.arcTo(330,20,330,70,50) // Create an arc
+            ctx.lineTo(330,120)         // Continue with vertical line
+            ctx.stroke()                // Draw it
 
         },
         drawText: function(){
@@ -106,7 +106,7 @@ export default {
             var grd=ctx.createLinearGradient(0,0,400,0)
             //var grd=ctx.createRadialGradient(75,50,5,90,60,100)
             grd.addColorStop(0,"black")
-            grd.addColorStop(0.5,"red")
+            grd.addColorStop(0.5,"#6B8E23")
             grd.addColorStop(1,"white")
             ctx.fillStyle=grd
             ctx.fillRect(0,0,400,250)
@@ -117,6 +117,7 @@ export default {
             ctx.beginPath()
             ctx.moveTo(75,40)
             
+            ctx.globalAlpha=0.9 //透明度 0.0~1.0
             ctx.bezierCurveTo(75,37,70,25,50,25)
             ctx.bezierCurveTo(20,25,20,62.5,20,62.5)
             
@@ -125,7 +126,7 @@ export default {
             
             ctx.bezierCurveTo(130,62.5,130,25,100,25)
             ctx.bezierCurveTo(85,25,75,37,75,40)
-            ctx.fillStyle="red"
+            ctx.fillStyle="#6B8E23"
             //阴影
             ctx.shadowBlur=20
             ctx.shadowColor="black"
@@ -138,8 +139,8 @@ export default {
             var ctx=c.getContext("2d")
             ctx.rect(50, 20, 100, 90)
             ctx.stroke()
-            // Draw red rectangle
-            ctx.fillStyle = "red"
+            // Draw #6B8E23 rectangle
+            ctx.fillStyle = "#6B8E23"
             ctx.fillRect(0, 0, 100, 80)
 
             ctx.rect(250, 20, 100, 90)
@@ -147,22 +148,22 @@ export default {
             ctx.save()
             ctx.clip()
             ctx.restore()
-            // Draw red rectangle after clip()
-            ctx.fillStyle = "red"
+            // Draw #6B8E23 rectangle after clip()
+            ctx.fillStyle = "#6B8E23"
             ctx.fillRect(200, 0, 100, 80)
 
-            ctx.beginPath();
-            ctx.moveTo(200, 150);
-            ctx.quadraticCurveTo(200, 230, 380, 150);
-            ctx.stroke();
+            ctx.beginPath()
+            ctx.moveTo(200, 150)
+            ctx.quadraticCurveTo(200, 230, 380, 150)
+            ctx.stroke()
 
             ctx.rect(50, 170, 100, 60)
             ctx.stroke()
             //ctx.save()
             ctx.clip()
             //ctx.restore()
-            // Draw red rectangle after clip()
-            ctx.fillStyle = "red"
+            // Draw #6B8E23 rectangle after clip()
+            ctx.fillStyle = "#6B8E23"
             ctx.fillRect(0, 150, 100, 60)
 
         },
