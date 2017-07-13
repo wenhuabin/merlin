@@ -5,21 +5,25 @@
 <template>
     <div class="canvas-demo">
         <h1>Canvas</h1>
-		<h2>1、直线</h2>
+		<h2>5、贝塞尔曲线</h2>
         <div class="demo">
-            <canvas id="canvas-line" width="400" height="250">您的浏览器不支持 HTML5 canvas 标签。</canvas>
+            <canvas id="canvas-bezier" width="400" height="250">您的浏览器不支持 HTML5 canvas 标签。</canvas>
         </div>
-		<h2>2、圆形</h2>
+		<h2>4、渐变</h2>
         <div class="demo">
-            <canvas id="canvas-circle" width="400" height="250">您的浏览器不支持 HTML5 canvas 标签。</canvas>
+            <canvas id="canvas-gran" width="400" height="250">您的浏览器不支持 HTML5 canvas 标签。</canvas>
         </div>
 		<h2>3、文字</h2>
         <div class="demo">
             <canvas id="canvas-text" width="400" height="250">您的浏览器不支持 HTML5 canvas 标签。</canvas>
         </div>
-		<h2>4、渐变</h2>
+		<h2>2、圆形</h2>
         <div class="demo">
-            <canvas id="canvas-gran" width="400" height="250">您的浏览器不支持 HTML5 canvas 标签。</canvas>
+            <canvas id="canvas-circle" width="400" height="250">您的浏览器不支持 HTML5 canvas 标签。</canvas>
+        </div>
+		<h2>1、直线</h2>
+        <div class="demo">
+            <canvas id="canvas-line" width="400" height="250">您的浏览器不支持 HTML5 canvas 标签。</canvas>
         </div>
     </div>
 </template>
@@ -37,40 +41,36 @@ export default {
         this.drawCircle()
         this.drawText()
         this.drawGran()
+        this.drawBezier()
     },
     methods: {
         drawLine: function(){
             var c=document.getElementById("canvas-line")
             var ctx=c.getContext("2d")
             ctx.moveTo(0,0)
-            ctx.lineTo(200,100)
+            ctx.lineTo(200,30)
             ctx.stroke()
+            // Draw shapes
+            ctx.fillRect(25,25,100,100)
+            ctx.clearRect(45,45,60,60)
+            ctx.strokeRect(50,50,50,50)
         },
         drawCircle: function(){
             var c=document.getElementById("canvas-circle")
             var ctx=c.getContext("2d")
-            //ctx.beginPath()
-            //ctx.arc(200,125,80,0,2*Math.PI)
-            //ctx.stroke()
-            //ctx.beginPath()
-            //ctx.arc(100,125,80,0,2*Math.PI)
-            //ctx.stroke()
-            //ctx.beginPath()
-            //ctx.arc(300,125,80,0,2*Math.PI)
-            //ctx.stroke()
-            ctx.beginPath();
-            ctx.arc(75,75,50,0,Math.PI*2,true);  // Outer circle
+            ctx.beginPath()
+            ctx.arc(75,75,50,0,Math.PI*2,true)  // Outer circle
             
-            ctx.moveTo(110,75);
-            ctx.arc(75,75,35,0,Math.PI,false);   // Mouth
+            ctx.moveTo(110,75)
+            ctx.arc(75,75,35,0,Math.PI,false)   // Mouth
             
-            ctx.moveTo(65,65);
-            ctx.arc(60,65,5,0,Math.PI*2,true);  // Left eye
+            ctx.moveTo(65,65)
+            ctx.arc(60,65,5,0,Math.PI*2,true)  // Left eye
             
-            ctx.moveTo(95,65);
-            ctx.arc(90,65,5,0,Math.PI*2,true);  // Right eye
+            ctx.moveTo(95,65)
+            ctx.arc(90,65,5,0,Math.PI*2,true)  // Right eye
             
-            ctx.stroke();
+            ctx.stroke()
         },
         drawText: function(){
             var c=document.getElementById("canvas-text")
@@ -88,6 +88,24 @@ export default {
             ctx.fillStyle=grd
             ctx.fillRect(0,0,400,250)
         },
+        drawBezier: function(){
+            var c=document.getElementById("canvas-bezier")
+            var ctx=c.getContext("2d")
+            ctx.beginPath()
+            ctx.moveTo(75,40)
+            
+            ctx.bezierCurveTo(75,37,70,25,50,25)
+            ctx.bezierCurveTo(20,25,20,62.5,20,62.5)
+            
+            ctx.bezierCurveTo(20,80,40,102,75,120)
+            ctx.bezierCurveTo(110,102,130,80,130,62.5)
+            
+            ctx.bezierCurveTo(130,62.5,130,25,100,25)
+            ctx.bezierCurveTo(85,25,75,37,75,40)
+            ctx.fillStyle="red"
+            
+            ctx.fill()
+        }
     },
     components: {
     },
