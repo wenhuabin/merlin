@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import About from '@/components/About'
 import Test from '@/components/Test'
 import D3 from '@/components/D3'
+import Echart from '@/components/Echart'
 import ChartJs from '@/components/ChartJS'
 import Canvas from '@/components/Canvas'
 import Login from '@/Login'
@@ -40,6 +41,10 @@ const router = new Router({
             path: 'canvas',
             name: 'canvas',
             component: Canvas 
+        },{
+            path: 'echart',
+            name: 'echart',
+            component: Echart 
         },{
             path: 'component',
             name: 'component',
