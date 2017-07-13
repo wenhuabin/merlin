@@ -129,29 +129,29 @@ export default {
         drawClip: function(){
             var c=document.getElementById("canvas-clip")
             var ctx=c.getContext("2d")
-            ctx.rect(50, 20, 100, 90)
-            ctx.stroke()
+            ctx.rect(50, 20, 100, 90);
+            ctx.stroke();
             // Draw red rectangle
-            ctx.fillStyle = "red"
-            ctx.fillRect(0, 0, 100, 80)
+            ctx.fillStyle = "red";
+            ctx.fillRect(0, 0, 100, 80);
 
-            ctx.rect(250, 20, 100, 90)
-            ctx.stroke()
-            ctx.save()
-            ctx.clip()
-            ctx.restore()
+            ctx.rect(250, 20, 100, 90);
+            ctx.stroke();
+            ctx.save();
+            ctx.clip();
+            ctx.restore();
             // Draw red rectangle after clip()
-            ctx.fillStyle = "red"
-            ctx.fillRect(200, 0, 100, 80)
+            ctx.fillStyle = "red";
+            ctx.fillRect(200, 0, 100, 80);
 
-            ctx.rect(50, 170, 100, 60)
-            ctx.stroke()
-            //ctx.save()
-            ctx.clip()
-            //ctx.restore()
+            ctx.rect(50, 170, 100, 60);
+            ctx.stroke();
+            //ctx.save();
+            ctx.clip();
+            //ctx.restore();
             // Draw red rectangle after clip()
-            ctx.fillStyle = "red"
-            ctx.fillRect(0, 150, 100, 60)
+            ctx.fillStyle = "red";
+            ctx.fillRect(0, 150, 100, 60);
         },
     },
     components: {
