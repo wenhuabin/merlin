@@ -13,31 +13,31 @@
         <div class="demo">
             <BarChart :chartData="barData" :options="options" :width="500" :height="350"></BarChart>
         </div>
-		<h2>4、水平柱状图</h2>
+		<h2>3、水平柱状图</h2>
         <div class="demo">
             <HorizontalBar :chartData="doughnutData" :options="options" :width="500" :height="350"></HorizontalBar>
         </div>
-		<h2>3、圆环图</h2>
+		<h2>4、圆环图</h2>
         <div class="demo">
             <Doughnut :chartData="doughnutData" :options="options" :width="500" :height="350"></Doughnut>
         </div>
-		<h2>4、饼图</h2>
+		<h2>5、饼图</h2>
         <div class="demo">
             <Pie :chartData="doughnutData" :options="options" :width="500" :height="350"></Pie>
         </div>
-		<h2>5、雷达图</h2>
+		<h2>6、雷达图</h2>
         <div class="demo">
             <Radar :chartData="radarData" :options="options" :width="500" :height="350"></Radar>
         </div>
-		<h2>6、PolarArea</h2>
+		<h2>7、PolarArea</h2>
         <div class="demo">
             <PolarArea :chartData="polarAreaData" :options="options" :width="500" :height="350"></PolarArea>
         </div>
-		<h2>7、Bubble</h2>
+		<h2>8、Bubble</h2>
         <div class="demo">
             <Bubble :chartData="bubbleData" :options="options" :width="500" :height="350"></Bubble>
         </div>
-		<h2>8、Scatter</h2>
+		<h2>9、Scatter</h2>
         <div class="demo">
             <Scatter :chartData="scatterData" :options="options" :width="500" :height="350"></Scatter>
         </div>

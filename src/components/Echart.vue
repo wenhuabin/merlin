@@ -11,25 +11,25 @@
 		<h2>2、柱状图</h2>
         <div class="demo">
         </div>
-		<h2>4、水平柱状图</h2>
+		<h2>3、水平柱状图</h2>
         <div class="demo">
         </div>
-		<h2>3、圆环图</h2>
+		<h2>4、圆环图</h2>
         <div class="demo">
         </div>
-		<h2>4、饼图</h2>
+		<h2>5、饼图</h2>
         <div class="demo">
         </div>
-		<h2>5、雷达图</h2>
+		<h2>6、雷达图</h2>
         <div class="demo">
         </div>
-		<h2>6、PolarArea</h2>
+		<h2>7、PolarArea</h2>
         <div class="demo">
         </div>
-		<h2>7、Bubble</h2>
+		<h2>8、Bubble</h2>
         <div class="demo">
         </div>
-		<h2>8、Scatter</h2>
+		<h2>9、Scatter</h2>
         <div class="demo">
         </div>
 	</div>
