@@ -86,6 +86,13 @@ export default {
             ctx.arc(90,65,5,0,Math.PI*2,true)  // Right eye
             
             ctx.stroke()
+            ctx.beginPath(); 
+            ctx.moveTo(200,20);           // Create a starting point
+            ctx.lineTo(280,20);          // Create a horizontal line
+            ctx.arcTo(330,20,330,70,50); // Create an arc
+            ctx.lineTo(330,120);         // Continue with vertical line
+            ctx.stroke();                // Draw it
+
         },
         drawText: function(){
             var c=document.getElementById("canvas-text")
