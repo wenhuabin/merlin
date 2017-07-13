@@ -47,9 +47,17 @@ export default {
         drawLine: function(){
             var c=document.getElementById("canvas-line")
             var ctx=c.getContext("2d")
+            ctx.lineCap="square"
+            ctx.lineWidth=5
             ctx.moveTo(0,0)
             ctx.lineTo(200,30)
             ctx.stroke()
+            ctx.beginPath();
+            ctx.lineJoin="butt";
+            ctx.moveTo(200,90);
+            ctx.lineTo(280,140);
+            ctx.lineTo(200,190);
+            ctx.stroke();
             // Draw shapes
             ctx.fillRect(25,25,100,100)
             ctx.clearRect(45,45,60,60)
@@ -83,7 +91,8 @@ export default {
             var ctx=c.getContext("2d")
             var grd=ctx.createLinearGradient(0,0,400,0)
             //var grd=ctx.createRadialGradient(75,50,5,90,60,100)
-            grd.addColorStop(0,"red")
+            grd.addColorStop(0,"black")
+            grd.addColorStop(0.5,"red")
             grd.addColorStop(1,"white")
             ctx.fillStyle=grd
             ctx.fillRect(0,0,400,250)
