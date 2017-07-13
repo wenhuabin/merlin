@@ -4,6 +4,7 @@ import About from '@/components/About'
 import Test from '@/components/Test'
 import D3 from '@/components/D3'
 import ChartJs from '@/components/ChartJS'
+import Canvas from '@/components/Canvas'
 import Login from '@/Login'
 import Coming from '@/Coming'
 import Signup from '@/Signup'
@@ -35,6 +36,10 @@ const router = new Router({
             path: 'cjs',
             name: 'cjs',
             component: ChartJs
+        },{
+            path: 'canvas',
+            name: 'canvas',
+            component: Canvas 
         },{
             path: 'component',
             name: 'component',
