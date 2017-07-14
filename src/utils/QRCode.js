@@ -12,6 +12,13 @@ export default ({
 
     var ctx = canvas.getContext('2d');
 
+	//ctx.fillStyle='#fff';
+	////ctx.arc(90,90,35,0,2*Math.PI);
+	////ctx.fill();
+	////ctx.beginPath();
+	//ctx.arc(90,90,30,0,2*Math.PI);
+	//ctx.fill();
+
     var cells = qrcode.modules;
 
     var tileW = width  / cells.length;
@@ -26,4 +33,10 @@ export default ({
             ctx.fillRect(Math.round(c*tileW), Math.round(r*tileH), w, h);
         }
     }
+	ctx.clearRect(55,55,70,70);
+	var image = new Image()
+	image.onload = function() {
+    	ctx.drawImage(image, 60, 60, 60, 60)
+	};
+	image.src = "/static/img/logo.7c0592a.jpg"
 };
