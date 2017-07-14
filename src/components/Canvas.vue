@@ -5,6 +5,10 @@
 <template>
     <div class="canvas-demo">
         <h1>Canvas</h1>
+		<h2>7、QRCode</h2>
+        <div class="demo">
+            <canvas id="canvas-qrcode" width="180" height="180">您的浏览器不支持 HTML5 canvas 标签。</canvas>
+        </div>
 		<h2>6、Clip</h2>
         <div class="demo">
             <canvas id="canvas-clip" width="400" height="250">您的浏览器不支持 HTML5 canvas 标签。</canvas>
@@ -33,6 +37,7 @@
 </template>
 
 <script>
+import ShowQRCode from 'utils/QRCode'
 
 export default {
     name: 'canvas',
@@ -47,6 +52,7 @@ export default {
         this.drawGran()
         this.drawBezier()
         this.drawClip()
+		ShowQRCode({canvas: document.getElementById("canvas-qrcode"), context: "https://vue.huabinwen.com"})
     },
     methods: {
         drawLine: function(){
