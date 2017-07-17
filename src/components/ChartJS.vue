@@ -19,11 +19,11 @@
         </div>
 		<h2>4、圆环图</h2>
         <div class="demo">
-            <Doughnut :chartData="doughnutData" :options="options" :width="500" :height="350"></Doughnut>
+            <Doughnut :chartData="doughnutData" :options="pieOptions" :width="500" :height="350"></Doughnut>
         </div>
 		<h2>5、饼图</h2>
         <div class="demo">
-            <Pie :chartData="doughnutData" :options="options" :width="500" :height="350"></Pie>
+            <Pie :chartData="doughnutData" :options="pieOptions" :width="500" :height="350"></Pie>
         </div>
 		<h2>6、雷达图</h2>
         <div class="demo">
@@ -149,6 +149,42 @@ export default {
 					xPadding: 10,
 					yPadding: 10,
         		},
+            },
+			pieOptions: {
+                responsive: false, //to set a fix width and height
+                maintainAspectRatio: false,
+				//cutoutPercentage: 50,
+				//rotation: -0.5 * Math.PI,
+				//circumference: 2,
+				legend: {
+        		    display: true,
+					position: 'top',
+        		    labels: {
+        		        fontColor: '#444'
+        		    }
+        		},
+				title: {
+	            	display: true,
+            		text: '测试组件',
+					fontSize: 18,
+					fontFamily: "sans-serif",
+        		},
+				tooltips: {
+					width: 1000,
+					backgroundColor: "#fff",
+					titleFontColor: "#444",
+					titleFontSize: 16,
+					bodyFontColor: "#444",
+					titleMarginBottom: 15,
+					bodySpacing: 30,
+					footerMarginTop: 20,
+					xPadding: 10,
+					yPadding: 10,
+        		},
+                animation: {
+                    easing: 'easeInOutSine',
+
+                }
             },
             options: {
                 responsive: false, //to set a fix width and height
