@@ -96,6 +96,10 @@ export default {
 					xPadding: 10,
 					yPadding: 10,
         		},
+                animation: {
+                    easing: 'easeInOutSine',
+
+                }
             },
       }
     },
