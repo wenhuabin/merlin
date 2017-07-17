@@ -5,7 +5,7 @@ export default ({
     context,
     width=180,
     height=180,
-	src = "/static/img/logo.7c0592a.jpg"
+	src 
 }) => {
     const qrcode = qr(context);
     canvas.width = width;
@@ -27,10 +27,14 @@ export default ({
             ctx.fillRect(Math.round(c*tileW), Math.round(r*tileH), w, h);
         }
     }
-	ctx.clearRect(60,60,65,65);
-	var image = new Image()
-	image.onload = function() {
-    	ctx.drawImage(image, 65, 65, 55, 55)
-	};
-	image.src = src 
+
+    var image;
+    if(src){
+	    ctx.clearRect(60,60,65,65);
+	    image = new Image()
+	    image.onload = function() {
+        	ctx.drawImage(image, 65, 65, 55, 55)
+	    };
+	    image.src = src 
+    }
 };
