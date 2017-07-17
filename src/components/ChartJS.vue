@@ -115,13 +115,14 @@ export default {
 			barOptions: {
                 responsive: false, //to set a fix width and height
                 maintainAspectRatio: false,
-				barPercentage: 1,
-				categoryPercentage: 1,
-				barThickness: 300,
-				maxBarThickness: 300,
 				scales: {
 					xAxes: [{
-						barThickness: 45,
+						barThickness: 25,
+						barPercentage: 1,
+						categoryPercentage: 1,
+						gridLines: {
+            			    offsetGridLines: true
+            			},
 					}],
 				},
 				legend: {
@@ -230,6 +231,10 @@ export default {
     	    datasets: [{
     	        label: '收入',
       	        backgroundColor: '#f87979',
+    	        data: generateData(6, 10, 100)
+    	    },{
+    	        label: '支出',
+      	        backgroundColor: '#41B883',
     	        data: generateData(6, 10, 100)
     	    }]
     	  }
