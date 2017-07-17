@@ -118,8 +118,7 @@ export default {
 				scales: {
 					xAxes: [{
 						barThickness: 25,
-						barPercentage: 1,
-						categoryPercentage: 1,
+						categoryPercentage: 0.8,
 						gridLines: {
             			    offsetGridLines: true
             			},
