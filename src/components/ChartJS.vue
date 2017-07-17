@@ -7,7 +7,7 @@
 		<h1>ChartJS 组件</h1>
 		<h2>1、折线图</h2>
         <div class="demo">
-            <LineChart :chartData="lineData" :options="options" :width="500" :height="350"></LineChart>
+            <LineChart :chartData="lineData" :options="lineOptions" :width="500" :height="350"></LineChart>
         </div>
 		<h2>2、柱状图</h2>
         <div class="demo">
@@ -67,10 +67,61 @@ export default {
 			polarAreaData: {},
 			bubbleData: {},
 			scatterData: [],
+			lineOptions: {
+                responsive: false, //to set a fix width and height
+                maintainAspectRatio: false,
+                scaleLineColor : "rgba(60,141,188,0.8)",
+				scaleShowGridLines : true, 
+                scaleGridLineColor : "rgba(0,0,0,.35)",
+                scaleGridLineWidth : 1,
+                scaleShowHorizontalLines : true,
+                scaleShowVerticalLines : true,
+				scales: {
+			        yAxes: [{
+			          gridLines: {
+			            display: true 
+			          }
+			        }],
+			        xAxes: [{
+			          gridLines: {
+			            display: true 
+			          }
+			        }]
+			    },
+				legend: {
+        		    display: true,
+					position: 'top',
+        		    labels: {
+        		        fontColor: '#444'
+        		    }
+        		},
+				title: {
+	            	display: true,
+            		text: '测试组件',
+					fontSize: 18,
+					fontFamily: "sans-serif",
+        		},
+				tooltips: {
+					width: 1000,
+					backgroundColor: "#fff",
+					titleFontColor: "#444",
+					titleFontSize: 16,
+					bodyFontColor: "#444",
+					titleMarginBottom: 15,
+					bodySpacing: 30,
+					footerMarginTop: 20,
+					xPadding: 10,
+					yPadding: 10,
+        		},
+                animation: {
+                    easing: 'easeInOutSine',
+
+                }
+            },
             options: {
                 responsive: false, //to set a fix width and height
                 maintainAspectRatio: false,
-				scaleShowGridLines : true, 
+                scaleLineColor : "rgba(60,141,188,0.8)",
 				legend: {
         		    display: true,
 					position: 'top',
