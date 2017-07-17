@@ -11,7 +11,7 @@
         </div>
 		<h2>2、柱状图</h2>
         <div class="demo">
-            <BarChart :chartData="barData" :options="options" :width="500" :height="350"></BarChart>
+            <BarChart :chartData="barData" :options="barOptions" :width="500" :height="350"></BarChart>
         </div>
 		<h2>3、水平柱状图</h2>
         <div class="demo">
@@ -70,12 +70,6 @@ export default {
 			lineOptions: {
                 responsive: false, //to set a fix width and height
                 maintainAspectRatio: false,
-                scaleLineColor : "rgba(60,141,188,0.8)",
-				scaleShowGridLines : true, 
-                scaleGridLineColor : "rgba(0,0,0,.35)",
-                scaleGridLineWidth : 1,
-                scaleShowHorizontalLines : true,
-                scaleShowVerticalLines : true,
 				scales: {
 			        yAxes: [{
 			          gridLines: {
@@ -117,6 +111,44 @@ export default {
                     easing: 'easeInOutSine',
 
                 }
+            },
+			barOptions: {
+                responsive: false, //to set a fix width and height
+                maintainAspectRatio: false,
+				barPercentage: 1,
+				categoryPercentage: 1,
+				barThickness: 300,
+				maxBarThickness: 300,
+				scales: {
+					xAxes: [{
+						barThickness: 45,
+					}],
+				},
+				legend: {
+        		    display: true,
+					position: 'top',
+        		    labels: {
+        		        fontColor: '#444'
+        		    }
+        		},
+				title: {
+	            	display: true,
+            		text: '测试组件',
+					fontSize: 18,
+					fontFamily: "sans-serif",
+        		},
+				tooltips: {
+					width: 1000,
+					backgroundColor: "#fff",
+					titleFontColor: "#444",
+					titleFontSize: 16,
+					bodyFontColor: "#444",
+					titleMarginBottom: 15,
+					bodySpacing: 30,
+					footerMarginTop: 20,
+					xPadding: 10,
+					yPadding: 10,
+        		},
             },
             options: {
                 responsive: false, //to set a fix width and height
@@ -194,11 +226,11 @@ export default {
     	},
         fillBarData () {
     	  return {
-    	    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+    	    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
     	    datasets: [{
     	        label: '收入',
       	        backgroundColor: '#f87979',
-    	        data: generateData(12, 10, 100)
+    	        data: generateData(6, 10, 100)
     	    }]
     	  }
     	},
