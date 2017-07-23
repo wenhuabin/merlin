@@ -22,7 +22,7 @@ const router = new Router({
         name: '/',
         component: Dashboard,
 		meta: {
-            requireAuth: true,
+            requireAuth: false,
         },
         //子路由不需要加斜杠 Note that nested paths that start with / will be treated as a root path. This allows you to leverage the component nesting without having to use a nested URL.
         children: [{
