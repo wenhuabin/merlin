@@ -69,34 +69,35 @@ const router = new Router({
     }]
 })
 
-router.beforeEach((to, from, next) => {
-    if (to.matched.some(r => r.meta.requireAuth)) {
-        if(!!store.getters.getToken.email){
-            next();
-        }else{
-            let token = JSON.parse(sessionStorage.getItem('token')) 
-            if(token && token.email){
-				store.dispatch(types.SET_LOGIN_TOKEN, token)
-                next();
-            }else{
-                next({
-                    path: '/login',
-                    query: {redirect: to.fullPath}
-                })
-            }
-        }
-    }else{
-        let token = JSON.parse(sessionStorage.getItem('token')) 
-        if(token && token.email){
-			store.dispatch(types.SET_LOGIN_TOKEN, token)
-            next({
-                path: '/',
-                query: {redirect: to.fullPath}
-            })
-        }else{
-            next();
-        }
-    }
-})
+//导致重复dispatch，需要修复
+//router.beforeEach((to, from, next) => {
+//    if (to.matched.some(r => r.meta.requireAuth)) {
+//        if(!!store.getters.getToken.email){
+//            next();
+//        }else{
+//            let token = JSON.parse(sessionStorage.getItem('token')) 
+//            if(token && token.email){
+//				store.dispatch(types.SET_LOGIN_TOKEN, token)
+//                next();
+//            }else{
+//                next({
+//                    path: '/login',
+//                    query: {redirect: to.fullPath}
+//                })
+//            }
+//        }
+//    }else{
+//        let token = JSON.parse(sessionStorage.getItem('token')) 
+//        if(token && token.email){
+//			store.dispatch(types.SET_LOGIN_TOKEN, token)
+//            next({
+//                path: '/',
+//                query: {redirect: to.fullPath}
+//            })
+//        }else{
+//            next();
+//        }
+//    }
+//})
 
 export default router

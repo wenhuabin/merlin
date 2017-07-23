@@ -6,8 +6,9 @@
     <div id="content">
         <header class="header">
             <img class="logo" src="./assets/imgs/logo.jpg">
-            <div class="brand">SpaceX</div>
-            <div class="logout" @click="logout">退出登录</div>
+            <div class="brand">{{uname}}</div>
+            <div class="logout" @click="logout" v-if="!isLogin">登录</div>
+            <div class="logout" @click="logout" v-if="isLogin">退出登录</div>
             <div class="setting-box" @mouseover="optionsShow(1)" @mouseleave="optionsShow(0)">
                 <div class="setting">设置</div>
                 <ul class="options" v-bind:style="optionsStyle">
@@ -50,17 +51,25 @@ export default {
 	computed:{
         isRoot: function(){
             return this.$route.path === '/'
-
-        }
+        },
+        uname: function(){
+            return this.$store.getters.getToken.uname ? this.$store.getters.getToken.uname : 'SpaceX' 
+        },
+        isLogin: function(){
+            return !!this.$store.getters.getToken.email
+        },
 	},
     methods: {
         optionsShow: function(flag){
             this.optionsStyle = flag ? {display: "block"} : {display: "none"}
         },
         logout: function(){
-            this.$store.dispatch(types.SET_LOGIN_TOKEN, {})
-            sessionStorage.clear();
-			this.$router.push('/login');
+            if(this.isLogin){
+                this.$store.dispatch(types.SET_LOGIN_TOKEN, {})
+                sessionStorage.clear();
+            }else{
+			    this.$router.push('/login');
+            }
         },
     },
     components: {
