@@ -96,8 +96,7 @@ export default {
     return {
         time: this.date ? moment(this.date).format(this.option.format) : moment().format(this.option.format),
         hour: this.date ? moment(this.date).format(this.option.format + ' HH:MM').substring(11,13) : moment().format(this.option.format+ ' HH:MM').substring(11,13),
-        minute: this.date ? moment(this.date).format(this.option.format + ' HH:MM').substring(11,13) : moment().format(this.option.format+ ' HH:MM').substring(14),
-        minute: '31',
+        minute: this.date ? moment(this.date).format(this.option.format + ' HH:MM').substring(14) : moment().format(this.option.format+ ' HH:MM').substring(14),
         calendarStyle: {display: "none"},
         yearHoverStyle: {},
         monthHoverStyle: {},
