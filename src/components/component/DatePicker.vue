@@ -179,7 +179,7 @@ export default {
           let year = moment(this.checked.currentMoment).year()
           this.library.year = []
           let yearTmp = []
-          for (let i = year + 50; i > year - 50; --i) {
+          for (let i = year + 20; i > year - 30; --i) {
             yearTmp.push(i)
           }
           this.library.year = yearTmp
