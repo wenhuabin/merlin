@@ -5,22 +5,22 @@
 <template>
   <div class="cov-vue-date" :class="option.wrapperClass ? option.wrapperClass : {}">
       <div class="input-box">
-          <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="time" :required="required" @click="showCalendar" />
+          <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="fullTime" :required="required" @click="showCalendar" />
       </div>
       <div class="cov-date-body" :style="calendarStyle" @mouseleave="showCalendar">
           <div class="cov-date-header">
               <div class="cov-date-previous" @click="nextMonth('pre')"></div>
               <div class="cov-date-year">
                   <div class="year" @click="showYear" v-bind:style="yearHoverStyle">{{checked.year}}</div>
-                  <ul class="date-list year-list" id="yearList" v-if="showInfo.year">
+                  <ul class="date-list year-list" id="yearList" v-if="showInfo.year" @mouseleave="showYear">
                     <li class="date-item" v-for="yearItem,index in library.year" :key="index" @click="setYear(yearItem)">{{yearItem}}</li>
                   </ul>
               </div>
               <div class="cov-date-month">
                   <div class="month" @click="showMonth" v-bind:style="monthHoverStyle">{{displayInfo.month}}</div>
-                <ul class="date-list month-list" v-if="showInfo.month">
-                  <li class="date-item" v-for="monthItem,index in library.month" :key="index" @click="setMonth(monthItem)">{{monthItem}}</li>
-                </ul>
+                  <ul class="date-list month-list" v-if="showInfo.month" @mouseleave="showMonth">
+                    <li class="date-item" v-for="monthItem,index in library.month" :key="index" @click="setMonth(monthItem)">{{monthItem}}</li>
+                  </ul>
               </div>
               <div class="cov-date-next" @click="nextMonth('next')"></div>
           </div>
@@ -32,6 +32,23 @@
               </div>
               <div class="daylist">
                   <div class="day" v-for="day,index in dayList" :key="index" @click="checkDay(day)" :class="{'checked':day.checked,'unavailable':day.unavailable,'passive-day': !(day.inMonth)}" >{{day.value}}</div>
+              </div>
+          </div>
+          <div class="cov-time-box">
+              <div class="time-list-box" v-if="this.showInfo.time" @mouseleave="showTime()">
+                <ul class="hour-list time-list">
+                    <li class="hour-item" v-for="h, index in hourList" :key="h" @click="setHour(h)">{{h}}</li>
+                </ul>
+                <ul class="minute-list time-list">
+                    <li class="minute-item" v-for="m, index in minuteList" :key="m" @click="setMinute(m)">{{m}}</li>
+                </ul>
+              </div>
+              <div class="hour-box">
+                  <div class="hour" @click="showTime()">{{hour}}</div>
+              </div>
+              <div class="time-colon">:</div>
+              <div class="minute-box">
+                  <div class="minute" @click="showTime()">{{minute}}</div>
               </div>
           </div>
       </div>
@@ -72,7 +89,10 @@ export default {
   },
   data () {
     return {
-        time: this.date ? this.date : moment().format(this.option.format),
+        time: this.date ? moment(this.date).format(this.option.format) : moment().format(this.option.format),
+        hour: this.date ? moment(this.date).format(this.option.format + ' HH:MM').substring(11,13) : moment().format(this.option.format+ ' HH:MM').substring(11,13),
+        minute: this.date ? moment(this.date).format(this.option.format + ' HH:MM').substring(11,13) : moment().format(this.option.format+ ' HH:MM').substring(14),
+        minute: '31',
         calendarStyle: {display: "none"},
         yearHoverStyle: {},
         monthHoverStyle: {},
@@ -80,6 +100,7 @@ export default {
             day: true,
             month: false,
             year: false,
+            time: false,
         },
         displayInfo: {
             month: ''
@@ -97,20 +118,43 @@ export default {
             day: this.date ? moment(this.date).format('DD') : moment().format('DD'),
         },
         dayList: [],
-        selectedDays: []
+        selectedDays: [],
+        hourList: ['00','01','02','03','04','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23'],
+        minuteList: ['00','01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','37','38','39','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59'],
       }
   },
   beforeMount(){
       this.showDay()
   },
+  computed: {
+      fullTime: function(){
+          return this.time + ' ' + this.hour + ':' + this.minute
+      },
+  },
   methods: {
+      showTime(){
+          if(!this.showInfo.time){
+            this.showInfo.year = false 
+            this.showInfo.month = false 
+            this.yearHoverStyle = {} 
+            this.monthHoverStyle = {} 
+          }
+          this.showInfo.time = this.showInfo.time? false : true; 
+      },
+      setHour(hour){
+          this.hour = hour
+          this.$emit('onPick', this.fullTime)
+      },
+      setMinute(minute){
+          this.minute = minute
+          this.$emit('onPick', this.fullTime)
+      },
       optionsShow(flag){
           if(!flag){
               this.yearHoverStyle = this.yearHoverStyle.background ? {} : {background: "rgba(255, 255, 255, 0.1"} 
           }else{
               this.monthHoverStyle = this.monthHoverStyle.background ? {} : {background: "rgba(255, 255, 255, 0.1"} 
           }
-
       },
       pad (n) {
         n = Math.floor(n)
@@ -188,7 +232,7 @@ export default {
       },
       showMonth () {
         this.showInfo.month = this.showInfo.month ? false : true; 
-          this.optionsShow(1)
+        this.optionsShow(1)
       },
       setYear (year) {
         this.checked.currentMoment = moment(year + '-' + this.checked.month + '-' + this.checked.day)
@@ -207,21 +251,21 @@ export default {
         this.optionsShow(1)
       },
       showCalendar () {
-        this.calendarStyle = this.calendarStyle.display === "block" ? {display: "none"} : {display: "block"} 
-        if(this.calendarStyle.display === "none"){
-            this.showInfo.year = false
-            this.showInfo.month = false
-        }else{
-            this.checked.oldtime = this.date ? moment(this.date) : moment()
-            this.checked.currentMoment = this.date ? moment(this.date) : moment()
-            this.showDay()
-        }
+          this.calendarStyle = this.calendarStyle.display === "block" ? {display: "none"} : {display: "block"} 
+          if(this.calendarStyle.display === "none"){
+              this.showInfo.year = false
+              this.showInfo.month = false
+          }else{
+              this.checked.oldtime = this.time? moment(this.time) : moment()
+              this.checked.currentMoment = this.time? moment(this.time) : moment()
+              this.showDay()
+          }
       },
       picked () {
         let ctime = this.checked.year + '-' + this.checked.month + '-' + this.checked.day
         this.checked.currentMoment = moment(ctime, 'YYYY-MM-DD')
         this.time = moment(this.checked.currentMoment).format(this.option.format)
-        this.$emit('onPick', this.time)
+        this.$emit('onPick', this.fullTime)
       },
       showDay () {
           this.checked.year = moment(this.checked.currentMoment).format('YYYY')

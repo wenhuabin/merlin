@@ -20,6 +20,7 @@
 }
 .cov-date-body {
     position: absolute;
+    padding: 0;
     background: #fff;
     font-size: 16px;
     font-weight: 400;
@@ -27,6 +28,7 @@
     margin-top: 10px;
     border-radius: 5px;
     box-shadow: 0 0 0 1px hsla(0,0%,100%,.85) inset, 0 0.5em 1em rgba(0, 0, 0, 0.6);
+    z-index: 13;
 }
 .cov-date-box {
     display: inline-block;
@@ -89,10 +91,10 @@
     cursor: not-allowed;
 }
 .cov-date-header{
+    margin-left: -1px;
     height: 45px;
-    width: 100%;
+    width: 273px;
     background: #3F51B5;
-    opacity: .9;
 }
 .cov-date-previous,
 .cov-date-next,
@@ -177,10 +179,10 @@
     transform: rotate(-40deg);
 }
 .cov-date-next::before{
-    left: 55%;
+    left: 58%;
 }
 .cov-date-next::after{
-    left: 55%;
+    left: 58%;
 }
 .day:hover {
     background: #f50057;
@@ -195,7 +197,8 @@
 }
 .date-item {
     font-size: 16px;
-    line-height: 35px;
+    line-height: 30px;
+    height: 30px;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -211,12 +214,15 @@
 }
 .date-list {
     position: absolute;
-    height: 255px;
+    height: 245px;
     overflow: auto;
     vertical-align: top;
     padding: 0;
     background-color: #fff;
-    box-shadow: 0 0 0 1px hsla(0,0%,90%,.85) inset, 0 0.2em .5em rgba(0, 0, 0, 0.3);
+    border-left: 1px solid #dcdcdc;
+    border-right: 1px solid #dcdcdc;
+    border-bottom: 1px solid #dcdcdc;
+    //box-shadow: 0 0 0 1px hsla(0,0%,90%,.65) inset, 0 0.2em .5em rgba(0, 0, 0, 0.3);
 }
 .year-list{
     width: 80px;
@@ -225,6 +231,75 @@
     width: 98px;
     li{
         font-size: 15px;
+    }
+}
+
+.cov-time-box{
+    position: relative;
+    margin: 0 auto;
+    width: 252px;
+    height: 40px;
+    border-top: 1px solid #dcdcdc;
+    .hour-box,
+    .minute-box{
+        display: inline-block;
+        width: 113px;
+        height: 39px;
+        vertical-align: top;
+    }
+    .hour,
+    .minute{
+        width: 113px;
+        height: 39px;
+        line-height: 39px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+
+    }
+    .time-colon{
+        display: inline-block;
+        width: 15px;
+        line-height: 35px;
+        height: 35px;
+        font-size: 28px;
+        text-align: center;
+        font-weight: 300;
+    }
+    .time-list-box{
+        position: absolute;
+        bottom: 39px;
+    }
+    .time-list {
+        float: left;
+        padding-top: 5px;
+        padding-bottom: 15px;
+        height: 110px;
+        width: 126px;
+        overflow: auto;
+        vertical-align: top;
+        padding: 0;
+        background-color: #fff;
+        border-top: 1px solid #dcdcdc;
+        border-bottom: 1px solid #dcdcdc;
+        li{
+            font-size: 15px;
+            cursor: pointer;
+            width: 113px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+        li:hover{
+            background: #dcdcdc;
+            color: #fff;
+        }
+    }
+    .hour-list{
+    }
+    .minute-list{
+        padding-left: 12px;
+        border-left: 1px solid #dcdcdc;
     }
 }
 
