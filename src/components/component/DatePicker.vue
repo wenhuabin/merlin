@@ -34,7 +34,7 @@
                   <div class="day" v-for="day,index in dayList" :key="index" @click="checkDay(day)" :class="{'checked':day.checked,'unavailable':day.unavailable,'passive-day': !(day.inMonth)}" >{{day.value}}</div>
               </div>
           </div>
-          <div class="cov-time-box">
+          <div class="cov-time-box" v-if="ifTime">
               <div class="time-list-box" v-if="this.showInfo.time" @mouseleave="showTime()">
                 <ul class="hour-list time-list">
                     <li class="hour-item" v-for="h, index in hourList" :key="h" @click="setHour(h)">{{h}}</li>
@@ -85,7 +85,12 @@ export default {
       default () {
         return []
       }
-    }
+    },
+    ifTime: {
+      type: Boolean,
+      default: false,
+      required: false 
+    },
   },
   data () {
     return {
@@ -128,7 +133,7 @@ export default {
   },
   computed: {
       fullTime: function(){
-          return this.time + ' ' + this.hour + ':' + this.minute
+          return this.ifTime ? this.time + ' ' + this.hour + ':' + this.minute : this.time
       },
   },
   methods: {
@@ -265,7 +270,7 @@ export default {
         let ctime = this.checked.year + '-' + this.checked.month + '-' + this.checked.day
         this.checked.currentMoment = moment(ctime, 'YYYY-MM-DD')
         this.time = moment(this.checked.currentMoment).format(this.option.format)
-        this.$emit('onPick', this.fullTime)
+        this.$emit('onPick', this.ifTime ? this.fullTime : this.time)
       },
       showDay () {
           this.checked.year = moment(this.checked.currentMoment).format('YYYY')
