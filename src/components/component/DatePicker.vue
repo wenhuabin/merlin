@@ -13,13 +13,13 @@
               <div class="cov-date-year">
                   <div class="year" @click="showYear" v-bind:style="yearHoverStyle">{{checked.year}}</div>
                   <ul class="date-list year-list" id="yearList" v-if="showInfo.year" @mouseleave="showYear">
-                    <li class="date-item" v-for="yearItem,index in library.year" :key="index" @click="setYear(yearItem)">{{yearItem}}</li>
+                      <li class="date-item"  v-for="yearItem,index in library.year" :class="{yearChecked : checked.year == yearItem}" :key="index" @click="setYear(yearItem)">{{yearItem}}</li>
                   </ul>
               </div>
               <div class="cov-date-month">
                   <div class="month" @click="showMonth" v-bind:style="monthHoverStyle">{{displayInfo.month}}</div>
                   <ul class="date-list month-list" v-if="showInfo.month" @mouseleave="showMonth">
-                    <li class="date-item" v-for="monthItem,index in library.month" :key="index" @click="setMonth(monthItem)">{{monthItem}}</li>
+                      <li class="date-item" v-for="monthItem,index in library.month" :class="{monthChecked : displayInfo.month == monthItem}" :key="index" @click="setMonth(monthItem)">{{monthItem}}</li>
                   </ul>
               </div>
               <div class="cov-date-next" @click="nextMonth('next')"></div>
@@ -37,10 +37,10 @@
           <div class="cov-time-box" v-if="ifTime">
               <div class="time-list-box" v-if="this.showInfo.time" @mouseleave="showTime()">
                 <ul class="hour-list time-list">
-                    <li class="hour-item" v-for="h, index in hourList" :key="h" @click="setHour(h)">{{h}}</li>
+                    <li class="hour-item" v-for="h, index in hourList" :class="{hourChecked : hour == h}" :key="h" @click="setHour(h)">{{h}}</li>
                 </ul>
                 <ul class="minute-list time-list">
-                    <li class="minute-item" v-for="m, index in minuteList" :key="m" @click="setMinute(m)">{{m}}</li>
+                    <li class="minute-item" v-for="m, index in minuteList" :class="{minuteChecked : minute == m}" :key="m" @click="setMinute(m)">{{m}}</li>
                 </ul>
               </div>
               <div class="hour-box">

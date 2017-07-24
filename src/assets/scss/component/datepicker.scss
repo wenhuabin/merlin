@@ -222,7 +222,6 @@
     border-left: 1px solid #dcdcdc;
     border-right: 1px solid #dcdcdc;
     border-bottom: 1px solid #dcdcdc;
-    //box-shadow: 0 0 0 1px hsla(0,0%,90%,.65) inset, 0 0.2em .5em rgba(0, 0, 0, 0.3);
 }
 .year-list{
     width: 80px;
@@ -301,6 +300,14 @@
         padding-left: 12px;
         border-left: 1px solid #dcdcdc;
     }
+}
+
+.yearChecked,
+.monthChecked,
+.hourChecked,
+.minuteChecked{
+    background: #dcdcdc;
+    color: #fff;
 }
 
 ::-webkit-scrollbar {
