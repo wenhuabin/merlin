@@ -5,9 +5,9 @@
 <template>
   <div class="cov-vue-date" :class="option.wrapperClass ? option.wrapperClass : {}">
       <div class="input-box">
-          <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="time" :required="required" @click="showCheck" />
+          <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="time" :required="required" @click="showCalendar" />
       </div>
-      <div class="cov-date-body" :style="calendarStyle" @mouseleave="showCheck">
+      <div class="cov-date-body" :style="calendarStyle" @mouseleave="showCalendar">
           <div class="cov-date-header">
               <div class="cov-date-previous" @click="nextMonth('pre')"></div>
               <div class="cov-date-year">
@@ -206,8 +206,16 @@ export default {
         this.showInfo.month = false
         this.optionsShow(1)
       },
-      showCheck () {
+      showCalendar () {
         this.calendarStyle = this.calendarStyle.display === "block" ? {display: "none"} : {display: "block"} 
+        if(this.calendarStyle.display === "none"){
+            this.showInfo.year = false
+            this.showInfo.month = false
+        }else{
+            this.checked.oldtime = this.date ? moment(this.date) : moment()
+            this.checked.currentMoment = this.date ? moment(this.date) : moment()
+            this.showDay()
+        }
       },
       picked () {
         let ctime = this.checked.year + '-' + this.checked.month + '-' + this.checked.day
