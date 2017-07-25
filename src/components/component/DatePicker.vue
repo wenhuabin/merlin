@@ -97,8 +97,8 @@ export default {
   data () {
     return {
         time: this.date ? moment(this.date).format(this.option.format) : moment().format(this.option.format),
-        hour: this.date ? moment(this.date).format(this.option.format + ' HH:MM').substring(11,13) : moment().format(this.option.format+ ' HH:MM').substring(11,13),
-        minute: this.date ? moment(this.date).format(this.option.format + ' HH:MM').substring(14) : moment().format(this.option.format+ ' HH:MM').substring(14),
+        hour: this.date ? moment(this.date).format(this.option.format + ' HH:mm').substring(11,13) : moment().format(this.option.format+ ' HH:mm').substring(11,13),
+        minute: this.date ? moment(this.date).format(this.option.format + ' HH:mm').substring(14) : moment().format(this.option.format+ ' HH:mm').substring(14),
         calendarStyle: {display: "none"},
         yearHoverStyle: {},
         monthHoverStyle: {},
@@ -128,6 +128,20 @@ export default {
         hourList: ['00','01','02','03','04','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23'],
         minuteList: ['00','01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','37','38','39','38','39','40','41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59'],
       }
+  },
+  watch: {
+      date: function(new_date){
+          console.log('change ', new_date)
+          this.time = moment(new_date).format(this.option.format)
+          this.hour = moment(new_date).format(this.option.format + ' HH:mm').substring(11,13)
+          this.minute = moment(new_date).format(this.option.format + ' HH:mm').substring(14)
+          this.checked.oldtime = moment(new_date)
+          this.checked.currentMoment = moment(new_date)
+          this.checked.year = moment(new_date).format('YYYY')
+          this.checked.month = moment(new_date).format('MM')
+          this.checked.day = moment(new_date).format('DD')
+          this.showDay()
+      },
   },
   beforeMount(){
       this.showDay()

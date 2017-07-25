@@ -37,8 +37,15 @@ export default {
         value: '请选择',
         key: -1,
         list: [{value: '测试1', disabled: false},{value: '测试2', disabled: false},{value: '测试3', disabled: false},{value: '测试4', disabled: false},{value: '非常长的非常长的条目条目5', disabled: false}],
-        date: moment().format("YYYY-MM-DD HH:MM"),
+        date: moment().format("YYYY-MM-DD HH:mm"),
     }
+  },
+  mounted(){
+      //let i = 1
+      //setInterval(()=>{
+      //    console.log(moment().add(i, 'days').format("YYYY-MM-DD HH:mm:ss"))
+      //    this.date = moment().add(i++, 'days').format("YYYY-MM-DD HH:mm:ss")
+      //}, 5000)
   },
   methods: {
       onPageChange: function(p){
