@@ -99,7 +99,7 @@ export default {
         time: this.date ? moment(this.date).format(this.option.format) : moment().format(this.option.format),
         hour: this.date ? moment(this.date).format(this.option.format + ' HH:mm').substring(11,13) : moment().format(this.option.format+ ' HH:mm').substring(11,13),
         minute: this.date ? moment(this.date).format(this.option.format + ' HH:mm').substring(14) : moment().format(this.option.format+ ' HH:mm').substring(14),
-        calendarStyle: {display: "none"},
+        calendarStyle: {display: "block"},
         yearHoverStyle: {},
         monthHoverStyle: {},
         showInfo: {
@@ -271,7 +271,7 @@ export default {
         this.optionsShow(1)
       },
       showCalendar () {
-          this.calendarStyle = this.calendarStyle.display === "block" ? {display: "none"} : {display: "block"} 
+          //this.calendarStyle = this.calendarStyle.display === "block" ? {display: "none"} : {display: "block"} 
           if(this.calendarStyle.display === "none"){
               this.showInfo.year = false
               this.showInfo.month = false
