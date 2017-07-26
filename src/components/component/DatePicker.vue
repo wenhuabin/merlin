@@ -4,11 +4,11 @@
 
 <template>
   <div class="cov-vue-date" :class="option.wrapperClass ? option.wrapperClass : {}">
-      <div class="input-box">
-          <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="fullTime" :required="required" @click="showCalendar" />
+      <div class="input-box" :style="cuStyle.inputCoverBoxSize">
+          <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="fullTime" :required="required" @click="showCalendar" :style="cuStyle.inputBoxSize"/>
       </div>
       <div class="cov-date-body" :style="calendarStyle" @mouseleave="showCalendar">
-          <div class="cov-date-header">
+          <div class="cov-date-header" :style="cuStyle.headerBackgroundColor">
               <div class="cov-date-previous" @click="nextMonth('pre')"></div>
               <div class="cov-date-year">
                   <div class="year" @click="showYear" v-bind:style="yearHoverStyle">{{checked.year}}</div>
@@ -67,18 +67,27 @@ export default {
       default: '',
       required: false 
     },
+    customStyle:{
+      type: Object,
+      default () {
+        return {
+            headerBackgroundColor: '#3f51b5',
+            inputBoxSize: {width: 210, height: 45, paddingLeft: 20}
+        }
+      }
+    },
     option: {
       type: Object,
       default () {
         return {
-          type: 'day',
-          SundayFirst: true,
-          //week: ['日', '一', '二', '三', '四', '五', '六'],
-          //month: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
-          week: ['SUN', 'MON', 'TUE', 'WEN', 'THU', 'FRI', 'SAT'],
-          month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-          format: 'YYYY-MM-DD',
-          wrapperClass: '',
+            type: 'day',
+            SundayFirst: true,
+            //week: ['日', '一', '二', '三', '四', '五', '六'],
+            //month: ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'],
+            week: ['SUN', 'MON', 'TUE', 'WEN', 'THU', 'FRI', 'SAT'],
+            month: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+            format: 'YYYY-MM-DD',
+            wrapperClass: '',
         }
       }
     },
@@ -102,6 +111,11 @@ export default {
         calendarStyle: {display: "block"},
         yearHoverStyle: {},
         monthHoverStyle: {},
+        cuStyle: { 
+            headerBackgroundColor: {backgroundColor: this.customStyle.backgroundColor},
+            inputBoxSize: {width: this.customStyle.inputBoxSize.width + 'px', height: this.customStyle.inputBoxSize.height + 'px', paddingLeft: this.customStyle.inputBoxSize.paddingLeft + 'px'},
+            inputCoverBoxSize: {width: this.customStyle.inputBoxSize.width + 'px', height: this.customStyle.inputBoxSize.height + 'px'}
+        },
         showInfo: {
             day: true,
             month: false,
