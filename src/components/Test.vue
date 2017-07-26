@@ -13,7 +13,7 @@
             </div>
 			<div class="date-picker">
                 <div class="hint">日历选择器测试</div>
-				<DatePicker :date="date" :ifTime="true" @onPick="onPick"/>
+                <DatePicker :date="date" :ifTime="true" @onPick="onPick"/>
                 <div class="hint">Date: {{date}}</div>
 			</div>
             <div class="showPage">翻页导航实例：Page: {{page}} / Pages: {{pages}}</div>
@@ -38,10 +38,6 @@ export default {
         key: -1,
         list: [{value: '测试1', disabled: false},{value: '测试2', disabled: false},{value: '测试3', disabled: false},{value: '测试4', disabled: false},{value: '非常长的非常长的条目条目5', disabled: false}],
         date: moment().format("YYYY-MM-DD HH:mm"),
-        inputStyle:{
-            headerBackgroundColor: '#3f51b5',
-            inputBoxSize: {width: 210, height: 30, paddingLeft: 10}
-        },
     }
   },
   mounted(){

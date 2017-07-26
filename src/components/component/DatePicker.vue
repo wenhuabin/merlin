@@ -4,11 +4,11 @@
 
 <template>
   <div class="cov-vue-date" :class="option.wrapperClass ? option.wrapperClass : {}">
-      <div class="input-box" :style="cuStyle.inputCoverBoxSize">
-          <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="fullTime" :required="required" @click="showCalendar" :style="cuStyle.inputBoxSize"/>
+      <div class="input-box" :style="customStyle.inputCoverBoxSize">
+          <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="fullTime" :required="required" @click="showCalendar" :style="customStyle.inputBoxSize"/>
       </div>
       <div class="cov-date-body" :style="calendarStyle" @mouseleave="showCalendar">
-          <div class="cov-date-header" :style="cuStyle.headerBackgroundColor">
+          <div class="cov-date-header" :style="customStyle.headerBackgroundColor">
               <div class="cov-date-previous" @click="nextMonth('pre')"></div>
               <div class="cov-date-year">
                   <div class="year" @click="showYear" v-bind:style="yearHoverStyle">{{checked.year}}</div>
@@ -67,14 +67,30 @@ export default {
       default: '',
       required: false 
     },
-    customStyle:{
-      type: Object,
-      default () {
-        return {
-            headerBackgroundColor: '#3f51b5',
-            inputBoxSize: {width: 210, height: 45, paddingLeft: 20}
-        }
-      }
+    backgroundColor: {
+      type: String,
+      default: '#3f51b5',
+      required: false 
+    },
+    fontSize: {
+      type: Number,
+      default: 16,
+      required: false 
+    },
+    inputWidth: {
+      type: Number,
+      default: 210,
+      required: false 
+    },
+    inputHeight: {
+      type: Number,
+      default: 45,
+      required: false 
+    },
+    inputPaddingLeft: {
+      type: Number,
+      default: 20,
+      required: false 
     },
     option: {
       type: Object,
@@ -111,10 +127,10 @@ export default {
         calendarStyle: {display: "block"},
         yearHoverStyle: {},
         monthHoverStyle: {},
-        cuStyle: { 
-            headerBackgroundColor: {backgroundColor: this.customStyle.backgroundColor},
-            inputBoxSize: {width: this.customStyle.inputBoxSize.width + 'px', height: this.customStyle.inputBoxSize.height + 'px', paddingLeft: this.customStyle.inputBoxSize.paddingLeft + 'px'},
-            inputCoverBoxSize: {width: this.customStyle.inputBoxSize.width + 'px', height: this.customStyle.inputBoxSize.height + 'px'}
+        customStyle: { 
+            headerBackgroundColor: {backgroundColor: this.backgroundColor},
+            inputBoxSize: {width: this.inputWidth + 'px', height: this.inputHeight + 'px', paddingLeft: this.inputPaddingLeft+ 'px', fontSize: this.fontSize + 'px'},
+            inputCoverBoxSize: {width: this.inputWidth + 'px', height: this.inputHeight + 'px'},
         },
         showInfo: {
             day: true,
