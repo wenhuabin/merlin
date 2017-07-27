@@ -15,6 +15,12 @@
                 <div class="hint">日历选择器测试</div>
                 <DatePicker :date="date" :ifTime="true" @onPick="onPick"/>
                 <div class="hint">Date: {{date}}</div>
+                <!--
+                可以通过 .sync 的方式来改变 foo 的值，省去父组件写回调函数（本质上是一样的，只是省了几行代码)
+                <comp :foo.sync="bar"></comp> 
+                is expanded into: <comp :foo="bar" @update:foo="val => bar = val"></comp>
+                this.$emit('update:foo', newValue)
+                -->
 			</div>
             <input type="text" v-model="data" :class="{empty: !data && ifInput}" @click="onInputChange" :style="{display: 'none'}"/>
             <div class="showPage">翻页导航实例：Page: {{page}} / Pages: {{pages}}</div>
