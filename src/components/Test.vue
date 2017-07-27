@@ -16,6 +16,7 @@
                 <DatePicker :date="date" :ifTime="true" @onPick="onPick"/>
                 <div class="hint">Date: {{date}}</div>
 			</div>
+            <input type="text" v-model="data" :class="{empty: !data && ifInput}" @click="onInputChange" :style="{display: 'none'}"/>
             <div class="showPage">翻页导航实例：Page: {{page}} / Pages: {{pages}}</div>
             <Paging :page="page" :pages="pages" @onPageChange="onPageChange"/>
         </div>
@@ -38,6 +39,9 @@ export default {
         key: -1,
         list: [{value: '测试1', disabled: false},{value: '测试2', disabled: false},{value: '测试3', disabled: false},{value: '测试4', disabled: false},{value: '非常长的非常长的条目条目5', disabled: false}],
         date: moment().format("YYYY-MM-DD HH:mm"),
+        data: '',
+        ifInput: false,
+        dlist: ['1','2'],
     }
   },
   mounted(){
@@ -57,6 +61,9 @@ export default {
       },
       onPick: function(date){
           this.date = date 
+      },
+      onInputChange: function(e){
+          console.log(e.currentTarget.value)
       }
   },
   components: {
