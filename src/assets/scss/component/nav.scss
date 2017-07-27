@@ -12,7 +12,6 @@
         height: 45px;
         line-height: 45px;
         cursor: pointer;
-        text-align: center;
     }
     a:hover,
     .row:hover{
@@ -24,6 +23,7 @@
         .row{
             word-spacing: 10px;
             color: #444;
+            padding-left: 60px;
         }
     }
     .son-nav{
@@ -32,6 +32,7 @@
         a,
         .row{
             color: #696969;
+            padding-left: 75px;
         }
     }
     .gson-nav{
@@ -40,6 +41,7 @@
         a,
         .row{
             color: #787C80;
+            padding-left: 90px;
         }
     }
     .current{
