@@ -70,7 +70,6 @@ export default {
 	
       function animate () {
         if (TWEEN.update()) {
-			console.log('update')
           requestAnimationFrame(animate)
         }
       }
@@ -78,7 +77,7 @@ export default {
         .easing(TWEEN.Easing.Quadratic.Out)
         .to({ tweeningNumber: newValue }, 500)
         .onUpdate(function(){
-          	vm.animatedNumber = parseFloat(this._object.tweeningNumber).toFixed(0)
+          	vm.animatedNumber = this._object.tweeningNumber.toFixed(0)
         })
         .start()
       animate()
