@@ -1,8 +1,15 @@
 .svg-demo{
 	padding: 0 45px;
+	h1{
+		margin-top: 45px;
+		width: 100%;
+		text-align: center;
+		font-size: 24px;
+    	color: #444;
+	}
 }
 #robot-demo{
-	margin-top: 120px;
+	margin-top: 60px;
 	width: 910px;
     height: 500px;
     display: inline-block;

@@ -4,6 +4,7 @@
 
 <template>
     <div class="svg-demo">
+        <h1>Canvas</h1>
         <div id="robot-demo" @mousemove="coordinates">
           <p>Move your mouse or tap</p>
           <svg id="walle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 139.4 129.4">
