@@ -6,6 +6,7 @@ import D3 from '@/components/D3'
 import Echart from '@/components/Echart'
 import ChartJs from '@/components/ChartJS'
 import Canvas from '@/components/Canvas'
+import Svg from '@/components/Svg'
 import Login from '@/Login'
 import Coming from '@/Coming'
 import Signup from '@/Signup'
@@ -41,6 +42,10 @@ const router = new Router({
             path: 'canvas',
             name: 'canvas',
             component: Canvas 
+        },{
+            path: 'svg',
+            name: 'svg',
+            component: Svg 
         },{
             path: 'echart',
             name: 'echart',
