@@ -10,6 +10,7 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
+    "@tweenjs/tween.js": "^17.1.0",
     "chart.js": "^2.6.0",
     "d3": "^4.9.1",
     "exports-loader": "^0.6.4",

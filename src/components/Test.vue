@@ -22,6 +22,11 @@
                 this.$emit('update:foo', newValue)
                 -->
 			</div>
+            <div class="animate-test">
+                <div class="hint">数据渐变性测试</div>
+                    <input class="animate-input" v-model.number="number" type="number" step="10">
+                <div class="hint">value: {{animatedNumber}}</div>
+            </div>
             <input type="text" v-model="data" :class="{empty: !data && ifInput}" @click="onInputChange" :style="{display: 'none'}"/>
             <div class="showPage">翻页导航实例：Page: {{page}} / Pages: {{pages}}</div>
             <Paging :page="page" :pages="pages" @onPageChange="onPageChange"/>
@@ -34,6 +39,7 @@ import moment from 'moment'
 import Paging from 'components/component/Paging'
 import Select from 'components/component/Select'
 import DatePicker from 'components/component/DatePicker'
+import TWEEN from '@tweenjs/tween.js'
 
 export default {
   name: 'Test',
@@ -47,7 +53,8 @@ export default {
         date: moment().format("YYYY-MM-DD HH:mm"),
         data: '',
         ifInput: false,
-        dlist: ['1','2'],
+        number: 0,
+		animatedNumber: 0
     }
   },
   mounted(){
@@ -56,6 +63,26 @@ export default {
       //    console.log(moment().add(i, 'days').format("YYYY-MM-DD HH:mm:ss"))
       //    this.date = moment().add(i++, 'days').format("YYYY-MM-DD HH:mm:ss")
       //}, 5000)
+  },
+  watch: {
+    number: function(newValue, oldValue) {
+      var vm = this
+	
+      function animate () {
+        if (TWEEN.update()) {
+			console.log('update')
+          requestAnimationFrame(animate)
+        }
+      }
+      new TWEEN.Tween({ tweeningNumber: oldValue })
+        .easing(TWEEN.Easing.Quadratic.Out)
+        .to({ tweeningNumber: newValue }, 500)
+        .onUpdate(function(){
+          	vm.animatedNumber = parseFloat(this._object.tweeningNumber).toFixed(0)
+        })
+        .start()
+      animate()
+    }
   },
   methods: {
       onPageChange: function(p){
