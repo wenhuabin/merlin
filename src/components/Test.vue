@@ -73,9 +73,6 @@ export default {
 		this[types.SET_COUNT]({type: types.SET_COUNT, count: 3})
     },
     computed: {
-        token: function(){
-            return this.$store.state.login.token
-        },
         ...mapState({
       	    token: state => state.login.token,
       	    count: state => state.count,

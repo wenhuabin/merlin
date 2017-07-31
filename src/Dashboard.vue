@@ -35,7 +35,7 @@
 <script>
 import Nav from 'components/component/Nav'
 import * as types from 'store/mutation-types'
-import {mapState} from 'vuex'
+import {mapState, mapActions} from 'vuex'
 
 export default {
 	name: 'dashboard',
@@ -57,16 +57,19 @@ export default {
             return this.$route.path === '/'
         },
         isLogin: function(){
-            return !!this.$store.getters.getToken.email
+            return !!this.token.email
         },
 	},
     methods: {
+		...mapActions([
+      	    types.SET_LOGIN_TOKEN,
+      	]),
         optionsShow: function(flag){
             this.optionsStyle = flag ? {display: "block"} : {display: "none"}
         },
         logout: function(){
             if(this.isLogin){
-                this.$store.dispatch(types.SET_LOGIN_TOKEN, {})
+				this[types.SET_LOGIN_TOKEN]({type: types.SET_LOGIN_TOKEN, token: {}})
                 sessionStorage.clear();
             }else{
 			    this.$router.push('/login');
