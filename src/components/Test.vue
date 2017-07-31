@@ -29,7 +29,7 @@
             </div>
             <div class="state">
                 <div class="hint">State 测试</div>
-                <div class="hint">{{$store.state.login.token.uname + " / " + token.email}}</div>
+                <div class="hint">{{getToken}}{{" / "}}{{$store.state.login.token.uname + " / " + token.email}}</div>
             </div>
             <input type="text" v-model="data" :class="{empty: !data && ifInput}" @click="onInputChange" :style="{display: 'none'}"/>
             <div class="showPage">翻页导航实例：Page: {{page}} / Pages: {{pages}}</div>
@@ -39,6 +39,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import moment from 'moment'
 import Paging from 'components/component/Paging'
 import Select from 'components/component/Select'
@@ -46,71 +47,74 @@ import DatePicker from 'components/component/DatePicker'
 import TWEEN from '@tweenjs/tween.js'
 
 export default {
-  name: 'Test',
-  data () {
-    return {
-        page: 5,
-        pages: 26,
-        value: '请选择',
-        key: -1,
-        list: [{value: '测试1', disabled: false},{value: '测试2', disabled: false},{value: '测试3', disabled: false},{value: '测试4', disabled: false},{value: '非常长的非常长的条目条目5', disabled: false}],
-        date: moment().format("YYYY-MM-DD HH:mm"),
-        data: '',
-        ifInput: false,
-        number: 0,
-		animatedNumber: 0
-    }
-  },
-  mounted(){
-      //let i = 1
-      //setInterval(()=>{
-      //    console.log(moment().add(i, 'days').format("YYYY-MM-DD HH:mm:ss"))
-      //    this.date = moment().add(i++, 'days').format("YYYY-MM-DD HH:mm:ss")
-      //}, 5000)
-  },
-  computed: {
-      token: function(){
-          return this.$store.state.login.token
-      },
-  },
-  watch: {
-    number: function(newValue, oldValue) {
-      var vm = this
-	
-      function animate () {
-        if (TWEEN.update()) {
-          requestAnimationFrame(animate)
+    name: 'Test',
+    data () {
+      return {
+          page: 5,
+          pages: 26,
+          value: '请选择',
+          key: -1,
+          list: [{value: '测试1', disabled: false},{value: '测试2', disabled: false},{value: '测试3', disabled: false},{value: '测试4', disabled: false},{value: '非常长的非常长的条目条目5', disabled: false}],
+          date: moment().format("YYYY-MM-DD HH:mm"),
+          data: '',
+          ifInput: false,
+          number: 0,
+      	animatedNumber: 0
+      }
+    },
+    mounted(){
+        //let i = 1
+        //setInterval(()=>{
+        //    console.log(moment().add(i, 'days').format("YYYY-MM-DD HH:mm:ss"))
+        //    this.date = moment().add(i++, 'days').format("YYYY-MM-DD HH:mm:ss")
+        //}, 5000)
+    },
+    computed: {
+        token: function(){
+            return this.$store.state.login.token
+        },
+        ...mapGetters([
+      	  'getToken',
+      	])
+    },
+    watch: {
+      number: function(newValue, oldValue) {
+        var vm = this
+      
+        function animate () {
+          if (TWEEN.update()) {
+            requestAnimationFrame(animate)
+          }
         }
+        new TWEEN.Tween({ tweeningNumber: oldValue })
+          .easing(TWEEN.Easing.Quadratic.Out)
+          .to({ tweeningNumber: newValue }, 500)
+          .onUpdate(function(){
+            	vm.animatedNumber = this._object.tweeningNumber.toFixed(0)
+          })
+          .start()
+        animate()
       }
-      new TWEEN.Tween({ tweeningNumber: oldValue })
-        .easing(TWEEN.Easing.Quadratic.Out)
-        .to({ tweeningNumber: newValue }, 500)
-        .onUpdate(function(){
-          	vm.animatedNumber = this._object.tweeningNumber.toFixed(0)
-        })
-        .start()
-      animate()
-    }
-  },
-  methods: {
-      onPageChange: function(p){
-          this.page = p
-      },
-      onChange: function(value, key){
-          this.value = value
-          this.key = key
-      },
-      onPick: function(date){
-          this.date = date 
-      },
-      onInputChange: function(e){
-          console.log(e.currentTarget.value)
-      }
-  },
-  components: {
-    'Paging': Paging,
-    'Selecting': Select,
-    'DatePicker': DatePicker,
-  },
+    },
+    methods: {
+        onPageChange: function(p){
+            this.page = p
+        },
+        onChange: function(value, key){
+            this.value = value
+            this.key = key
+        },
+        onPick: function(date){
+            this.date = date 
+        },
+        onInputChange: function(e){
+            console.log(e.currentTarget.value)
+        }
+    },
+    components: {
+      'Paging': Paging,
+      'Selecting': Select,
+      'DatePicker': DatePicker,
+    },
 }
 </script>
