@@ -27,6 +27,10 @@
                     <input class="animate-input" v-model.number="number" type="number" step="10">
                 <div class="hint">value: {{animatedNumber}}</div>
             </div>
+            <div class="state">
+                <div class="hint">State 测试</div>
+                <div class="hint">{{$store.state.login.token.uname + " / " + token.email}}</div>
+            </div>
             <input type="text" v-model="data" :class="{empty: !data && ifInput}" @click="onInputChange" :style="{display: 'none'}"/>
             <div class="showPage">翻页导航实例：Page: {{page}} / Pages: {{pages}}</div>
             <Paging :page="page" :pages="pages" @onPageChange="onPageChange"/>
@@ -63,6 +67,11 @@ export default {
       //    console.log(moment().add(i, 'days').format("YYYY-MM-DD HH:mm:ss"))
       //    this.date = moment().add(i++, 'days').format("YYYY-MM-DD HH:mm:ss")
       //}, 5000)
+  },
+  computed: {
+      token: function(){
+          return this.$store.state.login.token
+      },
   },
   watch: {
     number: function(newValue, oldValue) {
