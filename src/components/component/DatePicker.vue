@@ -3,7 +3,7 @@
 </style>
 
 <template>
-  <div class="cov-vue-date" :class="option.wrapperClass ? option.wrapperClass : {}">
+  <div class="cov-vue-date" :style="customStyle.inputCoverBoxSize" :class="option.wrapperClass ? option.wrapperClass : {}">
       <div class="input-box" :style="customStyle.inputCoverBoxSize">
           <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="fullTime" :required="required" @click="showCalendar" :style="customStyle.inputBoxSize"/>
       </div>
