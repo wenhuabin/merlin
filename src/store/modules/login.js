@@ -26,6 +26,7 @@ const mutations = {
 }
 
 export default {
+  //namespaced: true, //暂时没有必要使用，因为 redux 的核心思想就是统一注册统一管理
   state,
   getters,
   actions,

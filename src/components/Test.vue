@@ -28,7 +28,7 @@
                 <div class="hint">value: {{animatedNumber}}</div>
             </div>
             <div class="state">
-                <div class="hint">State 测试</div>
+                <div class="hint">Vuex Store 测试</div>
                 <div class="hint">{{token.uname + " / " + token.email + " / " + count}}</div>
             </div>
             <input type="text" v-model="data" :class="{empty: !data && ifInput}" @click="onInputChange" :style="{display: 'none'}"/>
