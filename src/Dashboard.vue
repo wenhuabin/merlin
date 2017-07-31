@@ -6,7 +6,7 @@
     <div id="content">
         <header class="header">
             <img class="logo" src="./assets/imgs/logo.jpg">
-            <div class="brand">{{uname}}</div>
+            <div class="brand">{{token.uname || 'SpaceX'}}</div>
             <div class="logout" @click="logout" v-if="!isLogin">登录</div>
             <div class="logout" @click="logout" v-if="isLogin">退出登录</div>
             <div class="setting-box" @mouseover="optionsShow(1)" @mouseleave="optionsShow(0)">
@@ -35,6 +35,7 @@
 <script>
 import Nav from 'components/component/Nav'
 import * as types from 'store/mutation-types'
+import {mapState} from 'vuex'
 
 export default {
 	name: 'dashboard',
@@ -49,11 +50,11 @@ export default {
 		}
 	},
 	computed:{
+        ...mapState({
+      	    token: state => state.login.token,
+      	}),
         isRoot: function(){
             return this.$route.path === '/'
-        },
-        uname: function(){
-            return this.$store.getters.getToken.uname ? this.$store.getters.getToken.uname : 'SpaceX' 
         },
         isLogin: function(){
             return !!this.$store.getters.getToken.email

@@ -20,6 +20,7 @@
 
 <script>
 import * as types from 'store/mutation-types'
+import {mapActions} from 'vuex'
 
 export default {
 	name: 'login',
@@ -31,6 +32,9 @@ export default {
 		}
 	},
 	methods: {
+		...mapActions([
+      	    types.SET_LOGIN_TOKEN,
+      	]),
 		login: function(){
 			var formData = new FormData();
 			formData.append("email", this.email);
@@ -43,7 +47,7 @@ export default {
 			}).then(response => response.json())
         	.then(data => {
 				if(data && data.status === 0){
-					this.$store.dispatch({type: types.SET_LOGIN_TOKEN, token: data.data})
+					this[types.SET_LOGIN_TOKEN]({type: types.SET_LOGIN_TOKEN, token: data.data})
                     sessionStorage.setItem('token', JSON.stringify(data.data)) 
 					this.err = '登录成功'
 					this.$router.push(this.$route.query.redirect ? this.$route.query.redirect : '/');

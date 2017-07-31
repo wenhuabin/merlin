@@ -29,7 +29,7 @@
             </div>
             <div class="state">
                 <div class="hint">State 测试</div>
-                <div class="hint">{{getToken}}{{" / "}}{{$store.state.login.token.uname + " / " + token.email + " / " + $store.state.count}}</div>
+                <div class="hint">{{token.uname + " / " + token.email + " / " + count}}</div>
             </div>
             <input type="text" v-model="data" :class="{empty: !data && ifInput}" @click="onInputChange" :style="{display: 'none'}"/>
             <div class="showPage">翻页导航实例：Page: {{page}} / Pages: {{pages}}</div>
@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapState, mapActions} from 'vuex'
 import moment from 'moment'
 import Paging from 'components/component/Paging'
 import Select from 'components/component/Select'
@@ -69,15 +69,17 @@ export default {
         //    console.log(moment().add(i, 'days').format("YYYY-MM-DD HH:mm:ss"))
         //    this.date = moment().add(i++, 'days').format("YYYY-MM-DD HH:mm:ss")
         //}, 5000)
-		this.$store.dispatch({type: types.SET_COUNT, count: 3})
+		//this.$store.dispatch({type: types.SET_COUNT, count: 3})
+		this[types.SET_COUNT]({type: types.SET_COUNT, count: 3})
     },
     computed: {
         token: function(){
             return this.$store.state.login.token
         },
-        ...mapGetters([
-      	  'getToken',
-      	])
+        ...mapState({
+      	    token: state => state.login.token,
+      	    count: state => state.count,
+      	})
     },
     watch: {
       number: function(newValue, oldValue) {
@@ -99,6 +101,9 @@ export default {
       }
     },
     methods: {
+		...mapActions([
+      	    types.SET_COUNT,
+      	]),
         onPageChange: function(p){
             this.page = p
         },
