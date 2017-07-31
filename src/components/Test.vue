@@ -29,7 +29,7 @@
             </div>
             <div class="state">
                 <div class="hint">State 测试</div>
-                <div class="hint">{{getToken}}{{" / "}}{{$store.state.login.token.uname + " / " + token.email}}</div>
+                <div class="hint">{{getToken}}{{" / "}}{{$store.state.login.token.uname + " / " + token.email + " / " + $store.state.count}}</div>
             </div>
             <input type="text" v-model="data" :class="{empty: !data && ifInput}" @click="onInputChange" :style="{display: 'none'}"/>
             <div class="showPage">翻页导航实例：Page: {{page}} / Pages: {{pages}}</div>
@@ -45,6 +45,7 @@ import Paging from 'components/component/Paging'
 import Select from 'components/component/Select'
 import DatePicker from 'components/component/DatePicker'
 import TWEEN from '@tweenjs/tween.js'
+import * as types from 'store/mutation-types'
 
 export default {
     name: 'Test',
@@ -68,6 +69,7 @@ export default {
         //    console.log(moment().add(i, 'days').format("YYYY-MM-DD HH:mm:ss"))
         //    this.date = moment().add(i++, 'days').format("YYYY-MM-DD HH:mm:ss")
         //}, 5000)
+		this.$store.dispatch({type: types.SET_COUNT, count: 3})
     },
     computed: {
         token: function(){
@@ -108,7 +110,6 @@ export default {
             this.date = date 
         },
         onInputChange: function(e){
-            console.log(e.currentTarget.value)
         }
     },
     components: {

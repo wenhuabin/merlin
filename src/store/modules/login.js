@@ -13,15 +13,15 @@ const getters = {
 
 // actions
 const actions = {
-  [types.SET_LOGIN_TOKEN] ({ commit, state }, token) {
-    commit(types.SET_LOGIN_TOKEN, {token})
+  [types.SET_LOGIN_TOKEN] ({ commit, state}, action) {
+    commit(types.SET_LOGIN_TOKEN, action)
   }
 }
 
 // mutations
 const mutations = {
-  [types.SET_LOGIN_TOKEN] (state, { token }) {
-    state.token = token
+  [types.SET_LOGIN_TOKEN] (state, action) {
+    state.token = action.token
   }
 }
 
