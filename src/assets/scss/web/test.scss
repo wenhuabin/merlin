@@ -5,6 +5,14 @@
     display: inline-block;
 	padding: 20px 20px 45px;
 	border-radius: 5px;
+    .hint-left{
+        display: inline-block;
+        margin-right: 30px;
+        vertical-align: top;
+        width: 200px;
+        line-height: 45px;
+        text-align: right;
+    }
     .hint{
         display: inline-block;
         vertical-align: top;

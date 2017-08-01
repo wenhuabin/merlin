@@ -7,12 +7,12 @@
             <img class="launch" src="../assets/imgs/launch.jpg">
 		    <h1>Welcome To Merlin</h1>
             <div class="select-test">
-                <div class="hint">下拉选择框测试</div>
+                <div class="hint-left">下拉选择框测试</div>
                 <Selecting :initial_value='value' :list='list' @onChange='onChange'/>
                 <div class="hint">value: {{value}} / key: {{key}}</div>
             </div>
 			<div class="date-picker">
-                <div class="hint">日历选择器测试</div>
+                <div class="hint-left">日历选择器测试</div>
                 <DatePicker :date="date" :ifTime="true" @onPick="onPick"/>
                 <div class="hint">Date: {{date}}</div>
                 <!--
@@ -23,13 +23,17 @@
                 -->
 			</div>
             <div class="animate-test">
-                <div class="hint">数据渐变性测试</div>
+                <div class="hint-left">数据渐变性测试</div>
                     <input class="animate-input" v-model.number="number" type="number" step="10">
                 <div class="hint">value: {{animatedNumber}}</div>
             </div>
             <div class="state">
-                <div class="hint">Vuex Store 测试</div>
+                <div class="hint-left">Vuex Store 测试</div>
                 <div class="hint">{{token.uname + " / " + token.email + " / " + count}}</div>
+            </div>
+            <div class="select-test" v-if="cycleFlag">
+                <div class="hint-left">生命周期测试</div>
+                <LifeCycle />
             </div>
             <input type="text" v-model="data" :class="{empty: !data && ifInput}" @click="onInputChange" :style="{display: 'none'}"/>
             <div class="showPage">翻页导航实例：Page: {{page}} / Pages: {{pages}}</div>
@@ -44,6 +48,7 @@ import moment from 'moment'
 import Paging from 'components/component/Paging'
 import Select from 'components/component/Select'
 import DatePicker from 'components/component/DatePicker'
+import LifeCycle from 'components/component/LifeCycle'
 import TWEEN from '@tweenjs/tween.js'
 import * as types from 'store/mutation-types'
 
@@ -60,7 +65,8 @@ export default {
           data: '',
           ifInput: false,
           number: 0,
-      	animatedNumber: 0
+      	  animatedNumber: 0,
+      	  cycleFlag: true,
       }
     },
     mounted(){
@@ -71,6 +77,7 @@ export default {
         //}, 5000)
 		//this.$store.dispatch({type: types.SET_COUNT, count: 3})
 		this[types.SET_COUNT]({type: types.SET_COUNT, count: 3})
+		setTimeout(()=>this.cycleFlag=false, 5000)
     },
     computed: {
         ...mapState({
@@ -118,6 +125,7 @@ export default {
       'Paging': Paging,
       'Selecting': Select,
       'DatePicker': DatePicker,
+      'LifeCycle': LifeCycle,
     },
 }
 </script>
