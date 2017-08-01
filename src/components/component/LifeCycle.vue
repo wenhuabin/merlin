@@ -41,14 +41,14 @@ export default {
     },
     //模板编译/挂载之前
     beforeMount: function () {
-        console.log("beforeCompile")
+        console.log("beforeMount")
 		console.log("- data status", this.name)
 		console.log("-- dom status", this.$refs.cycle)
     },
     //模板编译/挂载之后。此时所有的指令已生效，因而数据的变化将触发 DOM 更新。
     //但是不保证 组件（$el） 已插入document。
     mounted: function () { 
-        console.log("compiled")
+        console.log("mounted")
 		console.log("- data status", this.name)
 		console.log("-- dom status", this.$refs.cycle)
 		setTimeout(()=>{this.name = "绝代双骄"}, 3000);
