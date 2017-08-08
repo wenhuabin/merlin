@@ -2,7 +2,6 @@ var path = require('path')
 var webpack = require('webpack')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
-var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
@@ -33,7 +32,34 @@ var webpackConfig = merge(baseWebpackConfig, {
 	          "sourceMap": true
 	        }
 	    }]
-	}]
+	},{
+        "test": /\.vue$/,
+        "loader": 'vue-loader',
+        "options": {
+			"loaders": {
+			    "scss": [{
+	        	  "loader": path.resolve(__dirname, '../node_modules/extract-text-webpack-plugin/loader.js'),
+			      "options": {
+			        "omit": 1,
+			        "remove": true
+			      }
+			  },{
+			      "loader": "vue-style-loader"
+			  },{
+			    "loader": "css-loader",
+			    "options": {
+			        "minimize": true,
+			        "sourceMap": false
+			    }
+			  },{
+			    "loader": "sass-loader",
+			    "options": {
+			      	"sourceMap": false
+			    }
+			  }
+			]}
+		}
+    }]
   },
   devtool: false,
   output: {

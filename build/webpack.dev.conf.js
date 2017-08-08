@@ -28,6 +28,28 @@ module.exports = merge(baseWebpackConfig, {
 	          "sourceMap": false
 	        }
 	      }]
+	},{
+      "test": /\.vue$/,
+      "loader": 'vue-loader',
+      "options": {
+	      "loaders": {
+	        "scss": [
+	          "vue-style-loader",
+	          {
+	            "loader": "css-loader",
+	            "options": {
+	              "minimize": false,
+	              "sourceMap": true
+	            }
+	          },{
+	            "loader": "sass-loader",
+	            "options": {
+	              "sourceMap": true
+	            }
+	          }
+	        ]
+	      }
+      }
 	}]
   },
   // cheap-module-eval-source-map is faster for development

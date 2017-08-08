@@ -1,7 +1,4 @@
 var path = require('path')
-var utils = require('./utils')
-var config = require('../config')
-var vueLoaderConfig = require('./vue-loader.conf')
 var webpack = require('webpack');
 
 function resolve (dir) {
@@ -39,31 +36,23 @@ module.exports = {
         options: {
           formatter: require('eslint-friendly-formatter')
         }
-      },
-      {
-        test: /\.vue$/,
-        loader: 'vue-loader',
-        options: vueLoaderConfig
-      },
-      {
+      },{
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test')]
-      },
-      {
+      },{
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+      	  name: 'imgs/[name].[hash:8].[ext]'
         }
-      },
-      {
+      },{
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+      	  name: 'fonts/[name].[hash:8].[ext]'
         }
       }
     ]
