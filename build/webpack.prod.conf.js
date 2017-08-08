@@ -23,13 +23,13 @@ var webpackConfig = merge(baseWebpackConfig, {
 	    },{
 	        "loader": "css-loader",
 	        "options": {
-	          "minimize": false,
-	          "sourceMap": true
+	          "minimize": true,
+	          "sourceMap": false
 	        }
 	    },{
 	        "loader": "sass-loader",
 	        "options": {
-	          "sourceMap": true
+	          "sourceMap": false 
 	        }
 	    }]
 	},{
