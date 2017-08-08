@@ -1,16 +1,16 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import About from '@/components/About'
-import Test from '@/components/Test'
-import D3 from '@/components/D3'
-import Echart from '@/components/Echart'
-import ChartJs from '@/components/ChartJS'
-import Canvas from '@/components/Canvas'
-import Svg from '@/components/Svg'
-import Login from '@/Login'
-import Coming from '@/Coming'
-import Signup from '@/Signup'
-import Dashboard from '@/Dashboard'
+const About = () => import('@/components/About')
+const Test = () => import('@/components/Test')
+const D3 = () => import('@/components/D3')
+const Echart = () => import('@/components/Echart')
+const ChartJs = () => import('@/components/ChartJS')
+const Canvas = () => import('@/components/Canvas')
+const Svg = () => import('@/components/Svg')
+const Login = () => import('@/Login')
+const Coming = () => import('@/Coming')
+const Signup = () => import('@/Signup')
+const Dashboard = () => import('@/Dashboard')
 import store from 'store'
 import * as types from 'store/mutation-types'
 

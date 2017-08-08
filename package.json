@@ -12,6 +12,7 @@
   "dependencies": {
     "@tweenjs/tween.js": "^17.1.0",
     "chart.js": "^2.6.0",
+    "clean-webpack-plugin": "^0.1.16",
     "d3": "^4.9.1",
     "exports-loader": "^0.6.4",
     "gsap": "^1.20.2",

@@ -1,6 +1,4 @@
-var utils = require('./utils')
 var webpack = require('webpack')
-var config = require('../config')
 var merge = require('webpack-merge')
 var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -14,13 +12,29 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 
 module.exports = merge(baseWebpackConfig, {
   module: {
-    rules: utils.styleLoaders({ sourceMap: config.dev.cssSourceMap })
+	rules: [{
+	  "test": /\.scss$/,
+	  "use": [
+	      "vue-style-loader",
+	      {
+	        "loader": "css-loader",
+	        "options": {
+	          "minimize": false,
+	          "sourceMap": false
+	        }
+	      },{
+	        "loader": "sass-loader",
+	        "options": {
+	          "sourceMap": false
+	        }
+	      }]
+	}]
   },
   // cheap-module-eval-source-map is faster for development
   devtool: '#cheap-module-eval-source-map',
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': config.dev.env
+      'process.env': {NODE_ENV: '"development"'}
     }),
     // https://github.com/glenjamin/webpack-hot-middleware#installation--usage
     new webpack.HotModuleReplacementPlugin(),
