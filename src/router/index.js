@@ -25,53 +25,87 @@ const router = new Router({
         component: Dashboard,
 		meta: {
             requireAuth: false,
+			title: 'Welcome to Merlin',
         },
         //子路由不需要加斜杠 Note that nested paths that start with / will be treated as a root path. This allows you to leverage the component nesting without having to use a nested URL.
         children: [{
             path: 'about',
             name: 'about',
-            component: About 
+            component: About,
+			meta: {
+				title: 'About | Welcome to Merlin',
+        	},
         },{
             path: 'd3',
             name: 'd3',
-            component: D3 
+            component: D3, 
+			meta: {
+				title: 'D3 Demo | Welcome to Merlin',
+        	},
         },{
             path: 'cjs',
             name: 'cjs',
-            component: ChartJs
+            component: ChartJs,
+			meta: {
+				title: 'ChartJS Demo | Welcome to Merlin',
+        	},
         },{
             path: 'canvas',
             name: 'canvas',
-            component: Canvas 
+            component: Canvas, 
+			meta: {
+				title: 'Canvas Demo | Welcome to Merlin',
+        	},
         },{
             path: 'svg',
             name: 'svg',
-            component: Svg 
+            component: Svg, 
+			meta: {
+				title: 'SVG Demo | Welcome to Merlin',
+        	},
         },{
             path: 'map',
             name: 'map',
-            component: Map 
+            component: Map, 
+			meta: {
+				title: 'Map Demo | Welcome to Merlin',
+        	}, 
         },{
             path: 'echart',
             name: 'echart',
-            component: Echart 
+            component: Echart, 
+			meta: {
+				title: 'Map Demo | Welcome to Merlin',
+        	}, 
         },{
             path: 'component',
             name: 'component',
-            component: Test 
+            component: Test, 
+			meta: {
+				title: 'Map Demo | Welcome to Merlin',
+        	}, 
         }]
     },{
         path: '/login',
         name: 'login',
-        component: Login 
+        component: Login, 
+		meta: {
+			title: 'Login Demo | Welcome to Merlin',
+        }, 
     },{
         path: '/signup',
         name: 'signup',
-        component: Login 
+        component: Login, 
+		meta: {
+			title: 'Sign up | Welcome to Merlin',
+        }, 
     },{
         path: '/coming',
         name: 'coming',
-        component: Coming 
+        component: Coming, 
+		meta: {
+			title: '404 | Welcome to Merlin',
+        }, 
     },{
         path: '*',
         name: '*',
@@ -79,6 +113,10 @@ const router = new Router({
     }]
 })
 
+router.beforeEach((to, from, next) => {
+	next();
+	document.title = to.meta.title
+})
 //导致重复dispatch，需要修复
 //router.beforeEach((to, from, next) => {
 //    if (to.matched.some(r => r.meta.requireAuth)) {
