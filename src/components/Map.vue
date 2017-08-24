@@ -10,8 +10,6 @@
 </template>
 
 <script>
-import {TweenMax} from "gsap";
-
 export default {
     name: 'svg',
     data () {
@@ -20,7 +18,7 @@ export default {
         }
     },
     mounted(){
-		var map = new AMap.Map('map-container',{
+		this.map = new AMap.Map('map-container',{
             resizeEnable: true,
             zoom: 10,
             center: [116.480983, 40.0958]
