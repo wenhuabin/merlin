@@ -61,30 +61,45 @@ export default {
     	                //绘制点占据的矩形区域
     	                content: function(ctx, x, y, width, height) {
 
-    	                    //注意，这里的width和height可能不同于pointStyle里面的width/height， 高清屏幕下会存在比例缩放
+    	                //    //注意，这里的width和height可能不同于pointStyle里面的width/height， 高清屏幕下会存在比例缩放
 
-    	                    //这里绘制一个圆顶锥形
+    	                //    //这里绘制一个圆顶锥形
+    	                //    var yPos = 1 / 3;
+						//	
 
-    	                    var yPos = 1 / 3;
+    	                //    var top = [x + width / 2, y],
+    	                //        right = [x + width, y + height * yPos],
+    	                //        bottom = [x + width / 2, y + height],
+    	                //        left = [x, y + height * yPos];
 
-    	                    var top = [x + width / 2, y],
-    	                        right = [x + width, y + height * yPos],
-    	                        bottom = [x + width / 2, y + height],
-    	                        left = [x, y + height * yPos];
+    	                //    ctx.moveTo(left[0], left[1]);
+    	                //    ctx.arcTo(top[0], top[1], right[0], right[1], width / 3);
+    	                //    ctx.lineTo(right[0], right[1]);
+    	                //    ctx.lineTo(bottom[0], bottom[1]);
+    	                //    ctx.lineTo(left[0], left[1]);
+							var yPos = 1 / 3,
+    	                		left = [x, y + height * yPos];
 
-    	                    ctx.moveTo(left[0], left[1]);
-    	                    ctx.arcTo(top[0], top[1], right[0], right[1], width / 3);
-    	                    ctx.lineTo(right[0], right[1]);
-    	                    ctx.lineTo(bottom[0], bottom[1]);
-    	                    ctx.lineTo(left[0], left[1]);
+							ctx.moveTo(x,y+height/3);
+							ctx.stroke();
+							//ctx.quadraticCurveTo(x+width/4,y+height*yPos*2,x+width/2,y+height);
+    	                    ctx.lineTo(x+width/2, y+height);
+							//ctx.quadraticCurveTo(x+3*width/4,y+height*yPos*2,x+width,y+height*yPos*2);
+    	                    ctx.lineTo(x+width, y+height*yPos);
+							ctx.stroke();
+							ctx.beginPath();
+							ctx.arc(x+width/2,y+height*yPos,width/2,Math.PI,2*Math.PI);
+							ctx.stroke();
 
     	                },
+						//content: 'circle',
     	                //宽度
-    	                width: 15,
+    	                width: 40,
     	                //高度
-    	                height: 24,
-    	                offset: ['-50%', '-100%'],
-    	                fillStyle: '#316395',
+    	                height: 60,
+    	                //offset: ['-50%', '-100%'],
+    	                offset: [-20, -60],
+    	                //fillStyle: '#316395',
     	                lineWidth: 1,
     	                strokeStyle: 'gray'
     	            },
@@ -93,16 +108,29 @@ export default {
 
     	                    //绘制一个连接矩形四边中点的菱形
 
-    	                    var top = [x + width / 2, y],
-    	                        right = [x + width, y + height * 1 / 2],
-    	                        bottom = [x + width / 2, y + height],
-    	                        left = [x, y + height * 1 / 2];
+    	                    var yPos = 1 / 3;
 
-    	                    ctx.moveTo(top[0], top[1]);
-    	                    ctx.lineTo(right[0], right[1]);
-    	                    ctx.lineTo(bottom[0], bottom[1]);
-    	                    ctx.lineTo(left[0], left[1]);
-    	                    ctx.lineTo(top[0], top[1]);
+							ctx.moveTo(x,y+height*yPos);
+							//ctx.quadraticCurveTo(x+width/4,y+height*yPos*2,x+width/2,y+height);
+    	                    ctx.lineTo(x+width/2, y+height);
+							ctx.stroke();
+							//ctx.quadraticCurveTo(x+3*width/4,y+height*yPos*2,x+width,y+height*yPos*2);
+    	                    ctx.lineTo(x+width, y+height*yPos*2);
+							ctx.stroke();
+							ctx.beginPath();
+							ctx.arc(x+width/2,y+height*yPos*2,width/2,Math.PI,2*Math.PI);
+							ctx.stroke();
+
+    	                    //var top = [x + width / 2, y],
+    	                    //    right = [x + width, y + height * 1 / 2],
+    	                    //    bottom = [x + width / 2, y + height],
+    	                    //    left = [x, y + height * 1 / 2];
+
+    	                    //ctx.moveTo(top[0], top[1]);
+    	                    //ctx.lineTo(right[0], right[1]);
+    	                    //ctx.lineTo(bottom[0], bottom[1]);
+    	                    //ctx.lineTo(left[0], left[1]);
+    	                    //ctx.lineTo(top[0], top[1]);
 
     	                },
     	            },
