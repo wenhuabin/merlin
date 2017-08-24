@@ -21,10 +21,17 @@ export default {
 		var map = new AMap.Map('map-container', {
     	    zoom: 4
     	});
-		AMap.plugin(['AMap.ToolBar','AMap.Scale'],
+		AMap.plugin(['AMap.ToolBar','AMap.Scale', 'AMap.Geolocation', 'AMap.MapType'],
 		    function(){
-		        map.addControl(new AMap.ToolBar());
-		        map.addControl(new AMap.Scale());
+                map.addControl(new AMap.ToolBar({
+                    position: 'RB',
+                }));
+                map.addControl(new AMap.Scale({
+                    defaultType: 0,
+                }));
+		        map.addControl(new AMap.MapType({
+                }));
+		        //map.addControl(new AMap.Geolocation());
 		});
 		//加载PointSimplifier，loadUI的路径参数为模块名中 'ui/' 之后的部分 
 		AMapUI.loadUI(['misc/PointSimplifier'], function(PointSimplifier) {
