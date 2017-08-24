@@ -7,6 +7,7 @@ const Echart = () => import('@/components/Echart')
 const ChartJs = () => import('@/components/ChartJS')
 const Canvas = () => import('@/components/Canvas')
 const Svg = () => import('@/components/Svg')
+const Map = () => import('@/components/Map')
 const Login = () => import('@/Login')
 const Coming = () => import('@/Coming')
 const Signup = () => import('@/Signup')
@@ -46,6 +47,10 @@ const router = new Router({
             path: 'svg',
             name: 'svg',
             component: Svg 
+        },{
+            path: 'map',
+            name: 'map',
+            component: Map 
         },{
             path: 'echart',
             name: 'echart',
