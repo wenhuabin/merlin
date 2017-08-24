@@ -80,6 +80,7 @@ export default {
 							var yPos = 1 / 3,
     	                		left = [x, y + height * yPos];
 
+							ctx.strokeStyle="grey";
 							ctx.moveTo(x,y+height/3);
 							ctx.stroke();
 							//ctx.quadraticCurveTo(x+width/4,y+height*yPos*2,x+width/2,y+height);
@@ -90,6 +91,9 @@ export default {
 							ctx.beginPath();
 							ctx.arc(x+width/2,y+height*yPos,width/2,Math.PI,2*Math.PI);
 							ctx.stroke();
+							ctx.strokeRect(x+10,y+20,20,10);
+							ctx.fillStyle="#FF0000";
+							ctx.fillRect(x+10,y+20,15,10);
 
     	                },
 						//content: 'circle',
@@ -97,11 +101,12 @@ export default {
     	                width: 40,
     	                //高度
     	                height: 60,
+						fillStyle: '#ffffff',
     	                //offset: ['-50%', '-100%'],
     	                offset: [-20, -60],
     	                //fillStyle: '#316395',
     	                lineWidth: 1,
-    	                strokeStyle: 'gray'
+    	                strokeStyle: '#000'
     	            },
     	            topNAreaStyle: {
     	                content: function(ctx, x, y, width, height) {
