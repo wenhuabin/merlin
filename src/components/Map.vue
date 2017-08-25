@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: 'svg',
+    name: 'map',
     data () {
         return {
 			map: null,

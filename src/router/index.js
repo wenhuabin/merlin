@@ -8,6 +8,7 @@ const ChartJs = () => import('@/components/ChartJS')
 const Canvas = () => import('@/components/Canvas')
 const Svg = () => import('@/components/Svg')
 const Map = () => import('@/components/Map')
+const Media = () => import('@/components/Media')
 const Login = () => import('@/Login')
 const Coming = () => import('@/Coming')
 const Signup = () => import('@/Signup')
@@ -41,6 +42,13 @@ const router = new Router({
             component: D3, 
 			meta: {
 				title: 'D3 Demo | Welcome to Merlin',
+        	},
+        },{
+            path: 'media',
+            name: 'media',
+            component: Media,
+			meta: {
+				title: 'H5 Medio Demo | Welcome to Merlin',
         	},
         },{
             path: 'cjs',
