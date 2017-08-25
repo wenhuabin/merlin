@@ -59,57 +59,49 @@ export default {
     	            //点的样式
     	            pointStyle: {
     	                //绘制点占据的矩形区域
-    	                content: function(ctx, x, y, width, height) {
+    	                //content: function(ctx, x, y, width, height) {
 
-    	                //    //注意，这里的width和height可能不同于pointStyle里面的width/height， 高清屏幕下会存在比例缩放
+    	                ////    //注意，这里的width和height可能不同于pointStyle里面的width/height， 高清屏幕下会存在比例缩放
 
-    	                //    //这里绘制一个圆顶锥形
-    	                //    var yPos = 1 / 3;
-						//	
+    	                ////    //这里绘制一个圆顶锥形
+    	                ////    var yPos = 1 / 3;
+						////	
 
-    	                //    var top = [x + width / 2, y],
-    	                //        right = [x + width, y + height * yPos],
-    	                //        bottom = [x + width / 2, y + height],
-    	                //        left = [x, y + height * yPos];
+    	                ////    var top = [x + width / 2, y],
+    	                ////        right = [x + width, y + height * yPos],
+    	                ////        bottom = [x + width / 2, y + height],
+    	                ////        left = [x, y + height * yPos];
 
-    	                //    ctx.moveTo(left[0], left[1]);
-    	                //    ctx.arcTo(top[0], top[1], right[0], right[1], width / 3);
-    	                //    ctx.lineTo(right[0], right[1]);
-    	                //    ctx.lineTo(bottom[0], bottom[1]);
-    	                //    ctx.lineTo(left[0], left[1]);
-							var yPos = 1 / 3,
-    	                		left = [x, y + height * yPos];
+    	                ////    ctx.moveTo(left[0], left[1]);
+    	                ////    ctx.arcTo(top[0], top[1], right[0], right[1], width / 3);
+    	                ////    ctx.lineTo(right[0], right[1]);
+    	                ////    ctx.lineTo(bottom[0], bottom[1]);
+    	                ////    ctx.lineTo(left[0], left[1]);
+						//	var yPos = 1 / 3,
+    	                //		left = [x, y + height * yPos];
 
-							ctx.strokeStyle="green";
-							ctx.moveTo(x,y+height/3);
-							ctx.stroke();
-							//ctx.quadraticCurveTo(x+width/4,y+height*yPos*2,x+width/2,y+height);
-    	                    ctx.lineTo(x+width/2, y+height);
-							//ctx.quadraticCurveTo(x+3*width/4,y+height*yPos*2,x+width,y+height*yPos*2);
-    	                    ctx.lineTo(x+width, y+height*yPos);
-							ctx.stroke();
-							ctx.beginPath();
-							ctx.arc(x+width/2,y+height*yPos,width/2,Math.PI,2*Math.PI);
-							ctx.stroke();
-							ctx.strokeRect(x+10,y+18,20,10);
-							ctx.fillStyle="#FF0000";
-							ctx.fillRect(x+10,y+18,15,10);
+						//	ctx.strokeStyle="green";
+						//	ctx.moveTo(x,y+height/3);
+						//	ctx.stroke();
+						//	//ctx.quadraticCurveTo(x+width/4,y+height*yPos*2,x+width/2,y+height);
+    	                //    ctx.lineTo(x+width/2, y+height);
+						//	//ctx.quadraticCurveTo(x+3*width/4,y+height*yPos*2,x+width,y+height*yPos*2);
+    	                //    ctx.lineTo(x+width, y+height*yPos);
+						//	ctx.stroke();
+						//	ctx.beginPath();
+						//	ctx.arc(x+width/2,y+height*yPos,width/2,Math.PI,2*Math.PI);
+						//	ctx.stroke();
+						//	ctx.strokeRect(x+width/4,y+height*yPos,width/2,height/4);
+						//	ctx.fillStyle="#FF0000";
+						//	ctx.strokeRect(x+width/4,y+height*yPos,width/3,height/4);
 
-    	                },
-						//content: 'circle',
-    	                //宽度
-    	                width: 40,
-    	                //高度
-    	                height: 50,
-						fillStyle: '#ffffff',
-    	                //offset: ['-50%', '-100%'],
-						drawPositionPoint: true,
-						pointPositionStyle: 'red',
-    	                offset: [-20, -55],
-						getAreaScore: 3,
-    	                //fillStyle: '#316395',
-    	                lineWidth: 1,
-    	                strokeStyle: '#000'
+    	                //},
+            			content: 'circle',
+            			width: 6,
+            			height: 6,
+            			fillStyle: '#1f77b4',
+            			lineWidth: 1,
+            			strokeStyle: 'rgba(0,0,0,0)'
     	            },
 					pointHardcoreStyle:{
 						fillStyle: 'red',
