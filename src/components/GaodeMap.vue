@@ -1,9 +1,9 @@
 <style lang="scss" scoped>
-@import '~scss/web/map'
+@import '~scss/web/gaodemap'
 </style>
 
 <template>
-    <div class="map-demo">
+    <div class="gmap-demo">
         <h1>高德地图集成测试</h1>
 		<div id="map-container" tabindex="0"></div>
     </div>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name: 'map',
+    name: 'gmap',
     data () {
         return {
 			map: null,

@@ -7,7 +7,8 @@ const Echart = () => import('@/components/Echart')
 const ChartJs = () => import('@/components/ChartJS')
 const Canvas = () => import('@/components/Canvas')
 const Svg = () => import('@/components/Svg')
-const Map = () => import('@/components/Map')
+const GaodeMap = () => import('@/components/GaodeMap')
+const BaiduMap = () => import('@/components/BaiduMap')
 const Media = () => import('@/components/Media')
 const Login = () => import('@/Login')
 const Coming = () => import('@/Coming')
@@ -72,11 +73,18 @@ const router = new Router({
 				title: 'SVG Demo | Welcome to Merlin',
         	},
         },{
-            path: 'map',
-            name: 'map',
-            component: Map, 
+            path: 'bmap',
+            name: 'bmap',
+            component: BaiduMap, 
 			meta: {
-				title: 'Map Demo | Welcome to Merlin',
+				title: '百度地图 | Welcome to Merlin',
+        	}, 
+        },{
+            path: 'gmap',
+            name: 'gmap',
+            component: GaodeMap, 
+			meta: {
+				title: '高德地图 | Welcome to Merlin',
         	}, 
         },{
             path: 'echart',
