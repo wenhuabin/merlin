@@ -5,13 +5,13 @@
 <template>
     <div class="bmap-demo">
         <h1>百度地图</h1>
-		<div id="third-container" tabindex="0"></div>
 		<div id="map-container" tabindex="0"></div>
 		<div id="second-container" tabindex="0"></div>
     </div>
 </template>
 
 <script>
+//<div id="third-container" tabindex="0"></div>
 import ComplexCustomOverlay from 'utils/pernalizeOverlay'
 
 export default {
@@ -24,7 +24,7 @@ export default {
         }
     },
     mounted(){
-        this.initTMap()
+        //this.initTMap()
         this.initFMap()
         this.initSMap()
     },
@@ -45,16 +45,27 @@ export default {
         },
         initSMap: function(){
 			this.smap = new BMap.Map("second-container");
-			this.smap.centerAndZoom(new BMap.Point(116.404, 39.915), 4);
-			this.smap.enableScrollWheelZoom();
+			var point = new BMap.Point(116.404, 39.915);
+			this.smap.centerAndZoom(point, 15);
+            this.smap.addControl(new BMap.NavigationControl({
+                offset: new BMap.Size(0, 10),
+                anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+            }))    
+            this.smap.addControl(new BMap.ScaleControl())    
+            this.smap.addControl(new BMap.OverviewMapControl())    
+            this.smap.addControl(new BMap.MapTypeControl())    
 
-			var MAX = 100;
 			var markers = [];
 			var pt = null;
-			var i = 0;
-			for (; i < MAX; i++) {
-			   pt = new BMap.Point(Math.random() * 40 + 85, Math.random() * 30 + 21);
-			   markers.push(new BMap.Marker(pt));
+			// 随机向地图添加25个标注
+			var bounds = this.smap.getBounds();
+			var sw = bounds.getSouthWest();
+			var ne = bounds.getNorthEast();
+			var lngSpan = Math.abs(sw.lng - ne.lng);
+			var latSpan = Math.abs(ne.lat - sw.lat);
+			for (var i = 0; i < 100; i ++) {
+				pt = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7));
+			   	markers.push(new BMap.Marker(pt));
 			}
 			//最简单的用法，生成一个marker数组，然后调用markerClusterer类即可。
 			var markerClusterer = new BMapLib.MarkerClusterer(this.smap, {markers:markers});
