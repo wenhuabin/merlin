@@ -155,7 +155,7 @@ export default {
     	    window.pointSimplifierIns = pointSimplifierIns;
 
     	    $('<div id="loadingTip">加载数据，请稍候...</div>').appendTo(document.body);
-    	    $.get('http://a.amap.com/amap-ui/static/data/10w.txt', function(csv) {
+    	    $.get('https://a.amap.com/amap-ui/static/data/10w.txt', function(csv) {
 
     	        var data = csv.split('\n');
 
