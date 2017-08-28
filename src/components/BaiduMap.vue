@@ -68,7 +68,12 @@ export default {
 			   	markers.push(new BMap.Marker(pt));
 			}
 			//最简单的用法，生成一个marker数组，然后调用markerClusterer类即可。
-			var markerClusterer = new BMapLib.MarkerClusterer(this.smap, {markers:markers});
+			var opt = {
+				gridSize: 80,
+				maxZoom: 8,
+				minClusterSiz: 5
+			};
+			var markerClusterer = new BMapLib.MarkerClusterer(this.smap,{markers:markers},opt);
 		},
         initTMap: function(){
 			var mp = new BMap.Map("third-container");
