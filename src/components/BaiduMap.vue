@@ -69,7 +69,7 @@ export default {
 			}
 			//最简单的用法，生成一个marker数组，然后调用markerClusterer类即可。
 			var opt = {
-				gridSize: 80,
+				gridSize: 200,
 				maxZoom: 8,
 				minClusterSiz: 5
 			};
