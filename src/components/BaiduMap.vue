@@ -6,6 +6,7 @@
     <div class="bmap-demo">
         <h1>百度地图</h1>
 		<div id="map-container" tabindex="0"></div>
+		<div id="second-container" tabindex="0"></div>
     </div>
 </template>
 
@@ -20,6 +21,7 @@ export default {
     },
     mounted(){
         this.initFMap()
+        this.initSMap()
     },
     methods: {
         initFMap: function(){
@@ -36,6 +38,22 @@ export default {
             //this.map.setCurrentCity("北京") // 仅当设置城市信息时，MapTypeControl的切换功能才能可用
             this.addMakers()
         },
+        initSMap: function(){
+			var map = new BMap.Map("second-container");
+			map.centerAndZoom(new BMap.Point(116.404, 39.915), 4);
+			map.enableScrollWheelZoom();
+
+			var MAX = 30;
+			var markers = [];
+			var pt = null;
+			var i = 0;
+			for (; i < MAX; i++) {
+			   pt = new BMap.Point(Math.random() * 40 + 85, Math.random() * 30 + 21);
+			   markers.push(new BMap.Marker(pt));
+			}
+			//最简单的用法，生成一个marker数组，然后调用markerClusterer类即可。
+			var markerClusterer = new BMapLib.MarkerClusterer(map, {markers:markers});
+		},
         addMakers: function(){
 			var bounds = this.map.getBounds();
 			var sw = bounds.getSouthWest();
