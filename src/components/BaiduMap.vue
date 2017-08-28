@@ -5,8 +5,8 @@
 <template>
     <div class="bmap-demo">
         <h1>百度地图</h1>
-		<div id="map-container" tabindex="0"></div>
 		<div id="second-container" tabindex="0"></div>
+		<div id="map-container" tabindex="0"></div>
     </div>
 </template>
 
