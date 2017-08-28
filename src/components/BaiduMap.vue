@@ -5,12 +5,14 @@
 <template>
     <div class="bmap-demo">
         <h1>百度地图</h1>
+		<div id="third-container" tabindex="0"></div>
 		<div id="map-container" tabindex="0"></div>
 		<div id="second-container" tabindex="0"></div>
     </div>
 </template>
 
 <script>
+import ComplexCustomOverlay from 'utils/pernalizeOverlay'
 
 export default {
     name: 'bmap',
@@ -18,9 +20,11 @@ export default {
         return {
 			map: null,
 			smap: null,
+			tmap: null,
         }
     },
     mounted(){
+        this.initTMap()
         this.initFMap()
         this.initSMap()
     },
@@ -54,6 +58,18 @@ export default {
 			}
 			//最简单的用法，生成一个marker数组，然后调用markerClusterer类即可。
 			var markerClusterer = new BMapLib.MarkerClusterer(this.smap, {markers:markers});
+		},
+        initTMap: function(){
+			var mp = new BMap.Map("third-container");
+			mp.centerAndZoom(new BMap.Point(116.3964,39.9093), 15);
+			mp.enableScrollWheelZoom();
+			
+    		var txt = "银湖海岸城", mouseoverTxt = txt + " " + parseInt(Math.random() * 1000,10) + "套" ;
+    		    
+    		var myCompOverlay = new ComplexCustomOverlay(new BMap.Point(116.407845,39.914101), "银湖海岸城",mouseoverTxt);
+
+    		mp.addOverlay(myCompOverlay);
+			
 		},
         addMakers: function(){
 			var bounds = this.map.getBounds();
