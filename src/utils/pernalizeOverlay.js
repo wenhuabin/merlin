@@ -29,7 +29,7 @@ ComplexCustomOverlay.prototype.initialize = function(map){
   arrow.style.position = "absolute";
   arrow.style.width = "11px";
   arrow.style.height = "10px";
-  arrow.style.top = "22px";
+  arrow.style.top = "17px";
   arrow.style.left = "10px";
   arrow.style.overflow = "hidden";
   div.appendChild(arrow);
