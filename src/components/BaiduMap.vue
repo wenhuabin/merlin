@@ -61,6 +61,11 @@ export default {
 
 			var markers = [];
 			var pt = null;
+			var marker = null;
+			var myIcon = new BMap.Icon("https://api.map.baidu.com/img/markers.png", new BMap.Size(23, 25), {  
+                        	offset: new BMap.Size(10, 25), // 指定定位位置  
+                        	imageOffset: new BMap.Size(0, 0 - 10 * 25) // 设置图片偏移
+						});
 			// 随机向地图添加25个标注
 			var bounds = this.smap.getBounds();
 			var sw = bounds.getSouthWest();
@@ -69,7 +74,10 @@ export default {
 			var latSpan = Math.abs(ne.lat - sw.lat);
 			for (var i = 0; i < 100; i ++) {
 				pt = new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7));
-			   	markers.push(new BMap.Marker(pt));
+			   	marker = new BMap.Marker(pt,{icon:myIcon});
+				//label = new BMap.Label('1');
+				//marker.setLabel(label);
+			   	markers.push(marker);
 			}
 			//最简单的用法，生成一个marker数组，然后调用markerClusterer类即可。
 			var opt = {
