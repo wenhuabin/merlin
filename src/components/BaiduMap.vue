@@ -85,7 +85,6 @@ export default {
 				maxZoom: 16,
 				minClusterSiz: 4
 			};
-			//var markerClusterer = new BMapLib.MarkerClusterer(this.smap,{markers:markers},opt);
 			var markerClusterer = new BMapLib.MarkerClusterer(this.smap,opt);
 			markerClusterer.addMarkers(markers);
 		},
