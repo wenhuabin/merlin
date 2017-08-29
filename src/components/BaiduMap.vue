@@ -75,7 +75,7 @@ export default {
 			var opt = {
 				gridSize: 60,
 				maxZoom: 16,
-				minClusterSiz: 5
+				minClusterSiz: 4
 			};
 			//var markerClusterer = new BMapLib.MarkerClusterer(this.smap,{markers:markers},opt);
 			var markerClusterer = new BMapLib.MarkerClusterer(this.smap,opt);
