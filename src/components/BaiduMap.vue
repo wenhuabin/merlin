@@ -55,6 +55,10 @@ export default {
             this.smap.addControl(new BMap.OverviewMapControl())    
             this.smap.addControl(new BMap.MapTypeControl())    
 
+			this.smap.addEventListener("zoomend", function(){    
+			    console.log("地图缩放至：" + this.getZoom() + "级");    
+			});
+
 			var markers = [];
 			var pt = null;
 			// 随机向地图添加25个标注
@@ -69,11 +73,13 @@ export default {
 			}
 			//最简单的用法，生成一个marker数组，然后调用markerClusterer类即可。
 			var opt = {
-				gridSize: 200,
-				maxZoom: 8,
+				gridSize: 60,
+				maxZoom: 16,
 				minClusterSiz: 5
 			};
-			var markerClusterer = new BMapLib.MarkerClusterer(this.smap,{markers:markers},opt);
+			//var markerClusterer = new BMapLib.MarkerClusterer(this.smap,{markers:markers},opt);
+			var markerClusterer = new BMapLib.MarkerClusterer(this.smap,opt);
+			markerClusterer.addMarkers(markers);
 		},
         initTMap: function(){
 			var mp = new BMap.Map("third-container");
@@ -106,4 +112,17 @@ export default {
     components: {
     },
 }
+//BMapLib.MarkerClusterer(map, options)
+//MarkerClusterer
+//参数:
+//{Map} map
+//地图的一个实例。
+//{Json Object} options
+//可选参数，可选项包括：
+//markers {Array} 要聚合的标记数组
+//girdSize {Number} 聚合计算时网格的像素大小，默认60
+//maxZoom {Number} 最大的聚合级别，大于该级别就不进行相应的聚合
+//minClusterSize {Number} 最小的聚合数量，小于该数量的不能成为一个聚合，默认为2
+//isAverangeCenter {Boolean} 聚合点的落脚位置是否是所有聚合在内点的平均值，默认为否，落脚在聚合内的第一个点
+//styles {Array} 自定义聚合后的图标风格，请参考TextIconOverlay类
 </script>
