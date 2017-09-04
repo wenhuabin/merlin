@@ -23,13 +23,15 @@ export default {
 			smap: null,
 			tmap: null,
 			fmap: null,
+            ffmap: null,
         }
     },
     mounted(){
         //this.initTMap()
-        this.initFMap()
-        this.initMap()
-        this.initSMap()
+        //this.initFMap()
+        this.initFfMap()
+        //this.initMap()
+        //this.initSMap()
     },
     methods: {
         initMap: function(){
@@ -103,6 +105,42 @@ export default {
     		mp.addOverlay(myCompOverlay);
 			
 		},
+        initFfMap: function(){
+			this.fmap = new BMap.Map("fourth-container");
+			this.fmap.enableScrollWheelZoom();
+			this.fmap.centerAndZoom(new BMap.Point(116.404, 39.915), 13);
+			var lushu;
+			var arrPois =[];
+			var bounds = this.fmap.getBounds();
+			var sw = bounds.getSouthWest();
+			var ne = bounds.getNorthEast();
+			var lngSpan = Math.abs(sw.lng - ne.lng);
+			var latSpan = Math.abs(ne.lat - sw.lat);
+			for (var i = 0; i < 10; i ++) {
+				arrPois.push(new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7)));
+				
+			}
+    		this.fmap.addOverlay(new BMap.Polyline(arrPois, {strokeColor: '#444'}));
+    		this.fmap.setViewport(arrPois);
+    		
+    		lushu = new BMapLib.LuShu(this.fmap,arrPois,{
+    			defaultContent:"京A77YR3",
+    			autoView:true,//是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
+    			icon  : new BMap.Icon('http://lbsyun.baidu.com/jsdemo/img/car.png', new BMap.Size(52,26),{anchor : new BMap.Size(27, 13)}),
+    			speed: 4500,
+    			enableRotation:true,//是否设置marker随着道路的走向进行旋转
+    			landmarkPois: [
+    			           {lng:116.314782,lat:39.913508,html:'加油站',pauseTime:2},
+    			           {lng:116.315391,lat:39.964429,html:'高速公路收费<div><img src="http://map.baidu.com/img/logo-map.gif"/></div>',pauseTime:3},
+    			           {lng:116.381476,lat:39.974073,html:'肯德基早餐<div><img src="http://ishouji.baidu.com/resource/images/map/show_pic04.gif"/></div>',pauseTime:2}
+    		    ]});
+			lushu.start();
+			//lushu.pause();
+			//lushu.hideInfoWindow();
+			lushu.showInfoWindow();
+			
+
+        },
         initFMap: function(){
 			this.fmap = new BMap.Map("fourth-container");
 			this.fmap.centerAndZoom(new BMap.Point(116.404, 39.915), 15);
