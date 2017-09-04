@@ -129,15 +129,12 @@ export default {
     			icon  : new BMap.Icon('http://lbsyun.baidu.com/jsdemo/img/car.png', new BMap.Size(52,26),{anchor : new BMap.Size(27, 13)}),
     			speed: 4500,
     			enableRotation:true,//是否设置marker随着道路的走向进行旋转
-    			landmarkPois: [
-    			           {lng:116.314782,lat:39.913508,html:'加油站',pauseTime:2},
-    			           {lng:116.315391,lat:39.964429,html:'高速公路收费<div><img src="http://map.baidu.com/img/logo-map.gif"/></div>',pauseTime:3},
-    			           {lng:116.381476,lat:39.974073,html:'肯德基早餐<div><img src="http://ishouji.baidu.com/resource/images/map/show_pic04.gif"/></div>',pauseTime:2}
-    		    ]});
+    			landmarkPois: []
+			});
 			lushu.start();
 			//lushu.pause();
 			//lushu.hideInfoWindow();
-			lushu.showInfoWindow();
+			//lushu.showInfoWindow(); //会报错，Cannot read property '_div' of undefined
 			
 
         },
