@@ -5,6 +5,7 @@
 <template>
     <div class="bmap-demo">
         <h1>百度地图</h1>
+		<div id="fourth-container" tabindex="0"></div>
 		<div id="second-container" tabindex="0"></div>
 		<div id="map-container" tabindex="0"></div>
     </div>
@@ -21,15 +22,17 @@ export default {
 			map: null,
 			smap: null,
 			tmap: null,
+			fmap: null,
         }
     },
     mounted(){
         //this.initTMap()
         this.initFMap()
+        this.initMap()
         this.initSMap()
     },
     methods: {
-        initFMap: function(){
+        initMap: function(){
             this.map = new BMap.Map("map-container")          // 创建地图实例  
             var point = new BMap.Point(116.404, 39.915)  // 创建点坐标  
             this.map.centerAndZoom(point, 15)                 // 初始化地图，设置中心点坐标和地图级别
@@ -99,6 +102,46 @@ export default {
 
     		mp.addOverlay(myCompOverlay);
 			
+		},
+        initFMap: function(){
+			this.fmap = new BMap.Map("fourth-container");
+			this.fmap.centerAndZoom(new BMap.Point(116.404, 39.915), 15);
+			var myP1 = new BMap.Point(116.380967,39.913285);    //起点
+			var myP2 = new BMap.Point(116.424374,39.914668);    //终点
+			var myIcon = new BMap.Icon("http://lbsyun.baidu.com/jsdemo/img/Mario.png", new BMap.Size(32, 70), {    //小车图片
+				//offset: new BMap.Size(0, -5),    //相当于CSS精灵
+				imageOffset: new BMap.Size(0, 0)    //图片的偏移量。为了是图片底部中心对准坐标点。
+			  });
+			var driving2 = new BMap.DrivingRoute(this.fmap, {renderOptions:{map: this.fmap, autoViewport: true}});    //驾车实例
+			driving2.search(myP1, myP2);    //显示一条公交线路
+			setTimeout(function(){
+				this.run(myP1, myP2, myIcon, this.fmap);
+			}.bind(this),1500);
+        },
+		run: function(myP1, myP2, myIcon, map){
+			var driving = new BMap.DrivingRoute(map);    //驾车实例
+			driving.search(myP1, myP2);
+			driving.setSearchCompleteCallback(function(){
+				var pts = driving.getResults().getPlan(0).getRoute(0).getPath();    //通过驾车实例，获得一系列点的数组
+				var paths = pts.length;    //获得有几个点
+
+				var carMk = new BMap.Marker(pts[0],{icon:myIcon});
+				map.addOverlay(carMk);
+				var i=0;
+				function resetMkPoint(i){
+					carMk.setPosition(pts[i]);
+					if(i < paths){
+						setTimeout(function(){
+							i++;
+							resetMkPoint(i);
+						},100);
+					}
+				}
+				setTimeout(function(){
+					resetMkPoint(5);
+				},100)
+
+			});
 		},
         addMakers: function(){
 			var bounds = this.map.getBounds();
