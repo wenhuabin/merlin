@@ -30,8 +30,8 @@ export default {
         //this.initTMap()
         //this.initFMap()
         this.initFfMap()
-        //this.initMap()
-        //this.initSMap()
+        this.initMap()
+        this.initSMap()
     },
     methods: {
         initMap: function(){
