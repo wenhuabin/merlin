@@ -42,6 +42,13 @@ export default {
         	});    // 创建Map实例
         	map.centerAndZoom(new BMap.Point(106.962497, 38.208726), 5);  // 初始化地图,设置中心点坐标和地图级别
         	map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
+			
+            map.addControl(new BMap.NavigationControl({
+                offset: new BMap.Size(0, 10),
+                anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+            }))    
+            map.addControl(new BMap.ScaleControl())    
+            map.addControl(new BMap.OverviewMapControl())    
 
         	map.setMapStyle({
         	    styleJson: [
