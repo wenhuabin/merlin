@@ -109,6 +109,13 @@ export default {
 			this.fmap = new BMap.Map("fourth-container");
 			this.fmap.enableScrollWheelZoom();
 			this.fmap.centerAndZoom(new BMap.Point(116.404, 39.915), 13);
+            this.fmap.addControl(new BMap.NavigationControl({
+                offset: new BMap.Size(0, 10),
+                anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
+            }))    
+            this.fmap.addControl(new BMap.ScaleControl())    
+            this.fmap.addControl(new BMap.OverviewMapControl())    
+            this.fmap.addControl(new BMap.MapTypeControl())    
 			var lushu;
 			var arrPois =[];
 			var bounds = this.fmap.getBounds();
