@@ -30,7 +30,7 @@ export default {
     mounted(){
         //this.initTMap()
         //this.initFMap()
-        //this.initFfMap()
+        this.initFfMap()
         this.initMap()
         this.initSMap()
         this.initMapV()
