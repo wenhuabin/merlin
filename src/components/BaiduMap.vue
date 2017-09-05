@@ -30,7 +30,7 @@ export default {
     mounted(){
         //this.initTMap()
         //this.initFMap()
-        this.initFfMap()
+        //this.initFfMap()
         this.initMap()
         this.initSMap()
         this.initMapV()
@@ -92,7 +92,7 @@ export default {
         	    '香港': Math.random() * 70,
         	    '澳门': Math.random() * 70,
         	}
-			console.log(citys)
+			//console.log(citys)
 
         	$.get('https://wenhuabin.com/china.json', function(geojson) {
 
@@ -146,7 +146,7 @@ export default {
         	        ],
         	        methods: {
         	            click: function (item) {
-        	                console.log(item);
+        	                console.log(item.count);
         	            },
         	            mousemove: function (item) {
         	                item = item || {};
@@ -168,14 +168,13 @@ export default {
         	    var mapvLayer = new mapv.baiduMapLayer(map, dataSet, options);
 
         	});
-
-        	var data = [];
+			var data = [];
 
         	for (var key in citys) {
         	    var cityCenter = mapv.utilCityCenter.getCenterByCityName(key);
         	    if (cityCenter) {
         	        data.push({
-        	            text: key,
+        	            text: key + ' 33辆',
         	            geometry: {
         	                type: 'Point',
         	                coordinates: [cityCenter.lng, cityCenter.lat]
@@ -189,27 +188,30 @@ export default {
         	var options = {
         	    fillStyle: 'rgba(55, 50, 50, 0.8)',
         	    shadowColor: 'rgba(55, 50, 50, 0.5)',
-        	    shadowBlur: 10,
-        	    size: 3,
+        	    shadowBlur: 0,
+        	    size: 4,
         	    zIndex: 10,
         	    draw: 'simple'
         	}
 
         	var mapvLayer = new mapv.baiduMapLayer(map, dataSet, options);
 
+			//省会的字
         	var options = {
-        	    fillStyle: 'rgba(55, 50, 50, 0.8)',
+        	    fillStyle: '#000000',
         	    shadowColor: 'rgba(55, 50, 50, 0.5)',
         	    offset: {
         	        x: 0,
-        	        y: -10
+        	        y: -15
         	    },
-        	    shadowBlur: 10,
-        	    size: 3,
+        	    shadowBlur: 0,
+        	    size: 8,
         	    zIndex: 10,
         	    draw: 'text'
         	}
-        	var mapvLayer = new mapv.baiduMapLayer(map, dataSet, options);	
+        	var mapvLayer = new mapv.baiduMapLayer(map, dataSet, options);
+
+        		
 		},
         initMap: function(){
             this.map = new BMap.Map("map-container")          // 创建地图实例  
