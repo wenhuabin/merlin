@@ -9,6 +9,14 @@
         <div class="demo">
             <chart :options="line"></chart>
         </div>
+		<h2>5、饼图</h2>
+        <div class="demo">
+            <chart :options="pie"></chart>
+        </div>
+		<h2>7、PolarArea</h2>
+        <div class="demo">
+            <chart :options="polar"></chart>
+        </div>
 		<h2>2、柱状图</h2>
         <div class="demo">
         </div>
@@ -18,16 +26,8 @@
 		<h2>4、圆环图</h2>
         <div class="demo">
         </div>
-		<h2>5、饼图</h2>
-        <div class="demo">
-            <chart :options="pie"></chart>
-        </div>
 		<h2>6、雷达图</h2>
         <div class="demo">
-        </div>
-		<h2>7、PolarArea</h2>
-        <div class="demo">
-            <chart :options="polar"></chart>
         </div>
 		<h2>8、Bubble</h2>
         <div class="demo">
@@ -76,7 +76,7 @@ export default {
 			this.pie = {
 			    title : {
 			        text: '某站点用户访问来源',
-			        subtext: '纯属虚构',
+					align: 'center',
 			        x:'center'
 			    },
 			    tooltip : {
@@ -84,9 +84,9 @@ export default {
 			        formatter: "{a} <br/>{b} : {c} ({d}%)"
 			    },
 			    legend: {
-			        orient: 'vertical',
-			        left: 'left',
-			        data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎']
+			        orient: 'horizontal',
+			        data: ['直接访问','邮件营销','联盟广告','视频广告','搜索引擎'],
+					top: 50,
 			    },
 			    series : [{
 			            name: '访问来源',
@@ -115,13 +115,16 @@ export default {
 			this.line = {
     			title: {
     			    text: '未来一周气温变化',
-    			    subtext: '纯属虚构'
+					top: 0,
+					x: 'center',
     			},
     			tooltip: {
     			    trigger: 'axis'
     			},
     			legend: {
-    			    data:['最高气温','最低气温']
+    			    data:['最高气温','最低气温'],
+					right: 20,
+					top: 20,
     			},
     			toolbox: {
     			    show: true,
