@@ -7,6 +7,7 @@
 		<h1>Echart 图表</h1>
 		<h2>1、折线图</h2>
         <div class="demo">
+            <chart :options="line"></chart>
         </div>
 		<h2>2、柱状图</h2>
         <div class="demo">
@@ -25,6 +26,7 @@
         </div>
 		<h2>7、PolarArea</h2>
         <div class="demo">
+            <chart :options="polar"></chart>
         </div>
 		<h2>8、Bubble</h2>
         <div class="demo">
@@ -36,123 +38,165 @@
 </template>
 
 <script>
-//import LineChart from 'components/chartjs/LineChart.js'
-//import BarChart from 'components/chartjs/BarChart.js'
-//import HorizontalBar from 'components/chartjs/HorizontalBar.js'
-//import Doughnut from 'components/chartjs/Doughnut.js'
-//import Pie from 'components/chartjs/Pie.js'
-//import Radar from 'components/chartjs/Radar.js'
-//import PolarArea from 'components/chartjs/PolarArea.js'
-//import Bubble from 'components/chartjs/Bubble.js'
-//import Scatter from 'components/chartjs/Scatter.js'
-//import {generateData} from 'utils/util'
+import ECharts from 'vue-echarts/components/ECharts.vue'
+import 'echarts/lib/component/polar'
+import 'echarts/lib/chart/bar'
+import 'echarts/lib/chart/line'
+import 'echarts/lib/chart/pie'
+import 'echarts/lib/chart/map'
+import 'echarts/lib/chart/radar'
+import 'echarts/lib/chart/scatter'
+import 'echarts/lib/chart/effectScatter'
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/polar'
+import 'echarts/lib/component/geo'
+import 'echarts/lib/component/legend'
+import 'echarts/lib/component/title'
+import 'echarts/lib/component/visualMap'
 
 export default {
     name: 'echart-demo',
     data () {
       return {
-            lineData: {},
-            barData: {},
-            doughnutData: {},
-			radarData: {},
-			polarAreaData: {},
-			bubbleData: {},
-			scatterData: [],
-            options: {
-                responsive: false, //to set a fix width and height
-                maintainAspectRatio: false,
-				scaleShowGridLines : true, 
-				legend: {
-        		    display: true,
-					position: 'top',
-        		    labels: {
-        		        fontColor: '#444'
-        		    }
-        		},
-				title: {
-	            	display: true,
-            		text: '测试组件',
-					fontSize: 18,
-					fontFamily: "sans-serif",
-        		},
-				tooltips: {
-					width: 1000,
-					backgroundColor: "#fff",
-					titleFontColor: "#444",
-					titleFontSize: 16,
-					bodyFontColor: "#444",
-					titleMarginBottom: 15,
-					bodySpacing: 30,
-					footerMarginTop: 20,
-					xPadding: 10,
-					yPadding: 10,
-        		},
-            },
+	  	  polar: {}, 
+		  line: {},
       }
     },
     created(){
-        //this.lineData = this.fillLineData()
-        //this.barData = this.fillBarData()
-        //this.doughnutData = this.fillDoughnutData()
-        //this.radarData = this.fillRadarData()
-        //this.polarAreaData = this.fillPolarAreaData()
-        //this.bubbleData = this.fillBubbleData()
-        //this.scatterData = this.fillScatterData()
+		this.fillPolar()
+		this.fillLine()
     },
     mounted(){
-        //setInterval(()=>this.lineData = this.fillLineData(), 10000)
-        //setInterval(()=>this.barData = this.fillBarData(), 10000)
-        //setInterval(()=>this.doughnutData = this.fillDoughnutData(), 10000)
-        //setInterval(()=>this.radarData = this.fillRadarData(), 10000)
-        //setInterval(()=>this.polarAreaData = this.fillPolarAreaData(), 10000)
+		//this.fillPolar()
+		//this.fillLine()
     },
     methods: {
-        fillLineData () {
-    	  return {
-    	    
-    	  }
-    	},
-        fillBarData () {
-    	  return {
-    	    
-    	  }
-    	},
-        fillDoughnutData () {
-    	  return {
-    	    
-    	  }
-    	},
-		fillRadarData (){
-			return {
-				
-			}
+		fillLine: function(){
+			this.line = {
+    			title: {
+    			    text: '未来一周气温变化',
+    			    subtext: '纯属虚构'
+    			},
+    			tooltip: {
+    			    trigger: 'axis'
+    			},
+    			legend: {
+    			    data:['最高气温','最低气温']
+    			},
+    			toolbox: {
+    			    show: true,
+    			    feature: {
+    			        dataZoom: {
+    			            yAxisIndex: 'none'
+    			        },
+    			        dataView: {readOnly: false},
+    			        magicType: {type: ['line', 'bar']},
+    			        restore: {},
+    			        saveAsImage: {}
+    			    }
+    			},
+    			xAxis:  {
+    			    type: 'category',
+    			    boundaryGap: false,
+    			    data: ['周一','周二','周三','周四','周五','周六','周日']
+    			},
+    			yAxis: {
+    			    type: 'value',
+    			    axisLabel: {
+    			        formatter: '{value} °C'
+    			    }
+    			},
+    			series: [{
+    			        name:'最高气温',
+    			        type:'line',
+    			        data:[11, 11, 15, 13, 12, 13, 10],
+    			        markPoint: {
+    			            data: [
+    			                {type: 'max', name: '最大值'},
+    			                {type: 'min', name: '最小值'}
+    			            ]
+    			        },
+    			        markLine: {
+    			            data: [
+    			                {type: 'average', name: '平均值'}
+    			            ]
+    			        }
+    			    },{
+    			        name:'最低气温',
+    			        type:'line',
+    			        data:[1, -2, 2, 5, 3, 2, 0],
+    			        markPoint: {
+    			            data: [
+    			                {name: '周最低', value: -2, xAxis: 1, yAxis: -1.5}
+    			            ]
+    			        },
+    			        markLine: {
+    			            data: [
+    			                {type: 'average', name: '平均值'},
+    			                [{
+    			                    symbol: 'none',
+    			                    x: '90%',
+    			                    yAxis: 'max'
+    			                }, {
+    			                    symbol: 'circle',
+    			                    label: {
+    			                        normal: {
+    			                            position: 'start',
+    			                            formatter: '最大值'
+    			                        }
+    			                    },
+    			                    type: 'max',
+    			                    name: '最高点'
+    			                }]
+    			            ]}
+    			    }
+    			]};
 		},
-		fillPolarAreaData(){
-			return {
-				
-			}
-		},
-		fillBubbleData(){
-			return {
-				
-			}
-		},
-		fillScatterData(){
-			return {
-				
-			}
+		fillPolar: function(){
+	  		let data = []
+      		for (let i = 0; i <= 360; i++) {
+      		    let t = i / 180 * Math.PI
+      		    let r = Math.sin(2 * t) * Math.cos(2 * t)
+      		    data.push([r, i])
+      		}
+			this.polar = {
+            	title: {
+            	  text: '极坐标双数值轴'
+            	},
+            	legend: {
+            	  data: ['line']
+            	},
+            	polar: {
+            	  center: ['50%', '54%']
+            	},
+            	tooltip: {
+            	  trigger: 'axis',
+            	  axisPointer: {
+            	    type: 'cross'
+            	  }
+            	},
+            	angleAxis: {
+            	  type: 'value',
+            	  startAngle: 0
+            	},
+            	radiusAxis: {
+            	  min: 0
+            	},
+            	series: [
+            	  {
+            	    coordinateSystem: 'polar',
+            	    name: 'line',
+            	    type: 'line',
+            	    showSymbol: false,
+            	    data: data
+            	  }
+            	],
+            	animationDuration: 2000
+          	}
 		},
     },
-    //components: {
-    //  'LineChart': LineChart,
-    //  'BarChart': BarChart,
-    //  'HorizontalBar': HorizontalBar,
-    //  'Doughnut': Doughnut,
-    //  'Pie': Pie,
-    //  'Radar': Radar,
-    //  'PolarArea': PolarArea,
-	//  'Scatter': Scatter,
-    //  'Bubble': Bubble,
-    //},
+    components: {
+		'chart': ECharts,
+    },
 }
 </script>
