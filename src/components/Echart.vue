@@ -132,8 +132,7 @@ export default {
 			
 			this.mapsummary = {
 			    title: {
-			        text: 'iphone销量',
-			        subtext: '纯属虚构',
+			        text: '车辆分布统计',
 			        left: 'center'
 			    },
 			    tooltip: {
@@ -142,7 +141,7 @@ export default {
 			    legend: {
 			        orient: 'vertical',
 			        left: 'left',
-			        data: ['iphone3', 'iphone4', 'iphone5']
+			        data: ['车辆分布']
 			    },
 			    visualMap: {
 			        min: 0,
@@ -153,7 +152,7 @@ export default {
 			        calculable: true
 			    },
 			    toolbox: {
-			        show: true,
+			        show: false,
 			        orient: 'vertical',
 			        left: 'right',
 			        top: 'center',
@@ -166,7 +165,7 @@ export default {
 			        }
 			    },
 			    series: [{
-			        name: 'iphone3',
+			        name: '车辆分布',
 			        type: 'map',
 			        mapType: 'china',
 			        roam: false,
@@ -176,7 +175,8 @@ export default {
 			            },
 			            emphasis: {
 			                show: true
-			            }
+			            },
+						position: [10, 20],
 			        },
 			        data: [{
 			            name: '北京',
@@ -281,110 +281,6 @@ export default {
 			            name: '澳门',
 			            value: randomData()
 			        }]
-			    }, {
-			        name: 'iphone4',
-			        type: 'map',
-			        mapType: 'china',
-			        label: {
-			            normal: {
-			                show: true
-			            },
-			            emphasis: {
-			                show: true
-			            }
-			        },
-			        data: [{
-			            name: '北京',
-			            value: randomData()
-			        }, {
-			            name: '天津',
-			            value: randomData()
-			        }, {
-			            name: '上海',
-			            value: randomData()
-			        }, {
-			            name: '重庆',
-			            value: randomData()
-			        }, {
-			            name: '河北',
-			            value: randomData()
-			        }, {
-			            name: '安徽',
-			            value: randomData()
-			        }, {
-			            name: '新疆',
-			            value: randomData()
-			        }, {
-			            name: '浙江',
-			            value: randomData()
-			        }, {
-			            name: '江西',
-			            value: randomData()
-			        }, {
-			            name: '山西',
-			            value: randomData()
-			        }, {
-			            name: '内蒙古',
-			            value: randomData()
-			        }, {
-			            name: '吉林',
-			            value: randomData()
-			        }, {
-			            name: '福建',
-			            value: randomData()
-			        }, {
-			            name: '广东',
-			            value: randomData()
-			        }, {
-			            name: '西藏',
-			            value: randomData()
-			        }, {
-			            name: '四川',
-			            value: randomData()
-			        }, {
-			            name: '宁夏',
-			            value: randomData()
-			        }, {
-			            name: '香港',
-			            value: randomData()
-			        }, {
-			            name: '澳门',
-			            value: randomData()
-			        }]
-			    }, {
-			        name: 'iphone5',
-			        type: 'map',
-			        mapType: 'china',
-			        label: {
-			            normal: {
-			                show: true
-			            },
-			            emphasis: {
-			                show: true
-			            }
-			        },
-			        data: [{
-			            name: '北京',
-			            value: randomData()
-			        }, {
-			            name: '天津',
-			            value: randomData()
-			        }, {
-			            name: '上海',
-			            value: randomData()
-			        }, {
-			            name: '广东',
-			            value: randomData()
-			        }, {
-			            name: '台湾',
-			            value: randomData()
-			        }, {
-			            name: '香港',
-			            value: randomData()
-			        }, {
-			            name: '澳门',
-			            value: randomData()
-			        }]
 			    }]
 			};
 		},
@@ -443,7 +339,7 @@ export default {
 					top: 20,
     			},
     			toolbox: {
-    			    show: true,
+    			    show: false,
     			    feature: {
     			        dataZoom: {
     			            yAxisIndex: 'none'
