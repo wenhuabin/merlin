@@ -318,7 +318,7 @@ export default {
     		
     		lushu = new BMapLib.LuShu(this.fmap,arrPois,{
     			defaultContent:"京A77YR3",
-    			autoView:true,//是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
+    			autoView: true,//是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
     			icon  : new BMap.Icon('http://lbsyun.baidu.com/jsdemo/img/car.png', new BMap.Size(52,26),{anchor : new BMap.Size(27, 13)}),
     			speed: 4500,
     			enableRotation:true,//是否设置marker随着道路的走向进行旋转
