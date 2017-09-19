@@ -69,8 +69,8 @@ ComplexCustomOverlay.prototype.initialize = function(map){
 ComplexCustomOverlay.prototype.draw = function(){
   var map = this._map;
   var pixel = map.pointToOverlayPixel(this._point);
-  this._div.style.left = pixel.x - 30 + "px";
-  this._div.style.top  = pixel.y - 40 + "px";
+  this._div.style.left = pixel.x - 15 + "px";
+  this._div.style.top  = pixel.y - 85 + "px";
 }
 
     
