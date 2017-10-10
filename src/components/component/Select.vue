@@ -16,11 +16,71 @@
 export default {
   name: 'select',
   props: ["initial_value", "list"],
+  props: {
+    initial_value:{
+      type: String,
+      default: '',
+      required: true 
+    },
+    list:{
+      type: Array,
+      default: [],
+      required: true 
+    },
+    width:{
+      type: Number,
+      default: 210,
+      required: false 
+    },
+    height:{
+      type: Number,
+      default: 45,
+      required: false 
+    },
+    if_disabled: {
+      type: Boolean,
+      default: false,
+      required: false 
+    }},
+
   data () {
     return {
-        optionsStyle: {display: 'none'},
+		optionsStyle: {
+            display: 'none',
+            width: this.width ? this.width + 'px' : '210px'
+        },
+        selectStyle: {
+            width: this.width ? this.width + 'px': '210px',
+            height: this.height ? this.height + 'px': '35px',
+            lineHeight: this.height ? this.height + 'px': '35px',
+            opacity: this.if_disabled ? '0.7' : '1',
+        },
         value: this.initial_value || '请选择'
     }
+  },
+  watch: {
+      if_disabled: function(newValue){
+        if(newValue){
+          this.selectStyle = {
+              width: this.width ? this.width + 'px': '210px',
+              height: this.height ? this.height + 'px': '35px',
+              lineHeight: this.height ? this.height + 'px': '35px',
+              opacity: '0.7',
+            }
+        }else{
+          this.selectStyle = {
+              width: this.width ? this.width + 'px': '210px',
+              height: this.height ? this.height + 'px': '35px',
+              lineHeight: this.height ? this.height + 'px': '35px',
+              opacity: '1',
+            }
+        }
+      },
+      initial_value: function(newValue){
+        if(newValue){
+            this.value = newValue;
+        }
+      },
   },
   methods: {
     onItemSelected: function(value, index){
@@ -29,7 +89,9 @@ export default {
         this.optionsStyle = {display: "none"}
     },
     optionsShow: function(flag){
-        this.optionsStyle = flag ? {display: "block"} : {display: "none"}
+		if(!this.if_disabled){
+            this.optionsStyle = flag ? {display: "block", width: this.width ? this.width + 'px' : '210px' } : {display: "none"}
+        }
     },
   },
   computed: {

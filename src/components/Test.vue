@@ -8,7 +8,7 @@
 		    <h1>Welcome To Merlin</h1>
             <div class="select-test">
                 <div class="hint-left">下拉选择框测试</div>
-                <Selecting :initial_value='value' :list='list' @onChange='onChange'/>
+                <Selecting :initial_value='value' :list='list' @onChange='onChange' :if_disabled="false"/>
                 <div class="hint">value: {{value}} / key: {{key}}</div>
             </div>
 			<div class="date-picker">
@@ -78,6 +78,7 @@ export default {
 		//this.$store.dispatch({type: types.SET_COUNT, count: 3})
 		this[types.SET_COUNT]({type: types.SET_COUNT, count: 3})
 		setTimeout(()=>this.cycleFlag=false, 5000)
+		//setTimeout(()=>this.value='测试2', 5000)
     },
     computed: {
         ...mapState({
