@@ -1,6 +1,7 @@
 # merlin
 
 > Vue SinglePage Demo
+
 > [Demo 链接](https://vue.wenhuabin.com/)
 
 ## Build Setup
