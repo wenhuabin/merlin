@@ -61,19 +61,21 @@ export default {
   watch: {
       if_disabled: function(newValue){
         if(newValue){
-          this.selectStyle = {
+            this.selectStyle = {
               width: this.width ? this.width + 'px': '210px',
               height: this.height ? this.height + 'px': '35px',
               lineHeight: this.height ? this.height + 'px': '35px',
               opacity: '0.7',
             }
+            this.optionsStyle = {display: "none"} //避免disable之前展开状态，disable 后还是展开
         }else{
-          this.selectStyle = {
+            this.selectStyle = {
               width: this.width ? this.width + 'px': '210px',
               height: this.height ? this.height + 'px': '35px',
               lineHeight: this.height ? this.height + 'px': '35px',
               opacity: '1',
             }
+            this.optionsStyle = flag ? {display: "block", width: this.width ? this.width + 'px' : '210px' } : {display: "none"}
         }
       },
       initial_value: function(newValue){
