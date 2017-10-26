@@ -169,17 +169,32 @@ export default {
 					fontSize: 18,
 					fontFamily: "sans-serif",
         		},
+				//tooltips: {
+				//	width: 1000,
+				//	backgroundColor: "#fff",
+				//	titleFontColor: "#444",
+				//	titleFontSize: 16,
+				//	bodyFontColor: "#444",
+				//	titleMarginBottom: 15,
+				//	bodySpacing: 30,
+				//	footerMarginTop: 20,
+				//	xPadding: 10,
+				//	yPadding: 10,
+        		//},
 				tooltips: {
-					width: 1000,
-					backgroundColor: "#fff",
-					titleFontColor: "#444",
-					titleFontSize: 16,
-					bodyFontColor: "#444",
-					titleMarginBottom: 15,
-					bodySpacing: 30,
-					footerMarginTop: 20,
-					xPadding: 10,
-					yPadding: 10,
+        		    callbacks: {
+        		        label: function(tooltipItem, data) {
+        		            var allData = data.datasets[tooltipItem.datasetIndex].data;
+        		            var tooltipLabel = data.labels[tooltipItem.index];
+        		            var tooltipData = allData[tooltipItem.index];
+        		            var total = 0;
+        		            for (var i in allData) {
+        		                total += allData[i];
+        		            }
+        		            var tooltipPercentage = Math.round((tooltipData / total) * 100);
+        		            return tooltipLabel + ': ' + tooltipData + ' (' + tooltipPercentage + '%)';
+        		        }
+        		    }
         		},
                 animation: {
                     easing: 'easeInOutSine',
