@@ -41,7 +41,7 @@ export default {
     },
     methods: {
 		processFile: function(e){
-            this.$emit('processFile', e.target.files[0], e.target.files[0].name);
+            this.$emit('processFile', e.target.files[0]);
         }
     }
 }
