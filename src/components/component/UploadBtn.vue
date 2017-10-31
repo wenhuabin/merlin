@@ -35,6 +35,7 @@
 
 <script>
 export default {
+    name: 'upload-btn',
     props:{
     	label:{
     	  type: String,
