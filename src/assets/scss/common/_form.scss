@@ -1,0 +1,141 @@
+input[type='checkbox'],
+input[type='radio'] {
+    padding: 0;
+    -webkit-appearance: none;
+    appearance: none
+}
+
+input:focus,
+textarea:focus {
+    box-shadow: 0 0 5px #fd6e37;
+    border: 1px solid #fd6e37!important;
+}
+
+input,
+button,
+select,
+textarea,
+.select .col-sm-9 {
+    border-radius: 3px;
+}
+
+button,
+input[type="submit"] {
+    &:disabled {
+        background-color: #eee !important;
+        border: 1px solid #eee !important;
+        color: #999 !important;
+    }
+    &:not(:disabled) {
+        cursor: pointer;
+    }
+}
+
+input,
+textarea,
+select {
+    border: 1px solid #bbb;
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled]{
+    border-color: #ddd;
+}
+
+input[disabled]::-webkit-input-placeholder,
+select[disabled]::-webkit-input-placeholder {
+    color: #ddd;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+
+input,
+textarea,
+button,
+select {
+    font-family: 'Noto Sans CJK SC', 'Microsoft Yahei', 'Helvetica', 'sans-serif';
+    outline: none !important;
+}
+
+input,
+select,
+textarea {
+    padding: 9px 8px;
+}
+
+label,
+select,
+input,
+textarea {
+    font-size: 16px;
+    color: #333;
+}
+
+input[type='checkbox'] {
+	display: inline-block;
+    height: 17px;
+    width: 17px;
+    margin: 0;
+    border-radius: 2px;
+    vertical-align: middle;
+}
+
+input[type='checkbox']:checked {
+    background: url('../../assets/imgs/checked.png') no-repeat center center;
+    background-size: 18px*.85;
+}
+
+input[type='radio'] {
+    padding: 0;
+    margin-top: -3px;
+    width: 17px;
+    height: 17px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+input[type='radio']:checked {
+    background: url('../../assets/imgs/point.png') no-repeat center;
+    background-size: 11px;
+}
+.btn {
+	border-radius: 3px;
+    border: 1px solid #d5d5d5;
+    line-height: 33px;
+    height: 35px;
+    text-decoration: none;
+    color: #666;
+    background-color: #fff;
+    margin-left: 10px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    width: 100px;
+    text-align: center;
+
+    &:hover {
+        background-color: #009688;
+        border-color: #009688;
+        color: #fff;
+    }
+
+    &.disabled {
+        background-color: #eee;
+        border-color: transparent;
+        cursor: default;
+        &:hover {
+            background-color: #eee;
+            border-color: transparent;
+            color: #5d5d5d;
+        }
+    }
+}
+.btn-ok {
+    background-color: #ff895b;
+    color: #fff;
+}

@@ -1,10 +1,9 @@
 <style lang="scss">
-@import "~scss/common/_form.scss";
 .upload-btn{
 	display: inline-block;
 	position: relative;
 	box-sizing: border-box;
-	overflow: hidden;
+	//overflow: hidden;
 	.upload{
 		display: inline-block;
 		background-color: #fff !important;
@@ -17,9 +16,8 @@
 		display: inline-block;
 		position: relative;
 		vertical-align: top;
+		border: 1px solid red;
 		box-sizing: border-box;
-		opacity: 0;
-		cursor: pointer;
 	}
 	
 
@@ -76,10 +74,10 @@ export default {
 				lineHeight: (this.height - 2) + 'px'
 			},
 			fstyle: {
-				marginTop: '-35px',
+				marginTop: '-30px',
 				marginLeft: '-' + (this.width + 5) + 'px',
 				width: this.width + 'px',
-				height: (this.height + 35) + 'px'
+				height: (this.height + 30) + 'px'
 			},
 			clearFileInput: false,
         }
@@ -87,8 +85,6 @@ export default {
     methods: {
 		processFile: function(e){
             this.$emit('processFile', e.target.files[0]);
-			this.clearFileInput = true;
-			setTimeout(()=>this.clearFileInput = false, 1000);
         }
     }
 }

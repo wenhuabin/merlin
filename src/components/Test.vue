@@ -22,6 +22,11 @@
                 this.$emit('update:foo', newValue)
                 -->
 			</div>
+			<div class="upload-button">
+                <div class="hint-left">上传按钮</div>
+                <UploadBtn @processFile="processFile" :width="180" :height="45" :if_disabled="false" text="文件上传"/>
+                <div class="hint">{{file}}</div>
+			</div>
             <div class="animate-test">
                 <div class="hint-left">数据渐变性测试</div>
                     <input class="animate-input" v-model.number="number" type="number" step="10">
@@ -49,6 +54,7 @@ import Paging from 'components/component/Paging'
 import Select from 'components/component/Select'
 import DatePicker from 'components/component/DatePicker'
 import LifeCycle from 'components/component/LifeCycle'
+import UploadBtn from 'components/component/UploadBtn'
 import TWEEN from '@tweenjs/tween.js'
 import * as types from 'store/mutation-types'
 
@@ -67,6 +73,7 @@ export default {
           number: 0,
       	  animatedNumber: 0,
       	  cycleFlag: true,
+          file: '',
       }
     },
     mounted(){
@@ -109,6 +116,9 @@ export default {
 		...mapActions([
       	    types.SET_COUNT,
       	]),
+        processFile: function(file){
+            this.file = file.name + ' ' + file.type
+        },
         onPageChange: function(p){
             this.page = p
         },
@@ -127,6 +137,7 @@ export default {
       'Selecting': Select,
       'DatePicker': DatePicker,
       'LifeCycle': LifeCycle,
+      'UploadBtn': UploadBtn,
     },
 }
 </script>
