@@ -5,9 +5,9 @@
 <template>
 	<div class="echart-demo">
 		<h1>Echart 图表</h1>
-		<h2>1、分布图</h2>
-        <div class="demo">
-            <chart ref="bar" :options="mapsummary" theme="mint" :mapselected="onMapClick"></chart>
+		<h2 v-if="false">1、分布图</h2>
+        <div class="demo" v-if="false">
+            <chart ref="map" :options="mapsummary" theme="mint" :mapselected="onMapClick"></chart>
         </div>
 		<h2>1、折线图</h2>
         <div class="demo">
@@ -80,12 +80,10 @@ export default {
       }
     },
     created(){
-		console.log(config)
 		this.fillPolar()
 		this.fillLine()
 		this.fillPie()
 		this.fillSummary()
-		this.addEventForMutiMap()
     },
     mounted(){
 		setTimeout(()=>{
@@ -127,6 +125,7 @@ export default {
 			    ]
 			}
 		}, 3000)
+		//this.addEventForMutiMap()
     },
     methods: {
 		onMapClick(params){
