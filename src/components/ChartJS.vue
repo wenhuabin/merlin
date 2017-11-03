@@ -5,6 +5,10 @@
 <template>
 	<div class="chartjs-demo">
 		<h1>ChartJS 组件</h1>
+		<h2>10、层叠柱状图</h2>
+        <div class="demo">
+            <BarChart :chartData="stackBarData" :options="stackBarOptions" :width="500" :height="350"></BarChart>
+        </div>
 		<h2>1、折线图</h2>
         <div class="demo">
             <LineChart :chartData="lineData" :options="lineOptions" :width="500" :height="350"></LineChart>
@@ -55,11 +59,14 @@ import PolarArea from 'components/chartjs/PolarArea.js'
 import Bubble from 'components/chartjs/Bubble.js'
 import Scatter from 'components/chartjs/Scatter.js'
 import {generateData} from 'utils/util'
+import {stackBarData, stackBarOptions} from 'components/data/StackBar.js'
 
 export default {
     name: 'chartjs-demo',
     data () {
       return {
+			stackBarData: stackBarData,
+			stackBarOptions: stackBarOptions,
             lineData: {},
             barData: {},
             doughnutData: {},
