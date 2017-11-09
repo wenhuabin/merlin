@@ -126,7 +126,8 @@ const router = new Router({
         path: '*',
         name: '*',
         redirect: '/coming'
-    }]
+    }],
+    linkExactActiveClass: 'is-active',
 })
 
 router.beforeEach((to, from, next) => {
