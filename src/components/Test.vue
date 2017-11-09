@@ -6,6 +6,9 @@
         <div class="welcome">
             <img class="launch" src="../assets/imgs/launch.jpg">
 		    <h1>Welcome To Merlin</h1>
+            <div class="loading-test">
+                <Loading />
+            </div>
             <div class="select-test">
                 <div class="hint-left">下拉选择框测试</div>
                 <Selecting :initial_value='value' :list='list' @onChange='onChange' :if_disabled="false"/>
@@ -55,6 +58,7 @@ import Select from 'components/component/Select'
 import DatePicker from 'components/component/DatePicker'
 import LifeCycle from 'components/component/LifeCycle'
 import UploadBtn from 'components/component/UploadBtn'
+import Loading from 'components/component/Loading'
 import TWEEN from '@tweenjs/tween.js'
 import * as types from 'store/mutation-types'
 
@@ -138,6 +142,7 @@ export default {
       'DatePicker': DatePicker,
       'LifeCycle': LifeCycle,
       'UploadBtn': UploadBtn,
+      'Loading': Loading,
     },
 }
 </script>
