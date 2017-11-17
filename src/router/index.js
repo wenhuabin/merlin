@@ -14,6 +14,7 @@ const Login = () => import('@/Login')
 const Coming = () => import('@/Coming')
 const Signup = () => import('@/Signup')
 const Dashboard = () => import('@/Dashboard')
+const Menu = () => import('@/components/Menu')
 import store from 'store'
 import * as types from 'store/mutation-types'
 
@@ -99,6 +100,13 @@ const router = new Router({
             component: Test, 
 			meta: {
 				title: 'Map Demo | Welcome to Merlin',
+        	}, 
+        },{
+            path: 'menu',
+            name: 'menu',
+            component: Menu, 
+			meta: {
+				title: 'Animination Demo | Welcome to Merlin',
         	}, 
         }]
     },{
