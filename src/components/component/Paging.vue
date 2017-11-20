@@ -28,11 +28,15 @@ export default {
     pages: {
       type: Number,
       default: 0
-    }
+    },
+    showNums: {
+      type: Number,
+      default: 12
+    },
   }, 
   data () {
     return {
-      left: 13,
+      left: this.showNums + 1,
       right: -1,
       all_pages: [],
       isChildShow: [],
@@ -45,18 +49,18 @@ export default {
   },
   computed: {
       getPages: function(){
-          if(this.pages >= 1 && this.pages <= 12){
+          if(this.pages >= 1 && this.pages <= this.showNums){
               this.left = 0
               this.right = this.pages-1;
-          }else if(this.page <= 6){
+          }else if(this.page <= this.showNums / 2){
               this.left =  0
-              this.right = 11 
-          }else if(this.pages - this.page < 6){
-              this.left = this.pages - 12 
+              this.right = this.showNums - 1 
+          }else if(this.pages - this.page < this.showNums / 2){
+              this.left = this.pages - this.showNums 
               this.right = this.pages - 1
           }else{
-              this.left = this.page - 6
-              this.right = this.page + 5
+              this.left = this.page - this.showNums / 2
+              this.right = this.page + this.showNums / 2 - 1 
           }
           this.all_pages = []
           for(let i = this.left; i <= this.right; i++){
