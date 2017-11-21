@@ -1,10 +1,11 @@
 <style lang="scss" scoped>
-//@import '~scss/web/svg'
+@import '~scss/web/menu'
 </style>
 
 <template>
     <div class="animination-demo">
         <h1>Menu</h1>
+
         
     </div>
 </template>
