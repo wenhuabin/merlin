@@ -61,6 +61,7 @@ import UploadBtn from 'components/component/UploadBtn'
 import Loading from 'components/component/Loading'
 import TWEEN from '@tweenjs/tween.js'
 import * as types from 'store/mutation-types'
+import {format, compareAsc} from 'date-fns'
 
 export default {
     name: 'Test',
@@ -90,6 +91,7 @@ export default {
 		this[types.SET_COUNT]({type: types.SET_COUNT, count: 3})
 		setTimeout(()=>this.cycleFlag=false, 5000)
 		//setTimeout(()=>this.value='测试2', 5000)
+        this.testDateFns()
     },
     computed: {
         ...mapState({
@@ -134,7 +136,12 @@ export default {
             this.date = date 
         },
         onInputChange: function(e){
-        }
+        },
+        testDateFns: function(){
+            console.log(format(new Date(2014, 1, 11), 'MM/DD/YYYY'))
+            const dates = [new Date(1995, 6, 2), new Date(1987, 1, 11), new Date(1989, 6, 10)]
+            console.log(dates.sort(compareAsc))
+        },
     },
     components: {
       'Paging': Paging,
