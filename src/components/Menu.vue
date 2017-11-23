@@ -13,7 +13,7 @@
 <script>
 
 export default {
-    name: 'menu',
+    name: 'animination-demo',
     data () {
         return {
         }
