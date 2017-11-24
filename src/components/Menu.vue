@@ -5,7 +5,9 @@
 <template>
     <div class="animination-demo">
         <h1>Menu</h1>
-        <Menu />
+        <div class="menu-wrapper">
+            <Menu />
+        </div>
     </div>
 </template>
 
