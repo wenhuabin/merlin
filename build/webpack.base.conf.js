@@ -22,6 +22,7 @@ module.exports = {
       'scss': resolve('src/assets/scss'),
       'data': resolve('src/assets/data'),
       'imgs': resolve('src/assets/imgs'),
+      'icons': resolve('src/assets/icons'),
       'utils': resolve('src/utils'),
       'components': resolve('src/components'),
       'store': resolve('src/store'),
