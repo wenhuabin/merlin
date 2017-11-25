@@ -1,3 +1,5 @@
+$animationDuriation = .5s
+
 .item{
     opacity: 1;
     position: absolute;
@@ -36,12 +38,12 @@
 
 .item-selected-leave-active{
     animation-name: select-item;
-    animation-duration: animationDuriation;
+    animation-duration: $animationDuriation;
     animation-fill-mode: forwards;
 }
 .item-not-selected-leave-active{
     animation-name: not-select-item;
-    animation-duration: animationDuriation;
+    animation-duration: $animationDuriation;
     animation-fill-mode: backwards;
 }
 
