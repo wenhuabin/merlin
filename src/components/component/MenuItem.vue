@@ -15,13 +15,41 @@
 <script>
 
 export default {
-  name: 'menu-item',
-  data () {
-    return {
-    }
-  },
-  methods: {
-  },
+  	name: 'menu-item',
+  	props: {
+        radius: Number,
+        angleCur: Number,
+        index: Number,
+        animationDuration: Number,
+        itemAnimationDelay: Number,
+        icon: String,
+        showItem: Boolean,
+        isOpen: Boolean,
+        total: Number,
+        currentIndex: Number,
+    },
+  	data () {
+  	    return {
+	        styleArr: [],
+            itemExpandAnimationStyle: {
+                animationName: 'expand-item-' + this.index,
+                animationFillMode: 'forwards',
+                animationDuration: +this.animationDuration + 's',
+                animationDelay: this.itemAnimationDelay + 's',
+                animationTimingFunction: 'ease-in'
+            },
+            animationEndCount: 0,
+            itemContractAnimationStyle: {
+                animationName: 'contract-item-' + this.index,
+                animationFillMode: 'backwards',
+                animationDuration: +this.animationDuration + 's',
+                animationDelay: this.itemAnimationDelay + 's',
+                animationTimingFunction: 'ease-out'
+            }
+  	    }
+  	},
+  	methods: {
+  	},
 }
 
 </script>
