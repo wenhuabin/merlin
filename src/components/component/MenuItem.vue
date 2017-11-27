@@ -49,6 +49,37 @@ export default {
   	    }
   	},
   	methods: {
+		x () {
+      	    return this.radius * Math.cos(this.toRadians(this.angleCur))
+      	},
+        y () {
+            return this.radius * Math.sin(this.toRadians(this.angleCur))
+        },
+        x0 () {
+           return 0
+        },
+        y0 () {
+            return 0
+        },
+        x2 () {
+            return Number((this.x).toFixed(2))
+        },
+        y2 () {
+            return Number((this.y).toFixed(2))
+        },
+        x1 () {
+            return this.x2 * 1.2
+        },
+        y1 () {
+            return this.y2 * 1.2
+        },
+        animation () {
+            if (this.isOpen) {
+
+            } else {
+                return this.generateAminate()
+            }
+        }
   	},
 }
 
