@@ -48,6 +48,22 @@ export default {
             }
   	    }
   	},
+	watch:{
+		isOpen: function () {
+      	    if (this.isOpen) {
+      	      	try {
+      	      	  this.styleArr.pop()
+      	      	} catch (e) {
+      	      	  console.log(e)
+      	      	}
+      	      	this.styleArr.push(this.itemExpandAnimationStyle)
+      	    } else {
+      	      	this.styleArr.pop()
+      	      	this.styleArr.push(this.itemContractAnimationStyle)
+      	    }
+
+      	},
+	},
   	methods: {
 		x () {
       	    return this.radius * Math.cos(this.toRadians(this.angleCur))
@@ -81,6 +97,7 @@ export default {
             }
         }
   	},
+	
 }
 
 </script>
