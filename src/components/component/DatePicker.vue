@@ -295,7 +295,8 @@ export default {
         if (mo < 10) {
           mo = '0' + '' + mo
         }
-        this.checked.currentMoment = moment(this.checked.year + '-' + mo + '-' + this.checked.day)
+        //this.checked.currentMoment = moment(this.checked.year + '-' + mo + '-' + this.checked.day)
+        this.checked.currentMoment = moment(this.checked.year + '-' + mo + '-20')
         this.showDay(this.checked.currentMoment)
         this.showInfo.month = false
         this.optionsShow(1)
