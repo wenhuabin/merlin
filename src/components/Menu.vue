@@ -6,7 +6,7 @@
     <div class="animination-demo">
         <h1>Menu</h1>
         <div class="menu-wrapper">
-            <Menu />
+            <Menu-Comp />
         </div>
     </div>
 </template>
@@ -27,7 +27,7 @@ export default {
         //把每个button的背景图片的class插入到html中,方便以后使用。
     },
     components: {
-        Menu,
+        'Menu-Comp': Menu,
     },
 }
 

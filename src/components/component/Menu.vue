@@ -27,7 +27,7 @@ import liuyangtiao from 'icons/liuyangtiao.svg'
 
 
 export default {
-    name: 'menu',
+    name: 'menu-component',
     data() {
         return {
             showItem: true,
