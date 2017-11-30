@@ -32,15 +32,17 @@ export default {
         return {
             showItem: true,
             isOpen: false,
-            total: this.iconImgArr.length,
             count: 0,
             currentIndex: -1,
             iconImgArr: this.getIconImgArr(), 
         };
     },
     computed: {
-        angleStep () {
+        angleStep: function(){
           return (this.endAngle - this.startAngle) / (this.itemNum - 1)
+        },
+        total: function(){
+            return this.iconImgArr.length;
         },
     },
     created(){
