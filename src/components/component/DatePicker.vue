@@ -285,7 +285,7 @@ export default {
         this.optionsShow(1)
       },
       setYear (year) {
-        this.checked.currentMoment = moment(year + '-' + this.checked.month + '-' + this.checked.day)
+        this.checked.currentMoment = moment(year + '-' + this.checked.month + '-20')
         this.showDay(this.checked.currentMoment)
         this.showInfo.year = false
         this.optionsShow(0)
