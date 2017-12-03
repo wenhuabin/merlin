@@ -75,7 +75,7 @@ export default {
               lineHeight: this.height ? this.height + 'px': '35px',
               opacity: '1',
             }
-            this.optionsStyle = flag ? {display: "block", width: this.width ? this.width + 'px' : '210px' } : {display: "none"}
+            //this.optionsStyle = flag ? {display: "block", width: this.width ? this.width + 'px' : '210px' } : {display: "none"}
         }
       },
       initial_value: function(newValue){
