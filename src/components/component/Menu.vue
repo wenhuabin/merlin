@@ -46,6 +46,26 @@ import Item from 'components/component/MenuItem'
 
 export default {
     name: 'menu-component',
+	props: {
+      	startAngle: {
+      	  default: 0
+      	},
+      	radius: {
+      	  default: 160
+      	},
+      	itemAnimationDelay: {
+      	  default: 0.04
+      	},
+      	animationDuration: {
+      	  default: 0.5
+      	},
+      	endAngle: {
+      	  default: 315
+      	},
+      	itemNum: {
+      	  default: 8
+      	},
+    },
     data() {
         return {
             showItem: true,
