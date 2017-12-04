@@ -1,4 +1,4 @@
-$animationDuriation = .5s
+$animationDuriation : .5s;
 
 .item{
     opacity: 1;
@@ -49,8 +49,8 @@ $animationDuriation = .5s
 
 @keyframes select-item {
   0% {
-    transform scale(1)
-    opacity 1
+    transform: scale(1);
+    opacity: 1;
   }
   100% {
       transform: scale(2);

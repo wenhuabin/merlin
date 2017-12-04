@@ -10,6 +10,23 @@
             </button>
         </div>
         <ul class="menu-item-list" >
+			<menu-item
+      		  	v-for="(item, itemIndex) in iconImgArr"
+				:key="'item-' + itemIndex"
+      		  	:radius="radius"
+      		   	:index="itemIndex"
+      		   	:angleCur="startAngle+angleStep*itemIndex"
+      		   	:animationDuration="animationDuration"
+      		   	:itemAnimationDelay="0 + (itemIndex * itemAnimationDelay)"
+      		   	:icon="'icon-'+item.iconName"
+      		   	:showItem="showItem"
+      		   	:isOpen="isOpen"
+      		   	:total="iconImgArr.length"
+      		   	:currentIndex="currentIndex"
+      		    v-on:showItemChange="showItemChange"
+      		    v-on:isOpenChange="isOpenChange"
+      		    v-on:animationCountIncrease=" (val) => {animationCountIncrease(val)}">
+      		</menu-item>
         </ul> 
     </div>
 </template>
@@ -24,6 +41,7 @@ import phone from 'icons/phone.svg'
 import user from 'icons/user.svg'
 import card from 'icons/card.svg'
 import liuyangtiao from 'icons/liuyangtiao.svg'
+import Item from 'components/component/MenuItem'
 
 
 export default {
@@ -106,6 +124,9 @@ export default {
             let angleCur = this.startAngle
         },
     },
+	components: {
+      'menu-item': Item
+    }
 }
 
 </script>

@@ -64,7 +64,7 @@ export default {
 
       	},
 	},
-  	methods: {
+  	computed: {
 		x () {
       	    return this.radius * Math.cos(this.toRadians(this.angleCur))
       	},
@@ -97,7 +97,65 @@ export default {
             }
         }
   	},
-	
+    mounted () {
+      	this.insertStyleSheet()
+    },
+	methods: {
+      	animationEnd() {
+      	  	this.$emit('animationCountIncrease')
+      	},
+      	changeShowItem () {
+      	  	this.$emit('showItemChange', this.index)
+      	},
+      	toRadians (angle) {
+      	  	return angle * (Math.PI / 180)
+      	},
+      	generateBaseKeyFrame (stage) {
+      	  	let str = ''
+      	  	if (stage === 'expand-item-') {
+      	  	  str = stage + this.index + '{' +
+      	  	  '0% {' +
+      	  	  'transform: translate(' + this.x0 + 'px,' + this.y0 + 'px)' +
+      	  	  '}' +
+      	  	  '70% {' +
+      	  	  'transform: translate(' + this.x1 + 'px,' + this.y1 + 'px)' +
+      	  	  '}' +
+      	  	  '100% {' +
+      	  	  'transform: translate(' + this.x2 + 'px,' + this.y2 + 'px)' +
+      	  	  '}' +
+      	  	  '}\n'
+      	  	} else {
+      	  	  str = stage + this.index + '{' +
+      	  	  '100% {' +
+      	  	  'transform: translate(' + this.x0 + 'px,' + this.y0 + 'px)' +
+      	  	  '}' +
+      	  	  '0% {' +
+      	  	  'transform: translate(' + this.x2 + 'px,' + this.y2 + 'px)' +
+      	  	  '}' +
+      	  	  '}\n'
+      	  	}
+      	  	return '@keyframes ' + str + '@-webkit-keyframes   ' + str
+      	},
+      	genetateAnimateDetail () {
+
+      	  	let str = '.item-active {' +
+      	  	  'animation-name: ' + 'expand-item-' + this.index + ';' +
+      	  	  'animation-fill-mode: forwards;' +
+      	  	  'animation-duration: 0.7s;' +
+      	  	  'animation-timing-function: ease-out'
+      	  	'}\n'
+      	  	return str
+      	},
+      	insertStyleSheet () {
+      	  	let cssRule = this.generateBaseKeyFrame('expand-item-')
+      	  	cssRule += this.generateBaseKeyFrame('contract-item-')
+      	  	cssRule += this.genetateAnimateDetail()
+      	  	let style = document.createElement('style')
+      	  	style.type = 'text/css'
+      	  	style.innerHTML = cssRule
+      	  	document.head.appendChild(style)
+      	}
+    },
 }
 
 </script>
