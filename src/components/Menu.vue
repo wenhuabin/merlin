@@ -4,7 +4,7 @@
 
 <template>
     <div class="animination-demo">
-        <h1>Menu</h1>
+        <h1>Menu&nbsp;&nbsp;<a href="https://github.com/MingSeng-W/vue-bloom-menu">参考项目</a></h1>
         <div class="menu-wrapper">
             <Menu-Comp />
         </div>
