@@ -108,7 +108,7 @@ export default {
       	  	this.$emit('showItemChange', this.index)
       	},
       	toRadians (angle) {
-      	  	return angle * (Math.PI / 180)
+      	  	return angle * (Math.PI / 180) // 2*Math.PI per circle, get radians
       	},
       	generateBaseKeyFrame (stage) {
       	  	let str = ''
