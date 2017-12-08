@@ -7,7 +7,7 @@
       <div class="input-box" :style="customStyle.inputCoverBoxSize">
           <input type="text" title="input date" class="cov-datepicker" readonly="readonly" :placeholder="option.placeholder" v-model="fullTime" :required="required" @click="showCalendar" :style="customStyle.inputBoxSize"/>
       </div>
-      <div class="cov-date-body" :style="calendarStyle" @mouseleave="showCalendar">
+      <div class="cov-date-body" :style="Object.assign(calendarStyle, calendarPoistion)" @mouseleave="showCalendar">
           <div class="cov-date-header" :style="customStyle.headerBackgroundColor">
               <div class="cov-date-previous" @click="nextMonth('pre')"></div>
               <div class="cov-date-year">
@@ -118,6 +118,11 @@ export default {
       default: false,
       required: false 
     },
+    boardPos: {
+      type: String,
+      default: 'top', //'top' 'bottom' 'left' 'right'
+      required: false
+    },
   },
   data () {
     return {
@@ -125,6 +130,7 @@ export default {
         hour: this.date ? moment(this.date).format(this.option.format + ' HH:mm').substring(11,13) : moment().format(this.option.format+ ' HH:mm').substring(11,13),
         minute: this.date ? moment(this.date).format(this.option.format + ' HH:mm').substring(14) : moment().format(this.option.format+ ' HH:mm').substring(14),
         calendarStyle: {display: "none"},
+        calendarPoistion: this.getCalendarPosition(),
         yearHoverStyle: {},
         monthHoverStyle: {},
         customStyle: { 
@@ -182,6 +188,26 @@ export default {
       },
   },
   methods: {
+      getCalendarPosition(){
+          if(this.boardPos === 'top'){
+              return {
+                top: this.ifTime ? '-310px' : '-275px'
+              };
+          }else if(this.boardPos === 'right'){
+              return {
+                top: this.ifTime ? '-150px' : '-130px',
+                right: '-243px'
+              };
+          }else if(this.boardPos === 'left'){
+              return {
+                top: this.ifTime ? '-150px' : '-130px',
+                left: '-243px'
+              };
+          }else{
+              return {};
+          }
+
+      },
       showTime(){
           if(!this.showInfo.time){
             this.showInfo.year = false 
