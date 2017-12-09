@@ -1,6 +1,6 @@
 # merlin
 
-> Vue SinglePage Demo
+> Vue Single Page Demo
 
 > [Demo 链接](https://vue.wenhuabin.com/)
 
