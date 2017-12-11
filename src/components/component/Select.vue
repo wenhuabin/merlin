@@ -5,7 +5,7 @@
 <template>
     <div id="select" @mouseover="optionsShow(1)" @mouseleave="optionsShow(0)">
         <span class="select-vaue">{{value}}</span>
-	    <ul id="options" :style="optionsStyle">
+	    <ul id="options" :style="Object.assign(optionsStyle, optionPosition)">
             <li v-for="(o, index) in list" :class="{unavailable: o.disabled}" @click="(!o.disabled ? onItemSelected(o.value, index) : null)" :key="o.value">{{o.value}}</li>
 	    </ul>
     </div>
@@ -17,31 +17,37 @@ export default {
   name: 'select',
   props: ["initial_value", "list"],
   props: {
-    initial_value:{
-      type: String,
-      default: '',
-      required: true 
-    },
-    list:{
-      type: Array,
-      default: [],
-      required: true 
-    },
-    width:{
-      type: Number,
-      default: 210,
-      required: false 
-    },
-    height:{
-      type: Number,
-      default: 45,
-      required: false 
-    },
-    if_disabled: {
-      type: Boolean,
-      default: false,
-      required: false 
-    }},
+      initial_value:{
+          type: String,
+          default: '',
+          required: true 
+      },
+      list:{
+          type: Array,
+          default: [],
+          required: true 
+      },
+      width:{
+          type: Number,
+          default: 210,
+          required: false 
+      },
+      height:{
+          type: Number,
+          default: 45,
+          required: false 
+      },
+      if_disabled: {
+          type: Boolean,
+          default: false,
+          required: false 
+      },
+      optionPos: {
+          type: String,
+          default: 'bottom', //'bottom'、'top'
+          required: false
+      },
+  },
 
   data () {
     return {
@@ -49,6 +55,9 @@ export default {
             display: 'none',
             width: this.width ? this.width + 'px' : '210px'
         },
+        optionPosition: this.optionPos === 'top' ? {
+            bottom: this.height ? (parseInt(this.height) + 3) + 'px' : '47px'
+        } : {},
         selectStyle: {
             width: this.width ? this.width + 'px': '210px',
             height: this.height ? this.height + 'px': '35px',
