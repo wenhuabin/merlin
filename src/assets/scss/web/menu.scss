@@ -1,3 +1,5 @@
+@import "~scss/common/_form.scss";
+
 .animination-demo{
 	padding: 0 45px;
 	h1{
@@ -16,12 +18,31 @@
 		height: 50px;
 	}
     .menu-container{
-      position: relative;
-      margin-top: 300px;
-      //top: 50%;
-      //left: 50%;
-      width: 50px; 
-      height: 50px;
-      //transform: translate(-50%, -50%);
-  }
+        position: relative;
+        margin-top: 300px;
+        //top: 50%;
+        //left: 50%;
+        width: 50px; 
+        height: 50px;
+        //transform: translate(-50%, -50%);
+    }
+    .transition-box{
+        margin-top: 240px;
+        margin-left: 240px;
+        button,
+        p{
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+        }
+        &.fade-enter-active,
+        &.fade-leave-active{
+            transition: all 0.5s ease;
+        }
+        &.fade-enter,
+        &.fade-leave-active{
+            opacity: 0;
+        }
+    }
 }
