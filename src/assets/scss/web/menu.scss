@@ -32,13 +32,15 @@
         button,
         p{
             display: inline-block;
+            margin-right: 20px;
             width: 100px;
-            height: 30px;
-            line-height: 30px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 18px;
         }
         &.fade-enter-active,
         &.fade-leave-active{
-            transition: all 0.5s ease;
+            transition: all 3s ease-in-out 1s;
         }
         &.fade-enter,
         &.fade-leave-active{
