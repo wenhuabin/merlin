@@ -38,13 +38,43 @@
             line-height: 40px;
             font-size: 18px;
         }
-        &.fade-enter-active,
-        &.fade-leave-active{
+        .fade-enter-active,
+        .fade-leave-active{
             transition: all 3s ease-in-out 1s;
         }
-        &.fade-enter,
-        &.fade-leave-active{
+        //.fade-enter-active{
+        //    animation-name: fold-in;
+        //    animation-duration: .5s;
+        //}
+        //.fade-leave-active{
+        //    animation-name: fold-out;
+        //    animation-duration: .5s;
+        //}
+        .fade-enter,
+        .fade-leave-active{
             opacity: 0;
+        }
+        @keyframes fold-in {
+            0% {
+              transform: translate3d(0, 100%, 0);
+            }
+            50% {
+              transform: translate3d(0, 50%, 0);
+            }
+            100% {
+              transform: translate3d(0, 0, 0);
+            }
+        }
+        @keyframes fold-out {
+            0% {
+              transform: translate3d(0, 0, 0);
+            }
+            50% {
+              transform: translate3d(0, 50%, 0);
+            }
+            100% {
+              transform: translate3d(0, 100%, 0);
+            }
         }
     }
 }
