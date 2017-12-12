@@ -294,7 +294,7 @@ export default {
         initFfMap: function(){
 			this.fmap = new BMap.Map("fourth-container");
 			this.fmap.enableScrollWheelZoom();
-			this.fmap.centerAndZoom(new BMap.Point(116.404, 39.915), 13);
+			this.fmap.centerAndZoom(new BMap.Point(116.404, 39.915), 10);
             this.fmap.addControl(new BMap.NavigationControl({
                 offset: new BMap.Size(0, 10),
                 anchor: BMAP_ANCHOR_BOTTOM_RIGHT,
@@ -309,7 +309,7 @@ export default {
 			var ne = bounds.getNorthEast();
 			var lngSpan = Math.abs(sw.lng - ne.lng);
 			var latSpan = Math.abs(ne.lat - sw.lat);
-			for (var i = 0; i < 10; i ++) {
+			for (var i = 0; i < 1000; i ++) {
 				arrPois.push(new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7)));
 				
 			}
