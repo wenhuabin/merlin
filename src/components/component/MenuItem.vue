@@ -141,7 +141,7 @@ export default {
       	  	let str = '.item-active {' +
       	  	  'animation-name: ' + 'expand-item-' + this.index + ';' +
       	  	  'animation-fill-mode: forwards;' +
-      	  	  'animation-duration: 0.7s;' +
+      	  	  'animation-duration: 13.7s;' +
       	  	  'animation-timing-function: ease-out'
       	  	'}\n'
       	  	return str
