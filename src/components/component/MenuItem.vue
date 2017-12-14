@@ -58,6 +58,7 @@ export default {
       	      	}
       	      	this.styleArr.push(this.itemExpandAnimationStyle)
       	    } else {
+                //when icon is clicked, isopen will be set false, then move item div to origin position
       	      	this.styleArr.pop()
       	      	this.styleArr.push(this.itemContractAnimationStyle)
       	    }
