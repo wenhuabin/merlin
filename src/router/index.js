@@ -15,6 +15,7 @@ const Coming = () => import('@/Coming')
 const Signup = () => import('@/Signup')
 const Dashboard = () => import('@/Dashboard')
 const Menu = () => import('@/components/Menu')
+const Lushu = () => import('@/components/Lushu')
 import store from 'store'
 import * as types from 'store/mutation-types'
 
@@ -100,6 +101,13 @@ const router = new Router({
             component: Test, 
 			meta: {
 				title: 'Map Demo | Welcome to Merlin',
+        	}, 
+        },{
+            path: 'lushu',
+            name: 'lushu',
+            component: Lushu, 
+			meta: {
+				title: 'Lushu Demo | Welcome to Merlin',
         	}, 
         },{
             path: 'menu',
