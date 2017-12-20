@@ -326,6 +326,7 @@ export default {
 			});
 			lushu.start();
 			//lushu.pause();
+			//lushu.stop();
 			//lushu.hideInfoWindow();
 			//lushu.showInfoWindow(); //会报错，Cannot read property '_div' of undefined
 			

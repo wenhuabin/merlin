@@ -220,9 +220,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
         this._fromStop = true;
         clearInterval(this._intervalFlag);
         this._clearTimeout();
-        for (var g = 0,
-        f = this._opts.landmarkPois,
-        e = f.length; g < e; g++) {
+        for (var g = 0, f = this._opts.landmarkPois, e = f.length; g < e; g++) {
             f[g].bShow = false
         }
     };
