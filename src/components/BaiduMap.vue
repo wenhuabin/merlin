@@ -6,6 +6,11 @@
     <div class="bmap-demo">
         <h1>百度地图</h1>
 		<div id="mapv-container" tabindex="0"></div>
+        <div class="lushu-control">
+            <button class="start" @click="startLushu">开始</button>
+            <button class="pause" @click="pauseLushu">暂停</button>
+            <button class="stop" @click="stopLushu">停止</button>
+        </div>
 		<div id="fourth-container" tabindex="0"></div>
 		<div id="second-container" tabindex="0"></div>
 		<div id="map-container" tabindex="0"></div>
@@ -25,6 +30,7 @@ export default {
 			tmap: null,
 			fmap: null,
             ffmap: null,
+            lushu: null,
         }
     },
     mounted(){
@@ -302,7 +308,7 @@ export default {
             this.fmap.addControl(new BMap.ScaleControl())    
             this.fmap.addControl(new BMap.OverviewMapControl())    
             this.fmap.addControl(new BMap.MapTypeControl())    
-			var lushu;
+			//var lushu;
 			var arrPois =[];
 			var bounds = this.fmap.getBounds();
 			var sw = bounds.getSouthWest();
@@ -316,7 +322,7 @@ export default {
     		this.fmap.addOverlay(new BMap.Polyline(arrPois, {strokeColor: '#444'}));
     		this.fmap.setViewport(arrPois);
     		
-    		lushu = new BMapLib.LuShu(this.fmap,arrPois,{
+    		this.lushu = new BMapLib.LuShu(this.fmap,arrPois,{
     			defaultContent:"京A77YR3",
     			autoView: true,//是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
     			icon  : new BMap.Icon('http://lbsyun.baidu.com/jsdemo/img/car.png', new BMap.Size(52,26),{anchor : new BMap.Size(27, 13)}),
@@ -324,13 +330,22 @@ export default {
     			enableRotation:true,//是否设置marker随着道路的走向进行旋转
     			landmarkPois: []
 			});
-			lushu.start();
+			//lushu.start();
 			//lushu.pause();
 			//lushu.stop();
 			//lushu.hideInfoWindow();
 			//lushu.showInfoWindow(); //会报错，Cannot read property '_div' of undefined
 			
 
+        },
+        startLushu: function(){
+			this.lushu.start();
+        },
+        pauseLushu: function(){
+			this.lushu.pause();
+        },
+        stopLushu: function(){
+			this.lushu.stop();
         },
         initFMap: function(){
 			this.fmap = new BMap.Map("fourth-container");
