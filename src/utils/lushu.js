@@ -222,6 +222,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
         for (var g = 0, f = this._opts.landmarkPois, e = f.length; g < e; g++) {
             f[g].bShow = false
         }
+        this._addMarker();
     };
     c.prototype.pause = function() {
         clearInterval(this._intervalFlag);
