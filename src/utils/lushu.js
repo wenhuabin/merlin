@@ -209,8 +209,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
                     f.hideInfoWindow()
                 }
                 f._moveNext(f.i)
-            },
-            400)
+            }, 400)
         }
         this._fromPause = false;
         this._fromStop = false
@@ -229,6 +228,11 @@ var BMapLib = window.BMapLib = BMapLib || {};
         this._fromPause = true;
         this._clearTimeout()
     };
+    c.prototype.updatePosition = function(index) {
+        if("[object Number]" == Object.prototype.toString.call(index) && index < this._path.length && index > = 0){
+        	this.i = index;
+		}
+	};
     c.prototype.hideInfoWindow = function() {
         this._overlay._div.style.visibility = "hidden"
     };
@@ -385,10 +389,8 @@ var BMapLib = window.BMapLib = BMapLib || {};
             }
         },
         _troughPointIndex: function(f) {
-            var h = this._opts.landmarkPois,
-            j;
-            for (var g = 0,
-            e = h.length; g < e; g++) {
+            var h = this._opts.landmarkPois, j;
+            for (var g = 0, e = h.length; g < e; g++) {
                 if (!h[g].bShow) {
                     j = this._map.getDistance(new BMap.Point(h[g].lng, h[g].lat), f);
                     if (j < 10) {
