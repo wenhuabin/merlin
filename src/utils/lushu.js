@@ -1,14 +1,23 @@
-var BMapLib = window.BMapLib = BMapLib || {}; (function() {
+var BMapLib = window.BMapLib = BMapLib || {};
+(function() {
     var b, a = b = a || {
         version: "1.5.0"
     };
-    a.guid = "$BAIDU$"; (function() {
+    a.guid = "$BAIDU$";
+	(function() {
         window[a.guid] = window[a.guid] || {};
         a.dom = a.dom || {};
         a.dom.g = function(e) {
             if ("string" == typeof e || e instanceof String) {
                 return document.getElementById(e)
             } else {
+				//Node.ELEMENT_NODE					1	一个 元素 节点，例如 <p> 和 <div>。
+				//Node.TEXT_NODE					3	Element 或者 Attr 中实际的  文字
+				//Node.PROCESSING_INSTRUCTION_NODE	7	一个用于XML文档的 ProcessingInstruction ，例如 <?xml-stylesheet ... ?> 声明。
+				//Node.COMMENT_NODE					8	一个 Comment 节点。
+				//Node.DOCUMENT_NODE				9	一个 Document 节点。
+				//Node.DOCUMENT_TYPE_NODE			10	描述文档类型的 DocumentType 节点。例如 <!DOCTYPE html>  就是用于 HTML5 的。
+				//Node.DOCUMENT_FRAGMENT_NODE		11	一个 DocumentFragment 节点
                 if (e && e.nodeName && (e.nodeType == 1 || e.nodeType == 9)) {
                     return e
                 }
@@ -28,6 +37,7 @@ var BMapLib = window.BMapLib = BMapLib || {}; (function() {
             return e
         };
         a._g = a.dom._g;
+		//获取 document 节点
         a.dom.getDocument = function(e) {
             e = a.dom.g(e);
             return e.nodeType == 9 ? e: e.ownerDocument || e.document
@@ -49,9 +59,7 @@ var BMapLib = window.BMapLib = BMapLib || {}; (function() {
         a.dom._styleFixer = a.dom._styleFixer || {};
         a.dom._styleFilter = a.dom._styleFilter || [];
         a.dom._styleFilter.filter = function(f, j, k) {
-            for (var e = 0,
-            h = a.dom._styleFilter,
-            g; g = h[e]; e++) {
+            for (var e = 0,h = a.dom._styleFilter,g; g = h[e]; e++) {
                 if (g = g[k]) {
                     j = g(f, j)
                 }
@@ -63,8 +71,7 @@ var BMapLib = window.BMapLib = BMapLib || {}; (function() {
             if (e.indexOf("-") < 0 && e.indexOf("_") < 0) {
                 return e
             }
-            return e.replace(/[-_][^-_]/g,
-            function(f) {
+            return e.replace(/[-_][^-_]/g, function(f) {
                 return f.charAt(1).toUpperCase()
             })
         };
@@ -138,6 +145,11 @@ var BMapLib = window.BMapLib = BMapLib || {}; (function() {
             return g
         }
     })();
+	/* params
+		g: baidu map instance
+		f: position array
+		e: config object
+	*/
     var c = BMapLib.LuShu = function(g, f, e) {
         if (!f || f.length < 1) {
             return
@@ -158,6 +170,16 @@ var BMapLib = window.BMapLib = BMapLib || {}; (function() {
             this._opts.icon = defaultIcon
         }
     };
+	/*配置项
+	{
+    	defaultContent:"京A77YR3",
+    	autoView: true,//是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
+    	icon  : new BMap.Icon('http://lbsyun.baidu.com/jsdemo/img/car.png', new BMap.Size(52,26),{anchor : new BMap.Size(27, 13)}),
+    	speed: 4500,
+    	enableRotation:true,//是否设置marker随着道路的走向进行旋转
+    	landmarkPois: []
+	}
+	*/
     c.prototype._setOptions = function(e) {
         if (!e) {
             return
