@@ -7,6 +7,12 @@
             <img class="launch" src="../assets/imgs/launch.jpg">
 		    <h1>Welcome To Merlin</h1>
             <div class="loading-test">
+                <!--
+                <LoadingProcess :step="lstep" :btext="btext" :ltext="ltext" :atext="atext"/>
+                -->
+                <LoadingProcess />
+            </div>
+            <div class="loading-test">
                 <Loading />
             </div>
             <div class="select-test">
@@ -59,6 +65,7 @@ import DatePicker from 'components/component/DatePicker'
 import LifeCycle from 'components/component/LifeCycle'
 import UploadBtn from 'components/component/UploadBtn'
 import Loading from 'components/component/Loading'
+import LoadingProcess from 'components/component/LoadingProcess'
 import TWEEN from '@tweenjs/tween.js'
 import * as types from 'store/mutation-types'
 import {format, compareAsc} from 'date-fns'
@@ -67,6 +74,10 @@ export default {
     name: 'Test',
     data () {
       return {
+          lstep: 1,
+          btext: '请输入参数查询',
+          ltext: '正在加载数据，请稍后...',
+          atext: '当前参数查询结果为空',
           page: 5,
           pages: 26,
           value: '请选择',
@@ -90,7 +101,18 @@ export default {
 		//this.$store.dispatch({type: types.SET_COUNT, count: 3})
 		this[types.SET_COUNT]({type: types.SET_COUNT, count: 3})
 		setTimeout(()=>this.cycleFlag=false, 5000)
-		//setTimeout(()=>this.value='测试2', 5000)
+		//setTimeout(()=>{
+        //    this.lstep = 1;
+        //    this.btext = '请输入相关参数进行查询';
+        //}, 1000);
+		//setTimeout(()=>{
+        //    this.lstep = 2;
+        //    this.ltext = '查询中，请稍后...';
+        //}, 5000)
+		//setTimeout(()=>{
+        //    this.lstep = 3;
+        //    this.atext = '当前查询结果为空';
+        //}, 10000)
         this.testDateFns()
     },
     computed: {
@@ -150,6 +172,7 @@ export default {
       'LifeCycle': LifeCycle,
       'UploadBtn': UploadBtn,
       'Loading': Loading,
+      'LoadingProcess': LoadingProcess,
     },
 }
 </script>
