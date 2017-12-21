@@ -171,7 +171,12 @@
         if (!this._opts.icon instanceof BMap.Icon) {
             this._opts.icon = defaultIcon
         }
-        //this._addMarker();
+        this._addMarker();
+        this.setRotation(this._path[0],this._path[0],this._path[1],);
+        if (this._opts.defaultContent != "") {
+            this._addInfoWin();
+            //f.hideInfoWindow()
+        }
     };
 	/*配置项
 	{
@@ -205,14 +210,11 @@
                 }
             }
         } else {
-            f._addMarker();
+            //f._addMarker();
+            this.stop();
             f._timeoutFlag = setTimeout(function() {
-                f._addInfoWin();
-                if (f._opts.defaultContent == "") {
-                    f.hideInfoWindow()
-                }
                 f._moveNext(f.i)
-            }, 400)
+            }, 30)
         }
         this._fromPause = false;
         this._fromStop = false
@@ -259,7 +261,7 @@
             var e = new BMap.Marker(this._path[0]);
             this._opts.icon && e.setIcon(this._opts.icon);
             this._map.addOverlay(e);
-            e.setAnimation(BMAP_ANIMATION_DROP);
+            //e.setAnimation(BMAP_ANIMATION_DROP);
             this._marker = e
         },
         _addInfoWin: function() {
