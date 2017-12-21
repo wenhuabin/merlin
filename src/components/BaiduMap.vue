@@ -315,7 +315,7 @@ export default {
 			var ne = bounds.getNorthEast();
 			var lngSpan = Math.abs(sw.lng - ne.lng);
 			var latSpan = Math.abs(ne.lat - sw.lat);
-			for (var i = 0; i < 1000; i ++) {
+			for (var i = 0; i < 50; i ++) {
 				arrPois.push(new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7)));
 				
 			}

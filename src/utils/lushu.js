@@ -169,7 +169,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
         if (!this._opts.icon instanceof BMap.Icon) {
             this._opts.icon = defaultIcon
         }
-        //this._addMarker();
+        this._addMarker();
     };
 	/*配置项
 	{
