@@ -1,4 +1,5 @@
-var BMapLib = window.BMapLib = BMapLib || {};
+//var BMapLib = window.BMapLib = BMapLib || {};
+//var Lushu = window.Lushu = Lushu || null;
 (function() {
     var b, a = b = a || {
         version: "1.5.0"
@@ -150,7 +151,8 @@ var BMapLib = window.BMapLib = BMapLib || {};
 		f: position array
 		e: config object
 	*/
-    var c = BMapLib.LuShu = function(g, f, e) {
+    //var c = BMapLib.LuShu = function(g, f, e) {
+    var c = window.Lushu = function(g, f, e) {
         if (!f || f.length < 1) {
             return
         }
@@ -169,7 +171,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
         if (!this._opts.icon instanceof BMap.Icon) {
             this._opts.icon = defaultIcon
         }
-        this._addMarker();
+        //this._addMarker();
     };
 	/*配置项
 	{
@@ -223,7 +225,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
         for (var g = 0, f = this._opts.landmarkPois, e = f.length; g < e; g++) {
             f[g].bShow = false
         }
-        this._addMarker();
+        //this._addMarker();
     };
     c.prototype.pause = function() {
         clearInterval(this._intervalFlag);
@@ -231,7 +233,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
         this._clearTimeout()
     };
     c.prototype.updatePosition = function(index) {
-        if("[object Number]" == Object.prototype.toString.call(index) && index < this._path.length && index > = 0){
+        if("[object Number]" == Object.prototype.toString.call(index) && index < this._path.length && index >= 0){
         	this.i = index;
 		}
 	};
@@ -275,7 +277,8 @@ var BMapLib = window.BMapLib = BMapLib || {};
             f = this._opts.speed / (1000 / e),
             l = this._projection.lngLatToPoint(n),
             k = this._projection.lngLatToPoint(j),
-            g = Math.round(i._getDistance(l, k) / f);
+            //g = Math.round(i._getDistance(l, k) / f);
+            g = Math.round(i._getDistance(l, k) / 500);
             if (g < 1) {
                 i._moveNext(++i.i);
                 return
@@ -426,7 +429,7 @@ var BMapLib = window.BMapLib = BMapLib || {};
             var f = this._map.pointToOverlayPixel(h),
             e = a.dom.getStyle(this._div, "width"),
             g = a.dom.getStyle(this._div, "height");
-            overlayW = parseInt(this._div.clientWidth || e, 10),
+            let overlayW = parseInt(this._div.clientWidth || e, 10),
             overlayH = parseInt(this._div.clientHeight || g, 10);
             this._div.style.left = f.x - overlayW / 2 + "px";
             this._div.style.bottom = -(f.y - i.height) + "px"

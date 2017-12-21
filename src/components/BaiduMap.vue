@@ -5,7 +5,6 @@
 <template>
     <div class="bmap-demo">
         <h1>百度地图</h1>
-		<div id="mapv-container" tabindex="0"></div>
         <div class="lushu-control">
             <button class="start" @click="startLushu">开始</button>
             <button class="pause" @click="pauseLushu">暂停</button>
@@ -20,6 +19,7 @@
 <script>
 //<div id="third-container" tabindex="0"></div>
 import ComplexCustomOverlay from 'utils/pernalizeOverlay'
+import 'utils/lushu'
 
 export default {
     name: 'bmap',
@@ -34,12 +34,15 @@ export default {
         }
     },
     mounted(){
+        //PersonalLushu()
         //this.initTMap()
         //this.initFMap()
-        this.initFfMap()
+        
         this.initMap()
         this.initSMap()
-        this.initMapV()
+        //this.initMapV()
+        console.log(Lushu)
+        this.initFfMap()
     },
     methods: {
         initMapV: function(){
@@ -299,7 +302,7 @@ export default {
 		},
         initFfMap: function(){
 			this.fmap = new BMap.Map("fourth-container");
-			this.fmap.enableScrollWheelZoom();
+			//this.fmap.enableScrollWheelZoom();
 			this.fmap.centerAndZoom(new BMap.Point(116.404, 39.915), 10);
             this.fmap.addControl(new BMap.NavigationControl({
                 offset: new BMap.Size(0, 10),
@@ -315,18 +318,19 @@ export default {
 			var ne = bounds.getNorthEast();
 			var lngSpan = Math.abs(sw.lng - ne.lng);
 			var latSpan = Math.abs(ne.lat - sw.lat);
-			for (var i = 0; i < 50; i ++) {
+			for (var i = 0; i < 10; i ++) {
 				arrPois.push(new BMap.Point(sw.lng + lngSpan * (Math.random() * 0.7), ne.lat - latSpan * (Math.random() * 0.7)));
 				
 			}
     		this.fmap.addOverlay(new BMap.Polyline(arrPois, {strokeColor: '#444'}));
     		this.fmap.setViewport(arrPois);
     		
-    		this.lushu = new BMapLib.LuShu(this.fmap,arrPois,{
+    		//this.lushu = new BMapLib.LuShu(this.fmap,arrPois,{
+    		this.lushu = new Lushu(this.fmap,arrPois,{
     			defaultContent:"京A77YR3",
     			autoView: true,//是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
     			icon  : new BMap.Icon('http://lbsyun.baidu.com/jsdemo/img/car.png', new BMap.Size(52,26),{anchor : new BMap.Size(27, 13)}),
-    			speed: 4500,
+    			speed: 1000,
     			enableRotation:true,//是否设置marker随着道路的走向进行旋转
     			landmarkPois: []
 			});
