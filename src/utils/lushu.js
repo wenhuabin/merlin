@@ -273,12 +273,12 @@
         _move: function(n, j, m) {
             var i = this,
             h = 0,
-            e = 10,
+            e = 30, //每段需要多长时间，计时器的时间间隔
             f = this._opts.speed / (1000 / e),
             l = this._projection.lngLatToPoint(n),
             k = this._projection.lngLatToPoint(j),
             //g = Math.round(i._getDistance(l, k) / f);
-            g = Math.round(i._getDistance(l, k) / 500);
+            g = 10; //总共的段数
             if (g < 1) {
                 i._moveNext(++i.i);
                 return
@@ -312,8 +312,7 @@
                     i._marker.setPosition(q);
                     i._setInfoWin(q)
                 }
-            },
-            e)
+            }, e)
         },
         setRotation: function(l, f, m) {
             var j = this;
