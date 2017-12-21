@@ -225,7 +225,10 @@
         for (var g = 0, f = this._opts.landmarkPois, e = f.length; g < e; g++) {
             f[g].bShow = false
         }
-        //this._addMarker();
+        this._opts.updateCallback ? this._opts.updateCallback(this.i) : null;
+        this._marker.setPosition(new BMap.Point(this._path[this.i].lng, this._path[this.i].lat));
+        this._setInfoWin(new BMap.Point(this._path[this.i].lng, this._path[this.i].lat));
+        this.setRotation(this._path[0],this._path[0],this._path[1],);
     };
     c.prototype.pause = function() {
         clearInterval(this._intervalFlag);
@@ -353,10 +356,13 @@
             var f = this;
             if (e < this._path.length - 1) {
                 f._move(f._path[e], f._path[e + 1], f._tween.linear)
+                this._opts.updateCallback ? this._opts.updateCallback(e) : null;
             }else if (e == this._path.length - 1) {
                 //如果更新的位置是最后一个位置，直接将车挪到最后
+                this._opts.updateCallback ? this._opts.updateCallback(e) : null;
                 this._marker.setPosition(new BMap.Point(this._path[e].lng, this._path[e].lat));
                 this._setInfoWin(new BMap.Point(this._path[e].lng, this._path[e].lat));
+                this.setRotation(this._path[e - 1],this._path[e - 1],this._path[e],);
             }
         },
         _setInfoWin: function(g) {

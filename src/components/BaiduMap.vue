@@ -334,7 +334,8 @@ export default {
     			icon  : new BMap.Icon(car_normal, new BMap.Size(40,40),{anchor : new BMap.Size(20, 20)}),
     			speed: 1000,
     			enableRotation:true,//是否设置marker随着道路的走向进行旋转
-    			landmarkPois: []
+    			landmarkPois: [],
+                updateCallback: this.updateIndex, 
 			});
 			//lushu.start();
 			//lushu.pause();
@@ -345,16 +346,19 @@ export default {
 
         },
         startLushu: function(){
-			this.lushu.start();
+			this.lushu.start()
         },
         pauseLushu: function(){
-			this.lushu.pause();
+			this.lushu.pause()
         },
         stopLushu: function(){
-			this.lushu.stop();
+			this.lushu.stop()
         },
         updatePosition: function(){
-			this.lushu.updatePosition(9);
+			this.lushu.updatePosition(9)
+        },
+        updateIndex: function(index){
+            console.log(index)
         },
         initFMap: function(){
 			this.fmap = new BMap.Map("fourth-container");
