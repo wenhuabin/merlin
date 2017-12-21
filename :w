@@ -234,6 +234,7 @@
     };
     c.prototype.updatePosition = function(index) {
         this.pause();
+        console.log(index, this._path.length);
         if("[object Number]" == Object.prototype.toString.call(index) && index < this._path.length && index >= 0){
         	this.i = index - 1;
 		}
@@ -353,10 +354,6 @@
             var f = this;
             if (e < this._path.length - 1) {
                 f._move(f._path[e], f._path[e + 1], f._tween.linear)
-            }else if (e == this._path.length - 1) {
-                //如果更新的位置是最后一个位置，直接将车挪到最后
-                this._marker.setPosition(new BMap.Point(this._path[e].lng, this._path[e].lat));
-                this._setInfoWin(new BMap.Point(this._path[e].lng, this._path[e].lat));
             }
         },
         _setInfoWin: function(g) {

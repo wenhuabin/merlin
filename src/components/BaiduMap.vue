@@ -9,6 +9,7 @@
             <button class="start" @click="startLushu">开始</button>
             <button class="pause" @click="pauseLushu">暂停</button>
             <button class="stop" @click="stopLushu">停止</button>
+            <button class="update" @click="updatePosition">更新位置</button>
         </div>
 		<div id="fourth-container" tabindex="0"></div>
 		<div id="second-container" tabindex="0"></div>
@@ -38,11 +39,10 @@ export default {
         //PersonalLushu()
         //this.initTMap()
         //this.initFMap()
+        //this.initMapV()
         
         this.initMap()
         this.initSMap()
-        //this.initMapV()
-        console.log(Lushu)
         this.initFfMap()
     },
     methods: {
@@ -352,6 +352,9 @@ export default {
         },
         stopLushu: function(){
 			this.lushu.stop();
+        },
+        updatePosition: function(){
+			this.lushu.updatePosition(9);
         },
         initFMap: function(){
 			this.fmap = new BMap.Map("fourth-container");
