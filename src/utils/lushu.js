@@ -227,6 +227,7 @@
         for (var g = 0, f = this._opts.landmarkPois, e = f.length; g < e; g++) {
             f[g].bShow = false
         }
+        //用于更新数据下标,将车移回首点位置
         this._opts.updateCallback ? this._opts.updateCallback(this.i) : null;
         this._marker.setPosition(new BMap.Point(this._path[this.i].lng, this._path[this.i].lat));
         this._setInfoWin(new BMap.Point(this._path[this.i].lng, this._path[this.i].lat));
