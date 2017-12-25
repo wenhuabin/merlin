@@ -328,7 +328,7 @@ export default {
     		
     		//this.lushu = new BMapLib.LuShu(this.fmap,arrPois,{
     		this.lushu = new Lushu(this.fmap,arrPois,{
-    			defaultContent:"京A77YR3",
+    			defaultContent:"小 P 列车",
     			autoView: true,//是否开启自动视野调整，如果开启那么路书在运动过程中会根据视野自动调整
     			//icon  : new BMap.Icon('http://lbsyun.baidu.com/jsdemo/img/car.png', new BMap.Size(52,26),{anchor : new BMap.Size(27, 13)}),
     			icon  : new BMap.Icon(car_normal, new BMap.Size(40,40),{anchor : new BMap.Size(20, 20)}),
