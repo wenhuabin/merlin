@@ -102,13 +102,13 @@ const router = new Router({
 			meta: {
 				title: 'Map Demo | Welcome to Merlin',
         	}, 
-        },{
-            path: 'lushu',
-            name: 'lushu',
-            component: Lushu, 
-			meta: {
-				title: 'Lushu Demo | Welcome to Merlin',
-        	}, 
+        //},{
+        //    path: 'lushu',
+        //    name: 'lushu',
+        //    component: Lushu, 
+		//	meta: {
+		//		title: 'Lushu Demo | Welcome to Merlin',
+        //	}, 
         },{
             path: 'menu',
             name: 'menu',

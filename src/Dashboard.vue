@@ -44,7 +44,7 @@ export default {
             optionsStyle: {display: 'none'},
 	        navs: [
                 {name: '主页', key: 0, url: '/'},
-                {name: 'Demo', key: 1, url: '', child: [{name: '图形', key: 10, url: '/', child: [{name: 'Canvas', key: 110, url: '/canvas'}, {name: 'SVG', key: 111, url: '/svg'}]},{name: 'Echart组件', key: 11, url: '/echart'},{name: 'D3-组件', key: 12, url: '/d3'},{name: 'ChartJS', key: 13, url: '/cjs'}, {name: '通用组件', key: 14, url: '/component'},{name: '高德地图', key: 15, url: '/gmap'},{name: '百度地图', key: 16, url: '/bmap'},{name: '多媒体', key: 17, url: '/media'},{name: '动画', key: 18, url: '/menu'},{name: '路书', key: 19, url: '/lushu'}]},
+                {name: 'Demo', key: 1, url: '', child: [{name: '图形', key: 10, url: '/', child: [{name: 'Canvas', key: 110, url: '/canvas'}, {name: 'SVG', key: 111, url: '/svg'}]},{name: 'Echart组件', key: 11, url: '/echart'},{name: 'D3-组件', key: 12, url: '/d3'},{name: 'ChartJS', key: 13, url: '/cjs'}, {name: '通用组件', key: 14, url: '/component'},{name: '高德地图', key: 15, url: '/gmap'},{name: '百度地图', key: 16, url: '/bmap'},{name: '多媒体', key: 17, url: '/media'},{name: '动画', key: 18, url: '/menu'}]},
                 {name: 'About', key: 3, url: '/about'},
             ]
 		}
