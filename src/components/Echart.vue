@@ -5,6 +5,10 @@
 <template>
 	<div class="echart-demo">
 		<h1>Echart 图表</h1>
+		<h2 v-if="true">0、统计地图</h2>
+        <div class="demo" v-if="true">
+            <chart id="map" :options="map" ref="map" auto-resize></chart>
+        </div>
 		<h2 v-if="false">1、分布图</h2>
         <div class="demo" v-if="false">
             <chart ref="map" :options="mapsummary" theme="mint" :mapselected="onMapClick"></chart>
@@ -76,6 +80,7 @@ export default {
 	  	  polar: {}, 
 		  line: {},
 		  pie: {},
+          map: map,
 		  mapsummary: {},
       }
     },
