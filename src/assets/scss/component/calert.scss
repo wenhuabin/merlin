@@ -1,0 +1,82 @@
+#alert-cover{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #f5f5f5;
+    z-index: 100;
+    text-shadow: 0 1px 1px hsla(0,0%,100%,.3);
+    background: hsla(0,0%,20%,.2);
+    overflow: hidden;
+}
+
+#alert-cover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    -webkit-filter: blur(20px);
+    filter: blur(20px);
+    margin: -30px; //这边添加完 before 的宽高都会比 glass 要多出 60 （30 * 2），因为 before 没有定宽高，设定负值，本来定位点是 glass 的四个角，然后相对这四个定位点就跑出去了
+}
+.alert-box{
+    position: absolute;
+    top: 45%;
+    left: 53%;
+    width: 380px;
+    height: 210px;
+    transform: translate(-50%, -50%);
+    border-radius: 4px;
+    background: #fff;
+    .title{
+        margin: 0;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        text-align: center;
+        background-color: #FDB466;
+        color: #fff;
+        font-weight: bold;
+        letter-spacing: 8px;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+    }
+    .msg{
+        height: 125px;
+        padding: 45px 45px 0;
+        text-align: center;
+        font-size: 14px;
+    }
+    .button-box{
+        width: 100%;
+        height: 30px;
+        text-align: center;
+    }
+    .ok-btn,
+    .cancel-btn{
+        display: inline-block;
+        margin-left: 30px;
+        margin-right: 30px;
+        width: 100px;
+        height: 30px;
+        line-height: 28px;
+        font-size: 15px;
+        text-align: center;
+        font-weight: bold;
+        border-radius: 2px;
+    }
+    .ok-btn{
+        color: #fff;
+        background: #FDB466;
+        border: 1px solid #FDB466;
+    }
+    .cancel-btn{
+        color: #666;
+        background: transparent;
+        border: 1px solid #A7B2C1;
+    }
+}
