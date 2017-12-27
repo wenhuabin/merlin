@@ -10,6 +10,12 @@
                 <!--
                 <LoadingProcess :step="lstep" :btext="btext" :ltext="ltext" :atext="atext"/>
                 -->
+                <SVGLoading/>
+            </div>
+            <div class="loading-test">
+                <!--
+                <LoadingProcess :step="lstep" :btext="btext" :ltext="ltext" :atext="atext"/>
+                -->
                 <LoadingProcess />
             </div>
             <div class="loading-test">
@@ -66,6 +72,7 @@ import LifeCycle from 'components/component/LifeCycle'
 import UploadBtn from 'components/component/UploadBtn'
 import Loading from 'components/component/Loading'
 import LoadingProcess from 'components/component/LoadingProcess'
+import SVGLoading from 'components/component/SVGLoading'
 import TWEEN from '@tweenjs/tween.js'
 import * as types from 'store/mutation-types'
 import {format, compareAsc} from 'date-fns'
@@ -173,6 +180,7 @@ export default {
       'UploadBtn': UploadBtn,
       'Loading': Loading,
       'LoadingProcess': LoadingProcess,
+      'SVGLoading': SVGLoading,
     },
 }
 </script>
