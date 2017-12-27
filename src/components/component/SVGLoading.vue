@@ -40,7 +40,7 @@
 
 @-webkit-keyframes line {
   0% {
-    stroke-dasharray: 2, 85.964;
+    stroke-dasharray: 2, 85.964; //类似于把线（圆）分成了两段，每段的长度。实际的效果是旋转450度后会逐渐变短，然后再逐渐变长
     -webkit-transform: rotate(0);
             transform: rotate(0); }
   50% {
