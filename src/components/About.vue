@@ -17,9 +17,9 @@
 		<ul>
 		  <li>看书</li>
 		  <li>旅行</li>
-		  <li>煮饭做菜</li>
-		  <li>足球</li>
-		  <li>羽毛球</li>
+		  <li>下厨房</li>
+		  <li>看足球</li>
+		  <li>打羽毛球</li>
 		  <li>写代码</li>
 		</ul>
 	</div>
