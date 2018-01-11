@@ -22,7 +22,7 @@
             <div class="welcome" v-if="isRoot">
                 <img class="launch" src="./assets/imgs/launch.jpg">
 		        <h1>Welcome To Merlin</h1>
-		        <p>This Merlin Project is developed by @WENHUABIN with Vue Framwork。</p>
+		        <p>This Merlin Project is developed by @wenhuabin with Vue Framwork。</p>
 		        <footer class="footer">&copy Copyright 2018 by @wenhuabin. All Right Reserved.</footer>
             </div>
             <div id="right">
