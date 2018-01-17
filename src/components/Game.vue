@@ -4,7 +4,7 @@
 
 <template>
     <div class="game-demo">
-        <h1>游戏</h1>
+        <h1>动画优化测试</h1>
 		
     </div>
 </template>
