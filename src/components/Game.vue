@@ -16,7 +16,7 @@
             <div class="box" :class="{isActive : isActive % 8 == 3}">
                 3
             </div>
-            <div class="box" :class="{isActive : isActive % 8 == 8}">
+            <div class="box" :class="{isActive : isActive % 8 == 0}">
                 8
             </div>
             <div class="box box-btn" @click="start">
@@ -63,12 +63,8 @@ export default {
                 this.isActive += 1;
                 this.interval = this.interval > 100 ? this.interval - 100 : this.interval; 
                 setTimeout(()=>this.updateActive(), this.interval);
-            }else{
-                if(this.pointer){
-                    clearInterval(this.pointer);
-                }
-            }
-        },
+            } 
+        }
     },
     components: {
     },
