@@ -12,9 +12,13 @@
     	color: #444;
 	}
     .grid-container{
+        display: grid;
         margin: 30px auto;
         width: 300px;
         height: 300px;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        //grid-template-areas: "
     }
 }
 
