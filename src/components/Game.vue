@@ -5,7 +5,7 @@
 <template>
     <div class="game-demo">
         <h1>动画优化测试</h1>
-        <div class="carousel-container"></div>
+        <marquee class="carousel-container" direction="left" behavior="scroll">金风玉露一相逢, 便胜却人间无数.两情若是久长时, 又岂在朝朝暮暮.<br></marquee>
         <div class="grid-container">
             <div class="box" :class="{isActive : isActive % 8 == 1}">
                 1

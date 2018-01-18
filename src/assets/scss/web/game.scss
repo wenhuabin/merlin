@@ -12,7 +12,9 @@
     	color: #444;
 	}
     .carousel-container{
+        display: block;
         margin: 60px auto 0;
+        padding: 0 5px;
         width: 300px;
         height: 60px;
         line-height: 60px;
@@ -33,7 +35,8 @@
             background-color: #fff;
         }
         .isActive{
-            opacity: .3;
+            //opacity: .3;
+            background-color: #dcdcdc;
         }
         .box-btn{
             cursor: pointer;
