@@ -76,6 +76,10 @@ var webpackConfig = merge(baseWebpackConfig, {
 		verbose: true,
 		dry: false
 	}),
+    //new webpack.optimize.CommonsChunkPlugin({
+    //  name: 'vendor',
+    //  minChunks: 4,
+    //}),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false
