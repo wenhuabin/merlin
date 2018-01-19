@@ -6,6 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var	CleanWebpackPlugin = require('clean-webpack-plugin')
+let PreloadWebpackPlugin = require('preload-webpack-plugin')
 //var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 var webpackConfig = merge(baseWebpackConfig, {
@@ -112,6 +113,10 @@ var webpackConfig = merge(baseWebpackConfig, {
         // more options:
         // https://github.com/kangax/html-minifier#options-quick-reference
       }
+    }),
+    new PreloadWebpackPlugin({
+      rel: 'prefetch',
+      as: 'script'
     }),
   ]
 })
