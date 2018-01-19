@@ -114,10 +114,10 @@ var webpackConfig = merge(baseWebpackConfig, {
         // https://github.com/kangax/html-minifier#options-quick-reference
       }
     }),
-    new PreloadWebpackPlugin({
-      rel: 'prefetch',
-      as: 'script'
-    }),
+    //new PreloadWebpackPlugin({
+    //  rel: 'prefetch',
+    //  as: 'script'
+    //}),
   ]
 })
 
