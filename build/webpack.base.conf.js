@@ -1,5 +1,6 @@
 var path = require('path')
 var webpack = require('webpack');
+var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -64,5 +65,13 @@ module.exports = {
 	new webpack.ProvidePlugin({
 		fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
     }),
+    //new SWPrecacheWebpackPlugin({
+    //    cacheId: 'merlin',
+    //    dontCacheBustUrlsMatching: /\.\w{8}\./,
+    //    filename: 'service-worker.js',
+    //    minify: true,
+    //    navigateFallback: '/dist/index.html',
+    //    //staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
+    //}),
   ]
 }
