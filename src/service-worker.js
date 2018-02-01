@@ -8,7 +8,7 @@ self.addEventListener('install', event => {
         caches.open(cacheName).then(cache => {
             console.log('[SW] Cacheing app shell');
             return cache.addAll(filesToCache);
-        });
+        })
     );
 });
 
@@ -18,8 +18,8 @@ self.addEventListener('activate', event => {
         return Promise.all(keyList.map(key => {
             console.log('[SW] Remove old cache');
             return caches.delete(key);
-        }
-    })):
+        }))
+    });
     return self.clients.claim();
 });
 
