@@ -7,6 +7,7 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 var	CleanWebpackPlugin = require('clean-webpack-plugin')
 let PreloadWebpackPlugin = require('preload-webpack-plugin')
+var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 //var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 var webpackConfig = merge(baseWebpackConfig, {
@@ -114,6 +115,13 @@ var webpackConfig = merge(baseWebpackConfig, {
         // https://github.com/kangax/html-minifier#options-quick-reference
       }
     }),
+    //new SWPrecacheWebpackPlugin({
+    //    cacheId: 'merlin',
+	//	filename: 'service-worker.js',
+    //  	staticFileGlobs: ['dist/*.{html,ico}','dist/**/*.{js,html,css,png,jpg}'],
+    //  	minify: true,
+    //  	stripPrefix: 'dist/'
+    //}),
     //new PreloadWebpackPlugin({
     //  rel: 'prefetch',
     //  as: 'script'

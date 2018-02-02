@@ -1,6 +1,7 @@
 var cacheName = 'merlin';
 var dataCacheName = 'merlin-v1';
-var filesToCache = [];
+var filesToCache = [
+];
 
 self.addEventListener('install', event => {
     console.log('[SW] Install');

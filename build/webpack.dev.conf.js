@@ -4,6 +4,7 @@ var baseWebpackConfig = require('./webpack.base.conf')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 var path = require('path')
 
 // add hot-reload related code to entry chunks
@@ -70,6 +71,13 @@ module.exports = merge(baseWebpackConfig, {
       favicon: path.resolve(__dirname, '..', 'favicon.ico'),
       inject: true
     }),
-    new FriendlyErrorsPlugin()
+    new FriendlyErrorsPlugin(),
+    //new SWPrecacheWebpackPlugin({
+    //    cacheId: 'merlin',
+	//	filename: 'service-worker.js',
+    //  	staticFileGlobs: ['static/*.{html,ico}','dist/**/*.{js,html,css,png,jpg}'],
+    //  	minify: true,
+    //  	stripPrefix: 'static/'
+    //}),
   ]
 })
