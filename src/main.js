@@ -16,7 +16,9 @@ new Vue({
   components: { App }
 })
 
-if ('serviceWorker' in navigator) {
+let isDev = window.location.host.includes('127.0.0.1') || window.location.host.includes('localhost') || window.location.host.includes('t.t')
+
+if ('serviceWorker' in navigator && !isDev) {
     navigator.serviceWorker
   	           .register('./merlin-sw.js')
   	           .then(function() { console.log('Service Worker Registered'); });
