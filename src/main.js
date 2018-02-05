@@ -18,6 +18,6 @@ new Vue({
 
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker
-  	           .register('./service-worker.js')
+  	           .register('./merlin-sw.js')
   	           .then(function() { console.log('Service Worker Registered'); });
   	}
