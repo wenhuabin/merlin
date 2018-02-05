@@ -58,9 +58,9 @@ app.use(devMiddleware)
 // compilation error display
 app.use(hotMiddleware)
 
-// serve pure static assets
-var staticPath = path.posix.join('/', 'static')
-app.use(staticPath, express.static('./static'))
+// serve pure static assets, in merlin project , static folder is removed.
+//var staticPath = path.posix.join('/', 'static')
+//app.use(staticPath, express.static('./static'))
 
 var uri = 'http://localhost:' + port
 

@@ -115,13 +115,13 @@ var webpackConfig = merge(baseWebpackConfig, {
         // https://github.com/kangax/html-minifier#options-quick-reference
       }
     }),
-    //new SWPrecacheWebpackPlugin({
-    //    cacheId: 'merlin',
-	//	filename: 'service-worker.js',
-    //  	staticFileGlobs: ['dist/*.{html,ico}','dist/**/*.{js,html,css,png,jpg}'],
-    //  	minify: true,
-    //  	stripPrefix: 'dist/'
-    //}),
+    new SWPrecacheWebpackPlugin({
+        cacheId: 'merlin',
+		filename: 'merlin-sw.js',
+      	staticFileGlobs: ['dist/*.{html,ico}','dist/**/*.{js,html,css,png,jpg}'],
+      	minify: true,
+      	stripPrefix: 'dist/'
+    }),
     //new PreloadWebpackPlugin({
     //  rel: 'prefetch',
     //  as: 'script'

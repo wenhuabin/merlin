@@ -72,12 +72,14 @@ module.exports = merge(baseWebpackConfig, {
       inject: true
     }),
     new FriendlyErrorsPlugin(),
-    new SWPrecacheWebpackPlugin({
-        cacheId: 'merlin',
-		filename: 'service-worker.js',
-      	staticFileGlobs: ['static/*.{html,ico}','static/**/*.{js,html,css,png,jpg}'],
-      	minify: true,
-      	stripPrefix: 'static/'
-    }),
+    //new SWPrecacheWebpackPlugin({
+        //cacheId: 'merlin',
+		//filename: 'service-worker.js',
+		//path: '/service-worker.js',
+      	//staticFileGlobs: ['*.{html,ico}','*.{js,html,css,png,jpg}'],
+      	//minify: true,
+        //mergeStaticsConfig: true,
+      	//stripPrefix: '/'
+    //}),
   ]
 })
