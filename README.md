@@ -32,4 +32,4 @@ npm install
 npm start
 
 # build for production with minification
-npm run build
+npm run release 
