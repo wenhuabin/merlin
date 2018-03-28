@@ -20,6 +20,6 @@ let isDev = window.location.host.includes('127.0.0.1') || window.location.host.i
 
 if ('serviceWorker' in navigator && !isDev) {
     navigator.serviceWorker
-  	           .register('./merlin-sw.js')
+  	           .register('/merlin-sw.js')
   	           .then(function() { console.log('Service Worker Registered'); });
   	}
