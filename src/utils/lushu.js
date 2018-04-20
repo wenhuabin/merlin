@@ -342,8 +342,10 @@
                 var i = 0;
                 if (h > 0) {
                     i = -1
-                } else {
+                } else if(h < 0){
                     i = 1
+                } else {
+                    i = 0
                 }
                 j._marker.setRotation( - i * 90)
             }
