@@ -11,14 +11,16 @@
 
 .lazy-list {
   margin: 30px auto;
+  padding: 5px 0;
   height: 400px;
   width: 800px;
-  border: 1px solid #666;
+  background: #fff;
+  border-radius: 3px;
   overflow: scroll;
 }
 
 .lazy-render-list-item {
-  padding: 5px;
+  padding: 5px 20px;
   color: #666;
   height: 30px;
   line-height: 30px;

@@ -5,7 +5,7 @@
 <template>
     <div class="list-demo">
         <h1>列表懒加载</h1>
-        <div class="lazy-list">
+        <div class="lazy-list" id="lazy-list">
             <div class="lazy-render-list-item" v-for="item in data">{{ item }}</div>
         </div>
         <h1>列表复用</h1>
@@ -20,9 +20,11 @@ export default {
         return {
             count: 40,
             data: this.renderData(),
+            lazyList: null,
         }
     },
     mounted(){
+        this.lazyList = document.getElementById("lazy-list");
         this.watchScroll();
     },
     methods: {
@@ -35,9 +37,9 @@ export default {
             return data;
         },
         watchScroll(){
-            window.onscroll = () => {
-                const maxScrollTop = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight) - window.innerHeight;
-                const currentScrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+            this.lazyList.onscroll = () => {
+                const maxScrollTop = this.lazyList.scrollHeight - 400;
+                const currentScrollTop = this.lazyList.scrollTop;
 
                 if (maxScrollTop - currentScrollTop < 20) {
                   const count = this.count;
