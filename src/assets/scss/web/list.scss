@@ -9,20 +9,50 @@
 	}
 }
 
-.lazy-list {
-  margin: 30px auto;
-  padding: 5px 0;
-  height: 400px;
-  width: 800px;
-  background: #fff;
-  border-radius: 3px;
-  overflow: scroll;
+.lazy-list,
+.list-view{
+    margin: 30px auto;
+    padding: 5px 0;
+    height: 400px;
+    width: 800px;
+    background: #fff;
+    border-radius: 3px;
+    overflow: scroll;
 }
 
 .lazy-render-list-item {
-  padding: 5px 20px;
-  color: #666;
-  height: 30px;
-  line-height: 30px;
-  box-sizing: border-box;
+    padding: 5px 20px;
+    color: #666;
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+
+.list-view {
+    height: 400px;
+    overflow: auto;
+    position: relative;
+}
+
+.list-view-phantom {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+
+.list-view-content {
+    left: 0;
+    right: 0;
+    top: 0;
+    position: absolute;
+}
+
+.list-view-item {
+    padding: 5px;
+    color: #666;
+    height: 30px;
+    line-height: 30px;
+    box-sizing: border-box;
 }
