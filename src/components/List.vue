@@ -32,7 +32,7 @@ export default {
             visibleCount: null,
             visibleData: [],
             scrollTop: 0,
-            rdata: this.renderData(1000),
+            rdata: this.renderData(100),
             itemHeight: 30,
             rlist: null,
             reallist: null,
