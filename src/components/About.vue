@@ -8,7 +8,7 @@
 		<h1>行旅书读</h1>
 		<h2>Links</h2>
 		<ul>
-		  <li><a href="https://huabinwen.com" target="_blank">Home Page</a></li>
+		  <li><a href="https://wenhuabin.com" target="_blank">Home Page</a></li>
 		  <li><a href="https://github.com/wenhuabin" target="_blank">Github</a></li>
 		  <li><a href="https://www.instagram.com/?hl=en" target="_blank">Instagram</a></li>
 		  <li><a href="https://twitter.com" target="_blank">Twitter</a></li>

@@ -52,7 +52,7 @@ export default {
         this.drawGran()
         this.drawBezier()
         this.drawClip()
-        ShowQRCode({canvas: document.getElementById("canvas-qrcode"), context: "https://vue.huabinwen.com", src: "/static/img/logo.7c0592a.jpg"})
+        ShowQRCode({canvas: document.getElementById("canvas-qrcode"), context: "https://vue.wenhuabin.com", src: "/static/img/logo.7c0592a.jpg"})
     },
     methods: {
         drawLine: function(){

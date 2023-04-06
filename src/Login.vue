@@ -40,7 +40,7 @@ export default {
 			formData.append("email", this.email);
 			formData.append("password", this.password);
 			
-			fetch('https://huabinwen.com/login', {
+			fetch('https://wenhuabin.com/login', {
         	    method: 'POST',
         	    credentials: 'include',
         	    body: formData
